@@ -17,7 +17,7 @@ function create(s) {
     PP.assets.image.add(s, img_background, 0, 0, 0, 0);
 
     // Creo un pavimento "trasparente"
-    floor = PP.shapes.rectangle_add(s, 640, 620, 1280, 1, "0x000000", 0);
+    floor = PP.shapes.rectangle_add(s, 640, 570, 1280, 1, "0x000000", 0);
 
     //aggiungo il pavimento alla fisica
     PP.physics.add(s, floor, PP.physics.type.STATIC);
