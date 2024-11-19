@@ -19,8 +19,14 @@ function create(s) {
     // Creo un pavimento "trasparente"
     floor = PP.shapes.rectangle_add(s, 640, 620, 1280, 1, "0x000000", 0);
 
+    //aggiungo il pavimento alla fisica
+    PP.physics.add(s, floor, PP.physics.type.STATIC);
+
     // Creo il player
     create_player(s);
+
+    //creo collisione pavimento giocatore
+    PP.physics.add_collider(s, player, floor);
 }
 
 
