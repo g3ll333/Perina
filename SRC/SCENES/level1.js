@@ -4,7 +4,7 @@ let floor;
 function preload(s) {
     console.log("Executing preload() - SCENE");
 
-    img_background = PP.assets.image.load(s, "ASSETS/IMAGES/background.jpg");
+    img_background = PP.assets.image.load(s, "ASSETS/IMAGES/paesaggiofunghinoperina.jpg");
 
     preload_player(s);
 
