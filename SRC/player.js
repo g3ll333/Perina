@@ -14,8 +14,15 @@ function create_player(s) {
 }
 
 function update_player(s) {
+    // Movimento verso destra
     if (PP.interactive.kb.is_key_down(s, PP.key_codes.RIGHT)) {
         player.geometry.x += 10; // Muove il personaggio verso destra di 10 pixel
     }
+    // Movimento verso sinistra
+    if (PP.interactive.kb.is_key_down(s, PP.key_codes.LEFT)) {
+        player.geometry.x -= 10; // Muove il personaggio verso sinistra di 10 pixel
+    }
 }
 
+// Assicurati di chiamare queste funzioni nei punti appropriati del tuo gioco:
+PP.scenes.add("sceneX", preload_player, create_player, update_player, configure_player_animations);
