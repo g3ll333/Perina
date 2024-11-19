@@ -32,4 +32,14 @@ function update_player(s) {
     else {
         PP.physics.set_velocity_x(player, 0);
     }
+
+    // Logica per specchiare il giocatore:
+    if (PP.physics.get_velocity_x(player) < 0) {
+        player.geometry.flip_x = true;
+    }
+    else if (PP.physics.get_velocity_x(player) > 0) {
+        player.geometry.flip_x = false;
+    }
+
 }
+
