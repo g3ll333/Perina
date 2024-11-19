@@ -1,6 +1,6 @@
 let img_player;
 let player;
-let player_speed = 5; // Ridotto da 10 a 5 per rallentare il movimento
+let player_speed = 5; //velocità iniziale
 let jump_init_speed = -15; // Velocità iniziale del salto
 let gravity = 0.5; // Forza di gravità
 let is_jumping = false; // Stato del salto
@@ -31,22 +31,21 @@ function update_player(s) {
     else if (PP.interactive.kb.is_key_down(s, PP.key_codes.LEFT)) {
         PP.physics.set_velocity_x(player, -player_speed);
         player.geometry.x -= player_speed;
-    }
-    else {
+    } else {
         PP.physics.set_velocity_x(player, 0);
     }
 
     // Logica per specchiare il giocatore
     if (PP.physics.get_velocity_x(player) < 0) {
         player.geometry.flip_x = true;
-    }
-    else if (PP.physics.get_velocity_x(player) > 0) {
+    } else if (PP.physics.get_velocity_x(player) > 0) {
         player.geometry.flip_x = false;
     }
 
     // Logica per il salto
     if (PP.interactive.kb.is_key_down(s, PP.key_codes.SPACE) && !is_jumping) {
         is_jumping = true;
+        console.log("sto saltando");
         player.velocity_y = jump_init_speed;
     }
 
