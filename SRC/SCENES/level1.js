@@ -16,9 +16,9 @@ function preload(s) {
 
     // Carico i nuovi background
     background_0 = PP.assets.image.load(s, "ASSETS/IMAGES/sfondo.png");
-    //background_1 = PP.assets.image.load(s, "ASSETS/IMAGES/alberi1.png");
-    //background_2 = PP.assets.image.load(s, "ASSETS/IMAGES/alberi2.png");
-    //background_3 = PP.assets.image.load(s, "ASSETS/IMAGES/alberi3.png");
+    background_1 = PP.assets.image.load(s, "ASSETS/IMAGES/alberi1.png");
+    background_2 = PP.assets.image.load(s, "ASSETS/IMAGES/alberi2.png");
+    background_3 = PP.assets.image.load(s, "ASSETS/IMAGES/alberi3.png");
 
 }
 
@@ -29,6 +29,9 @@ function create(s) {
 
 
     PP.assets.image.add(s, background_0, 0, 0, 0, 0);
+    PP.assets.image.add(s, background_1, 0, 0, 0, 0);
+    PP.assets.image.add(s, background_2, 0, 0, 0, 0);
+    PP.assets.image.add(s, background_3, 0, 0, 0, 0);
     PP.assets.image.add(s, img_terreno, 0, 0, 0, 0);
 
     // Aggiungo i livelli di background
