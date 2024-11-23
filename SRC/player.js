@@ -1,5 +1,6 @@
 let img_player;
 let player;
+let platform;
 let player_speed = 5; //velocità iniziale
 let jump_init_speed = -15; // Velocità iniziale del salto
 let gravity = 0.5; // Forza di gravità
@@ -53,6 +54,16 @@ function update_player(s) {
         player.velocity_y += gravity;
         player.geometry.y += player.velocity_y;
 
+        // Gestione della collisione con la piattaforma
+        if (platform && player.geometry.y + player.geometry.height / 2 >= platform.geometry.y - platform.geometry.height / 2 &&
+            player.geometry.y - player.geometry.height / 2 <= platform.geometry.y + platform.geometry.height / 2 &&
+            player.geometry.x + player.geometry.width / 2 >= platform.geometry.x - platform.geometry.width / 2 &&
+            player.geometry.x - player.geometry.width / 2 <= platform.geometry.x + platform.geometry.width / 2)
+
+            // Il giocatore è sulla piattaforma
+            player.geometry.y = platform.geometry.y - platform.geometry.height / 2 - player.geometry.height / 2;
+        is_jumping = false;
+        player.velocity_y = 0;
         // Fermare il salto quando si raggiunge il terreno
         if (player.geometry.y >= floor_height) {
             player.geometry.y = floor_height;

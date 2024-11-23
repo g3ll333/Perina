@@ -3,6 +3,7 @@ let background_0;
 let background_1;
 let background_2;
 let background_3;
+let background_4;
 let img_terreno;
 
 function preload(s) {
@@ -19,6 +20,7 @@ function preload(s) {
     background_1 = PP.assets.image.load(s, "ASSETS/IMAGES/alberi1.png");
     background_2 = PP.assets.image.load(s, "ASSETS/IMAGES/alberi2.png");
     background_3 = PP.assets.image.load(s, "ASSETS/IMAGES/alberi3.png");
+    background_4 = PP.assets.image.load(s, "ASSETS/IMAGES/alberi4.png");
 
 }
 
@@ -32,6 +34,7 @@ function create(s) {
     PP.assets.image.add(s, background_1, 0, 0, 0, 0);
     PP.assets.image.add(s, background_2, 0, 0, 0, 0);
     PP.assets.image.add(s, background_3, 0, 0, 0, 0);
+    PP.assets.image.add(s, background_4, 0, 0, 0, 0);
     PP.assets.image.add(s, img_terreno, 0, 0, 0, 0);
 
     // Aggiungo i livelli di background
@@ -87,7 +90,7 @@ function update(s) {
     // background_2.tile_geometry.y = PP.camera.get_scroll_y(s);
     // background_3.tile_geometry.y = PP.camera.get_scroll_y(s);
 
-    PP.camera.set_follow_offset(s, 0, 0);
+    //PP.camera.set_follow_offset(s, 0, 0);
 }
 
 function destroy(s) {
