@@ -2,12 +2,12 @@ let img_player;
 let platform;
 let player;
 
-let player_speed = 5; //velocità iniziale
-let jump_init_speed = -15; // Velocità iniziale del salto
-let floor_height = 570; // Altezza del terreno
+let player_speed = 300; //velocità iniziale
+let jump_init_speed = 400; // Velocità iniziale del salto
+let floor_height = 575; // Altezza del terreno
 
 let is_jumping = false; // Stato del salto
-let gravity = 1; // Forza di gravità
+//let gravity = 1; // Forza di gravità
 
 function configure_player_animations(s) {
     // Qui puoi aggiungere configurazioni per le animazioni del giocatore se necessario
@@ -28,12 +28,12 @@ function update_player(s) {
     // Movimento verso destra
     if (PP.interactive.kb.is_key_down(s, PP.key_codes.RIGHT)) {
         PP.physics.set_velocity_x(player, player_speed);
-        player.geometry.x += player_speed;
+        //player.geometry.x += player_speed;
     }
     // Movimento verso sinistra
     else if (PP.interactive.kb.is_key_down(s, PP.key_codes.LEFT)) {
         PP.physics.set_velocity_x(player, -player_speed);
-        player.geometry.x -= player_speed;
+        //player.geometry.x -= player_speed;
     } else {
         PP.physics.set_velocity_x(player, 0);
     }
@@ -62,7 +62,7 @@ function update_player(s) {
 
 
     // Logica per il salto
-    if (PP.interactive.kb.is_key_down(s, PP.key_codes.SPACE) && !is_jumping) {
+    /*if (PP.interactive.kb.is_key_down(s, PP.key_codes.SPACE) && !is_jumping) {
         is_jumping = true;
         console.log("sto saltando");
         player.velocity_y = jump_init_speed;
@@ -70,7 +70,7 @@ function update_player(s) {
 
     if (is_jumping) {
         player.velocity_y += gravity;
-        player.geometry.y += player.velocity_y;
+        //player.geometry.y += player.velocity_y;
 
         // Gestione della collisione con la piattaforma
         if (platform && player.geometry.y + player.geometry.height / 2 >= platform.geometry.y - platform.geometry.height / 2 &&
@@ -79,14 +79,14 @@ function update_player(s) {
             player.geometry.x - player.geometry.width / 2 <= platform.geometry.x + platform.geometry.width / 2)
 
             // Il giocatore è sulla piattaforma
-            player.geometry.y = platform.geometry.y - platform.geometry.height / 2 - player.geometry.height / 2;
-        is_jumping = false;
+            //player.geometry.y = platform.geometry.y - platform.geometry.height / 2 - player.geometry.height / 2;
+            is_jumping = false;
         player.velocity_y = 0;
         // Fermare il salto quando si raggiunge il terreno
         if (player.geometry.y >= floor_height) {
-            player.geometry.y = floor_height;
+            //player.geometry.y = floor_height;
             is_jumping = false;
             player.velocity_y = 0;
         }
-    }
+    }*/
 }
