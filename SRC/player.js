@@ -1,11 +1,13 @@
 let img_player;
-let player;
 let platform;
+let player;
+
 let player_speed = 5; //velocità iniziale
 let jump_init_speed = -15; // Velocità iniziale del salto
-let gravity = 0.5; // Forza di gravità
-let is_jumping = false; // Stato del salto
 let floor_height = 570; // Altezza del terreno
+
+let is_jumping = false; // Stato del salto
+let gravity = 1; // Forza di gravità
 
 function configure_player_animations(s) {
     // Qui puoi aggiungere configurazioni per le animazioni del giocatore se necessario
@@ -42,6 +44,22 @@ function update_player(s) {
     } else if (PP.physics.get_velocity_x(player) > 0) {
         player.geometry.flip_x = false;
     }
+
+    if (player.geometry.y >= floor_height - 1 || player.is_on_platform) {
+        // Se mi trovo sul pavimento OPPURE su una piattaforma...
+
+        if (PP.interactive.kb.is_key_down(s, PP.key_codes.SPACE)) {
+            // ... e premo il tasto spazio, allo salto
+            PP.physics.set_velocity_y(player, -jump_init_speed);
+        }
+
+        // Non gestisco qui le animazioni del salto, ma piu' avanti
+    }
+
+    player.is_on_platform = false;  // Resetto il flag che viene messo a true quando il giocatore 
+    // si trova sulla piattaforma
+
+
 
     // Logica per il salto
     if (PP.interactive.kb.is_key_down(s, PP.key_codes.SPACE) && !is_jumping) {

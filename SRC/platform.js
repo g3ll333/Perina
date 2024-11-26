@@ -17,15 +17,12 @@ function collision_platform(s, player, platform) {
 }
 
 function create_platforms(s) {
-
     // Piattaforma fissa
-    let platform = PP.assets.image.add(s, img_platform, 400, 450, 0, 0);
+    let platform = PP.assets.image.add(s, img_platform, 400, 400, 0, 0);
     PP.physics.add(s, platform, PP.physics.type.STATIC);
     PP.physics.add_collider_f(s, player, platform, collision_platform);
-
 }
 
 function update_platforms(s) {
-
-
+    // Funzioni di aggiornamento specifiche per le piattaforme possono andare qui
 }
