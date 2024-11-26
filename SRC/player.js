@@ -24,6 +24,7 @@ function create_player(s) {
     // Aggiungo il giocatore alla fisica
     PP.physics.add(s, player, PP.physics.type.DYNAMIC);
 
+
     // Configuro le animazioni del player
     configure_player_animations(s);
 }

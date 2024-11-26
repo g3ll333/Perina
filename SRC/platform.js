@@ -7,20 +7,26 @@ function preload_platforms(s) {
 
 function collision_platform(s, player, platform) {
     // Funzione di collisione con le piattaforme.
-    // Qui devo verificare che il giocatore si trovi sopra
-    // la piattaforma e in quel caso aggiorno la variabile che
-    // abilita il salto (v. player.js)
     if (player.geometry.x >= platform.geometry.x &&
         player.geometry.x <= platform.geometry.x + platform.geometry.display_width) {
         player.is_on_platform = true;
     }
 }
 
+function create_platform_series(s, startX, startY, numBlocks) {
+    let platformWidth = 60;  // Larghezza del blocco della piattaforma
+
+    for (let i = 0; i < numBlocks; i++) {
+        let platform = PP.assets.image.add(s, img_platform, startX + i * platformWidth, startY, 0, 0);
+        PP.physics.add(s, platform, PP.physics.type.STATIC);
+        PP.physics.add_collider_f(s, player, platform, collision_platform);
+    }
+}
+
 function create_platforms(s) {
-    // Piattaforma fissa
-    let platform = PP.assets.image.add(s, img_platform, 400, 400, 0, 0);
-    PP.physics.add(s, platform, PP.physics.type.STATIC);
-    PP.physics.add_collider_f(s, player, platform, collision_platform);
+    // Crea piattaforme utilizzando la funzione create_platform_series
+    create_platform_series(s, 400, 400, 5); // Esempio di una piattaforma di 5 blocchi accostati
+    create_platform_series(s, 600, 300, 3); // Un'altra piattaforma di 3 blocchi accostati in una posizione diversa
 }
 
 function update_platforms(s) {
