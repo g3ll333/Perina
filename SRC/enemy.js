@@ -6,11 +6,15 @@ function preload_enemy(s) {
     ss_enemy = PP.assets.sprite.load_spritesheet(s, "ASSETS/IMAGES/Funghetto1.png", 133, 111);
 }
 
+function goto_gameover(s) {
+    PP.scenes.start("gameover");
+}
+
 function create_enemy(s) {
     // Creare nemico e posizionarlo
     enemy = PP.assets.sprite.add(s, ss_enemy, 800, floor_height, 0.5, 1);
     PP.physics.add(s, enemy, PP.physics.type.DYNAMIC);
-    //PP.physics.add_collider_f(s, enemy, player, goto_gameover);
+    PP.physics.add_collider_f(s, enemy, player, goto_gameover);
 
     // Configurare le animazioni del nemico
     PP.assets.sprite.animation_add_list(enemy, "walk_right", [0, 1, 2, 3, 4, 5, 6, 7], 8, -1);
