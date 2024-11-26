@@ -16,6 +16,7 @@ function preload(s) {
 
     preload_platforms(s);
     preload_player(s);
+    preload_enemy(s);
 }
 
 function create(s) {
@@ -44,11 +45,12 @@ function create(s) {
 
     // Creo il player
     create_player(s);
-
     create_platforms(s);
+    create_enemy(s);
 
-    // Creo la collisione pavimento giocatore
+    // Creo la collisione pavimento giocatore e nemico
     PP.physics.add_collider(s, player, floor);
+    PP.physics.add_collider(s, enemy, floor);
 
     // Faccio sì che il player non esca dai confini del gioco
     // PP.physics.set_collide_world_bounds(player, true);
@@ -61,12 +63,13 @@ function create(s) {
 function update(s) {
     update_player(s);
     update_platforms(s);
+    update_enemy(s);
 
-    background_1.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.10;
-    background_2.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.04;
-    background_3.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.06;
-    background_4.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.08;
-    background_5.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.10;
+    background_1.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.20;
+    background_2.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.08;
+    background_3.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.10;
+    background_4.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.12;
+    background_5.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.20;
 
 }
 

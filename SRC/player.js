@@ -2,7 +2,7 @@ let ss_player;
 let platform;
 let player;
 
-let player_speed = 400; //velocità iniziale
+let player_speed = 700; //velocità iniziale
 let jump_init_speed = 400; // Velocità iniziale del salto
 let floor_height = 575; // Altezza del terreno
 
@@ -15,7 +15,7 @@ function configure_player_animations(s) {
 }
 
 function preload_player(s) {
-    ss_player = PP.assets.sprite.load_spritesheet(s, "ASSETS/IMAGES/sheetwalkperina.png", 151, 168);
+    ss_player = PP.assets.sprite.load_spritesheet(s, "ASSETS/IMAGES/sheetwalkperina.png", 151, 156);
 }
 
 function create_player(s) {
