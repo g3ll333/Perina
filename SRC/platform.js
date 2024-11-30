@@ -28,6 +28,9 @@ function create_platforms(s) {
     create_platform_series(s, 380, 450, 3); // Esempio di una piattaforma di 5 blocchi accostati
     create_platform_series(s, 760, 350, 5); // Un'altra piattaforma di 3 blocchi accostati in una posizione diversa
     create_platform_series(s, 1140, 240, 3); // Un'altra piattaforma di 3 blocchi accostati in una posizione diversa
+    create_platform_series(s, 1440, 340, 3); // Un'altra piattaforma di 3 blocchi accostati in una posizione diversa
+    create_platform_series(s, 1740, 140, 5); // Un'altra piattaforma di 5 blocchi accostati in una posizione diversa
+    create_platform_series(s, 2200, 190, 3); // Un'altra piattaforma di 3 blocchi accostati in una posizione diversa
 
 }
 
