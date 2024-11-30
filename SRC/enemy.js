@@ -12,7 +12,7 @@ function goto_gameover(s) {
 
 function create_enemy(s) {
     // Creare nemico e posizionarlo
-    enemy = PP.assets.sprite.add(s, ss_enemy, 800, floor_height, 0.5, 1);
+    enemy = PP.assets.sprite.add(s, ss_enemy, 880, 350, 0.5, 1);
     PP.physics.add(s, enemy, PP.physics.type.DYNAMIC);
     PP.physics.add_collider_f(s, enemy, player, goto_gameover);
 
@@ -29,9 +29,9 @@ function update_enemy(s) {
     // Movimento
     // Aggiorno la velocità del nemico nel
     // caso in cui si trovi al limite dx o sx
-    // scelto (600 - 1000)
+    // scelto (820 - 1000)
 
-    if (enemy.geometry.x <= 600) {
+    if (enemy.geometry.x <= 820) {
         PP.physics.set_velocity_x(enemy, 100);
         PP.assets.sprite.animation_play(enemy, "walk_right");
         enemy.geometry.flip_x = true;

@@ -25,8 +25,10 @@ function create_platform_series(s, startX, startY, numBlocks) {
 
 function create_platforms(s) {
     // Crea piattaforme utilizzando la funzione create_platform_series
-    create_platform_series(s, 400, 400, 5); // Esempio di una piattaforma di 5 blocchi accostati
-    create_platform_series(s, 600, 300, 3); // Un'altra piattaforma di 3 blocchi accostati in una posizione diversa
+    create_platform_series(s, 380, 450, 3); // Esempio di una piattaforma di 5 blocchi accostati
+    create_platform_series(s, 760, 350, 5); // Un'altra piattaforma di 3 blocchi accostati in una posizione diversa
+    create_platform_series(s, 1140, 240, 3); // Un'altra piattaforma di 3 blocchi accostati in una posizione diversa
+
 }
 
 function update_platforms(s) {

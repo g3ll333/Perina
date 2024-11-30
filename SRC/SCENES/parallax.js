@@ -52,6 +52,7 @@ function create(s) {
     PP.physics.add_collider(s, player, floor);
     PP.physics.add_collider(s, enemy, floor);
 
+
     // Faccio sì che il player non esca dai confini del gioco
     // PP.physics.set_collide_world_bounds(player, true);
 
