@@ -1,8 +1,7 @@
 let ss_player;
-let platform;
 let player;
 
-let player_speed = 700; //velocità iniziale
+let player_speed = 700; // velocità iniziale
 let jump_init_speed = 400; // Velocità iniziale del salto
 let floor_height = 575; // Altezza del terreno
 
@@ -23,7 +22,6 @@ function create_player(s) {
 
     // Aggiungo il giocatore alla fisica
     PP.physics.add(s, player, PP.physics.type.DYNAMIC);
-
 
     // Configuro le animazioni del player
     configure_player_animations(s);
@@ -61,12 +59,9 @@ function update_player(s) {
         }
     }
 
-    player.is_on_platform = false; // Resetto il flag che viene messo a true quando il giocatore si trova sulla piattaforma
-
     // Logica per le animazioni
     if (next_anim !== curr_anim) {
         PP.assets.sprite.animation_play(player, next_anim);
         curr_anim = next_anim;
     }
 }
-
