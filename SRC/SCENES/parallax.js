@@ -17,6 +17,7 @@ function preload(s) {
     preload_platforms(s);
     preload_player(s);
     preload_enemy(s);
+   
 }
 
 function create(s) {
@@ -52,6 +53,7 @@ function create(s) {
     // Creo la collisione pavimento giocatore e nemico
     PP.physics.add_collider(s, player, floor);
     PP.physics.add_collider(s, enemy, floor);
+    PP.physics.add_collider(s, enemy_2, floor);
 
 
     // Faccio sì che il player non esca dai confini del gioco

@@ -21,6 +21,7 @@ function create_platform_series(s, startX, startY, numBlocks) {
         PP.physics.add(s, platform, PP.physics.type.STATIC);
         PP.physics.add_collider_f(s, player, platform, collision_platform);
         PP.physics.add_collider(s, enemy, platform);
+        PP.physics.add_collider(s, enemy_2, platform);
     }
 
 
