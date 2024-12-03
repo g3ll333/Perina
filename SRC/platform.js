@@ -20,8 +20,13 @@ function create_platform_series(s, startX, startY, numBlocks) {
         let platform = PP.assets.image.add(s, img_platform, startX + i * platformWidth, startY, 0, 0);
         PP.physics.add(s, platform, PP.physics.type.STATIC);
         PP.physics.add_collider_f(s, player, platform, collision_platform);
+        PP.physics.add_collider(s, enemy, platform);
     }
+
+
 }
+
+
 
 function create_platforms(s) {
     // Crea piattaforme utilizzando la funzione create_platform_series

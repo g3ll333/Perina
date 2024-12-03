@@ -45,8 +45,9 @@ function create(s) {
 
     // Creo il player
     create_player(s);
-    create_platforms(s);
+
     create_enemy(s);
+    create_platforms(s);
 
     // Creo la collisione pavimento giocatore e nemico
     PP.physics.add_collider(s, player, floor);

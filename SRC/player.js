@@ -23,6 +23,9 @@ function create_player(s) {
     // Aggiungo il giocatore alla fisica
     PP.physics.add(s, player, PP.physics.type.DYNAMIC);
 
+    // Imposto il rettangolo di collisione più piccolo
+    //PP.physics.set_collision_rectangle(player, 140, 150, 0, 0); // Adatta i valori a seconda delle necessità
+
     // Configuro le animazioni del player
     configure_player_animations(s);
 }
