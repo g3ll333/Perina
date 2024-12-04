@@ -15,7 +15,7 @@ function goto_gameover(s) {
 
 function create_enemy(s) {
     // Creare nemico e posizionarlo
-    enemy = PP.assets.sprite.add(s, ss_enemy, 840, 350, 0.5, 1);
+    enemy = PP.assets.sprite.add(s, ss_enemy, 1000, 350, 0.5, 1);
     enemy_2 = PP.assets.sprite.add(s, ss_enemy_2, 1980, 140, 0.5, 1);
     PP.physics.add(s, enemy, PP.physics.type.DYNAMIC);
     PP.physics.add(s, enemy_2, PP.physics.type.DYNAMIC);
