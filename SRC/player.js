@@ -25,6 +25,9 @@ function create_player(s) {
     // Aggiungo il giocatore alla fisica
     PP.physics.add(s, player, PP.physics.type.DYNAMIC);
 
+    //Gestisco hitbox personaggio
+    PP.physics.set_collision_rectangle(player, 90, 162, 0, 0);
+
     // Configuro le animazioni del player
     configure_player_animations(s);
 }
