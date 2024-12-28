@@ -16,6 +16,7 @@ function preload(s) {
 
     preload_platforms(s);
     preload_player(s);
+    preload_pere(s);
     preload_enemy(s);
    
 }
@@ -46,9 +47,10 @@ function create(s) {
 
     // Creo il player
     create_player(s);
-
+    create_pere(s);
     create_enemy(s);
     create_platforms(s);
+   
 
     // Creo la collisione pavimento giocatore e nemico
     PP.physics.add_collider(s, player, floor);
@@ -67,7 +69,9 @@ function create(s) {
 function update(s) {
     update_player(s);
     update_platforms(s);
+    update_pere(s);
     update_enemy(s);
+
 
     background_1.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.20;
     background_2.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.08;
