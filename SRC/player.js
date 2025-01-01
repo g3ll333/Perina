@@ -5,18 +5,20 @@ let player_speed = 700; // Velocità iniziale
 let jump_init_speed = 400; // Velocità iniziale del salto
 let floor_height = 575; // Altezza del terreno
 
-let curr_anim = "stop";
+let curr_anim = "idle";
 
 function configure_player_animations(s) {
-    PP.assets.sprite.animation_add_list(player, "walk", [0, 1, 2, 3, 4, 5, 6, 7], 8, -1);
-    PP.assets.sprite.animation_add_list(player, "stop", [6, 6], 8, 0);
-    PP.assets.sprite.animation_add_list(player, "jump_up", [8, 9, 10, 11, 12, 13, 14, 15], 8, 0);
-    PP.assets.sprite.animation_add_list(player, "jump_down", [14, 15], 8, 0);
-    PP.assets.sprite.animation_play(player, "stop");
+    PP.assets.sprite.animation_add_list(player, "walk", [9, 10, 11, 12, 13, 14, 15, 16], 8, -1);
+    PP.assets.sprite.animation_add_list(player, "idle", [25, 26, 27, 26], 3.5, -1);
+    PP.assets.sprite.animation_add_list(player, "jump_up", [17, 18, 19, 20, 21, 22, 23, 28], 8, 0);
+    PP.assets.sprite.animation_add_list(player, "jump_down", [0, 1, 2, 3, 4, 5, 6, 7, 8], 9, 0);
+    PP.assets.sprite.animation_add_list(player, "throw", [29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39], 10, 0);
+
+    PP.assets.sprite.animation_play(player, "idle");
 }
 
 function preload_player(s) {
-    ss_player = PP.assets.sprite.load_spritesheet(s, "ASSETS/IMAGES/CAMMINATASALTO3.png", 98, 162);
+    ss_player = PP.assets.sprite.load_spritesheet(s, "ASSETS/IMAGES/PERINASPRITETOTALE.png", 102.7, 162);
 }
 
 function create_player(s) {
@@ -26,9 +28,9 @@ function create_player(s) {
     PP.physics.add(s, player, PP.physics.type.DYNAMIC);
 
     //Gestisco hitbox personaggio
-    PP.physics.set_collision_rectangle(player, 90, 162, 0, 0);
+    PP.physics.set_collision_rectangle(player, 102, 162, 0, 0);
 
-    // Configuro le animazioni del player
+    // Configuro le animazioni del playerf
     configure_player_animations(s);
 }
 
@@ -46,7 +48,7 @@ function update_player(s) {
     } else {
         // Se non è premuto alcun tasto...
         PP.physics.set_velocity_x(player, 0);
-        next_anim = "stop";
+        next_anim = "idle";
     }
 
     if (player.geometry.y >= floor_height - 1 || player.is_on_platform) {
@@ -69,6 +71,11 @@ function update_player(s) {
         next_anim = "jump_up";
     } else if (PP.physics.get_velocity_y(player) > 0) {
         next_anim = "jump_down";
+    }
+
+    // Logica per l'animazione di lancio 
+    if (PP.interactive.kb.is_key_down(s, PP.key_codes.F)) {
+        next_anim = "throw";
     }
 
     // Logica per le animazioni

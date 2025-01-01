@@ -29,7 +29,7 @@ function create_pere(s) {
     pera_3 = PP.assets.image.add(s, img_pera, 1450, 130, 0, 0);
     pera_4 = PP.assets.image.add(s, img_pera, 1850, 500, 0, 0);
     pera_5 = PP.assets.image.add(s, img_pera, 2670, 405, 0, 0);
-    
+
     PP.physics.add(s, pera, PP.physics.type.STATIC);
     PP.physics.add_overlap_f(s, player, pera, collision_pera);
 
@@ -45,6 +45,7 @@ function create_pere(s) {
     PP.physics.add(s, pera_5, PP.physics.type.STATIC);
     PP.physics.add_overlap_f(s, player, pera_5, collision_pera);
 }
+
 
 function update_pere(s) {
     // Nothing to do...
