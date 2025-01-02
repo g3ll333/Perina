@@ -1,8 +1,5 @@
 let floor;
-let img_vita;
-let vita;
-let img_cestino;
-let cestino;
+
 let img_background_1, img_background_2, img_background_3, img_background_4, img_background_5;
 let background_1, background_2, background_3, background_4, background_5;
 
@@ -17,11 +14,12 @@ function preload(s) {
     img_background_4 = PP.assets.image.load(s, "ASSETS/IMAGES/background4.png");
     img_background_5 = PP.assets.image.load(s, "ASSETS/IMAGES/background5.png");
 
-    img_cestino = PP.assets.image.load(s, "ASSETS/IMAGES/cestinovuoto.png");
-
+    //img_cestino = PP.assets.image.load(s, "ASSETS/IMAGES/cestinovuoto.png");
+    preload_pere(s);
+    preload_hud(s);
+    //preload_hud_1(s);
     preload_platforms(s);
     preload_player(s);
-    preload_pere(s);
     preload_enemy(s);
 
 }
@@ -50,27 +48,26 @@ function create(s) {
     // Aggiungo il pavimento alla fisica
     PP.physics.add(s, floor, PP.physics.type.STATIC);
 
-    // Creo il player
+    // Creazione player, pere, nemici e piattaforme
     create_player(s);
-    create_pere(s);
     create_enemy(s);
     create_platforms(s);
-
+    create_pere(s);
 
     // Creo la collisione pavimento giocatore e nemico
     PP.physics.add_collider(s, player, floor);
     PP.physics.add_collider(s, enemy, floor);
     PP.physics.add_collider(s, enemy_2, floor);
 
-    cestino = PP.assets.image.add(s, img_cestino, 32, 32, 0.5, 0.5);
+    //interfaccia hud
+    create_hud(s);
+    //create_hud_1(s);
 
     // Faccio sì che il player non esca dai confini del gioco
     // PP.physics.set_collide_world_bounds(player, true);
 
-    cestino.tile_geometry.scroll_factor_x = 0;
-    cestino.tile_geometry.scroll_factor_y = 0;
 
-
+    //offset camera
     PP.camera.start_follow(s, player, 0, 0);
     PP.camera.set_follow_offset(s, -490, 210);
 
@@ -81,6 +78,7 @@ function update(s) {
     update_platforms(s);
     update_pere(s);
     update_enemy(s);
+    update_hud(s);
 
 
     background_1.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.20;

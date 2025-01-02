@@ -4,6 +4,8 @@ let ss_enemy_2;
 let enemy_2;
 let enemy_3;
 
+let contatore_vite = 5;
+
 function preload_enemy(s) {
     // Load della sprite del nemico 
     ss_enemy = PP.assets.sprite.load_spritesheet(s, "ASSETS/IMAGES/Funghetto1.png", 133, 111);
@@ -13,6 +15,66 @@ function preload_enemy(s) {
 function goto_gameover(s) {
     PP.scenes.start("gameover");
 }
+
+/* function decrease_life(s) {
+    contatore_vite--;
+    if (contatore_vite === 0) {
+        PP.scenes.start("gameover");
+    }
+    else if (contatore_vite === 4) {
+        life4(s);
+    }
+    else if (contatore_vite === 3) {
+        life3(s);
+    }
+    else if (contatore_vite === 2) {
+        life2(s);
+    }
+    else if (contatore_vite === 1) {
+        life1(s);
+    }
+
+}
+
+function life5(s) {
+    vita5.visibility.hidden = false;
+    vita4.visibility.hidden = false;
+    vita3.visibility.hidden = false;
+    vita2.visibility.hidden = false;
+    vita1.visibility.hidden = false;
+}
+
+function life4(s) {
+    vita5.visibility.hidden = true;
+    vita4.visibility.hidden = false;
+    vita3.visibility.hidden = false;
+    vita2.visibility.hidden = false;
+    vita1.visibility.hidden = false;
+}
+
+function life3(s) {
+    vita5.visibility.hidden = true;
+    vita4.visibility.hidden = true;
+    vita3.visibility.hidden = false;
+    vita2.visibility.hidden = false;
+    vita1.visibility.hidden = false;
+}
+
+function life2(s) {
+    vita5.visibility.hidden = true;
+    vita4.visibility.hidden = true;
+    vita3.visibility.hidden = true;
+    vita2.visibility.hidden = false;
+    vita1.visibility.hidden = false;
+}
+
+function life1(s) {
+    vita5.visibility.hidden = true;
+    vita4.visibility.hidden = true;
+    vita3.visibility.hidden = true;
+    vita2.visibility.hidden = true;
+    vita1.visibility.hidden = false;
+} */
 
 function create_enemy(s) {
     // Creare nemico e posizionarlo
@@ -25,6 +87,7 @@ function create_enemy(s) {
     PP.physics.add(s, enemy, PP.physics.type.DYNAMIC);
     PP.physics.add(s, enemy_2, PP.physics.type.DYNAMIC);
     PP.physics.add(s, enemy_3, PP.physics.type.DYNAMIC);
+
     PP.physics.add_collider_f(s, enemy, player, goto_gameover);
     PP.physics.add_collider_f(s, enemy_2, player, goto_gameover);
     PP.physics.add_collider_f(s, enemy_3, player, goto_gameover);

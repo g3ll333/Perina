@@ -4,6 +4,8 @@ let pera_2;
 let pera_3;
 let pera_4;
 let pera_5;
+let pere_raccolte = 0;
+
 
 function preload_pere(s) {
     // Load delle immagini della pera
@@ -13,12 +15,16 @@ function preload_pere(s) {
 function collision_pera(s, player, pera) {
     // In caso di collisione procedo come segue:
 
-    // 1) distruggo la pera
+    //incremento pere raccolte
+    pere_raccolte++;
+    console.log("Pere raccolte:", pere_raccolte);
+
+    // distruggo la pera
     PP.assets.destroy(pera);
 
-    //2) aggiungo il punteggio
-    //let prev_score = PP.game_state.get_variable("score", 0);
-    //PP.game_state.set_variable("score", prev_score + 10);
+    //richiamo funzione cambio cestino
+    change_cestino(s);
+
 }
 
 function create_pere(s) {

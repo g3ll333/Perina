@@ -76,6 +76,7 @@ function update_player(s) {
     // Logica per l'animazione di lancio 
     if (PP.interactive.kb.is_key_down(s, PP.key_codes.F)) {
         next_anim = "throw";
+        //pere_raccolte--;
     }
 
     // Logica per le animazioni
