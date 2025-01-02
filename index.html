@@ -2,6 +2,8 @@
 <html>
     <head>
         <title>La bambina venduta con le pere</title>
+        <link rel="stylesheet" href="SRC/styles.css">
+       
         <script src="LIB/phaser.min.js"></script>
         <script src="LIB/poliphaser.js"></script>
 
@@ -17,10 +19,17 @@
         
         
 
-        <link rel="stylesheet" href="SRC/styles.css">
+        
     </head>
-    <body style="background-color:black;">
-        <div id="game_area" style="text-align:center;"></div>
+    <body>
+        <div class="background">
+            <div class="button-container">
+                <button class="game-button" onclick="startGame()">Start Game</button>
+                <button class="game-button" onclick="showInstructions()">Instructions</button>
+            </div>
+        </div>
+
+        <script src="SRC/copertina.js"></script>
     </body>
 </html>
 
