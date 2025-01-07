@@ -110,6 +110,8 @@ function change_cestino(s) {
     //incremento il numero pere
     prev_score = PP.game_state.get_variable("count_pere", 0);
     PP.game_state.set_variable("count_pere", prev_score + 1);
+    console.log("pere_raccolte: ", pere_raccolte);
+    console.log("score attuale: ", prev_score + 1);
 
     if (pere_raccolte === 1) {
         //console.log("cambio cestino. pere raccolte: ", pere_raccolte);

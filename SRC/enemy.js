@@ -3,6 +3,7 @@ let enemy;
 let ss_enemy_2;
 let enemy_2;
 let enemy_3;
+let invincibile = false;
 
 let contatore_vite = 5;
 
@@ -16,8 +17,18 @@ function goto_gameover(s) {
     PP.scenes.start("gameover");
 }
 
+function reset_invincibile(s) {
+    invincibile = false;
+}
+
 function decrease_life(s) {
+    if (invincibile) {
+        return;
+    }
+    invincibile = true;
     contatore_vite--;
+    PP.timers.add_timer(s, 1000, reset_invincibile, false);
+
     if (contatore_vite === 0) {
         PP.scenes.start("gameover");
     }
@@ -65,7 +76,7 @@ function create_enemy(s) {
     PP.physics.add(s, enemy_2, PP.physics.type.DYNAMIC);
     PP.physics.add(s, enemy_3, PP.physics.type.DYNAMIC);
 
-    PP.physics.add_collider_f(s, enemy, player, decrease_life);
+    PP.physics.add_overlap_f(s, enemy, player, decrease_life);
     PP.physics.add_collider_f(s, enemy_2, player, goto_gameover);
     PP.physics.add_collider_f(s, enemy_3, player, goto_gameover);
 

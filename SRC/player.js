@@ -7,6 +7,7 @@ let floor_height = 575; // Altezza del terreno
 
 let curr_anim = "idle";
 
+
 function configure_player_animations(s) {
     PP.assets.sprite.animation_add_list(player, "walk", [13, 14, 15, 16, 17, 18, 19, 20], 8, -1);
     PP.assets.sprite.animation_add_list(player, "idle", [0, 1, 2, 3], 4, -1);
@@ -76,6 +77,7 @@ function update_player(s) {
     // Logica per l'animazione di lancio 
     if (PP.interactive.kb.is_key_down(s, PP.key_codes.F)) {
         next_anim = "throw";
+
         //pere_raccolte--;
     }
 
