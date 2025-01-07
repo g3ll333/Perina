@@ -4,40 +4,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rotten Witch Hunt</title>
+    <link rel="stylesheet" href="https://use.typekit.net/oro0nsk.css">
     <style>
+        @font-face {
+            font-family: "proxima-nova", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
         body {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
-            position: relative;
             background-image: url("IMG/legno.png");
         }
-        img {
-            position: absolute;
-            width: 1280px;
-            height: 720px;
-        }
+
         .back-link {
             position: absolute;
             bottom: 0;
             left: 0;
-            margin: 10px;
             font-size: 14px;
         }
         .tavola2-link {
             position: absolute;
             bottom: 0;
             right: 0;
-            margin: 10px;
             font-size: 14px;
         }
+
+        .image-container {
+            position: relative;
+            width: 1280px;
+            height: 720px;
+        }
+
+        .image-container img {
+            position: absolute;
+            width: 1280px;
+            height: 720px;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .image-container .pergamena {
+            opacity: 0;
+        }
+
+        .image-container:hover .pergamena {
+            opacity: 1;
+        }
+
+        .image-container:hover .tavola1 {
+            opacity: 0;
+        }
+
+        .text-overlay {
+            position: absolute;
+            top: 50%;
+            left: 60%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            color: #5e3f2e;
+            font-family: 'Fatfrank', sans-serif;
+            font-size: 20px;
+            text-align: left;
+            line-height: 1.5;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .image-container:hover .text-overlay {
+            opacity: 1;
+        }
+
     </style>
 </head>
 <body>
-    <img src="IMG/tavola 1.png" alt="Tavola 1">
-    <a href="indexwebapp.html" class="back-link">Homepage</a>
-    <a href="tavola2.html" class="tavola2-link">Tavola 2</a>
+    <div class="image-container">
+        <img src="IMG/tavola 1.png" alt="Tavola 1" class="tavola1">
+        <img src="IMG/pergamena.png" alt="Pergamena" class="pergamena">
+        <div class="text-overlay">
+            Once upon a time, in a wealthy and beautiful kingdom, there lived the Fairy of Mindful Consumption. <br> She was a radiant and wise guardian whose task was to protect the balance of the land, <br> ensuring that its treasures were used with care and gratitude. <br> She whispered her counsel to the King, guiding him to rule wisely and tend to the kingdom’s gifts. <br> Under her watchful eye, the fields flourished, and the people lived in peace and plenty.<br><br>
+            One morning, the grand doors of the King’s hall burst open. <br>A trembling messenger rushed in, her face pale with fear. <br>“Your Majesty! Grave news! The Fairy of Mindful Consumption has been taken! <br>Three wicked witches have stolen her away!”. <br>The King’s heart sank, and a heavy silence fell over the throne room.
+        </div>
+        <a href="indexwebapp.html" class="back-link">Homepage</a>
+        <a href="tavola2.html" class="tavola2-link">Tavola 2</a>
+    </div>
 </body>
 </html>
