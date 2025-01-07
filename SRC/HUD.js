@@ -9,10 +9,12 @@ let cestino;
 let cestino1;
 let cestino2;
 let cestinopieno;
+let cestinomuffa;
 let img_cestino_vuoto;
 let img_cestino_1pera;
 let img_cestino_2pere;
 let img_cestino_pieno;
+let img_cestino_muffa;
 
 let text_score;
 let prev_score;
@@ -41,6 +43,7 @@ function preload_hud(s) {
     img_cestino_1pera = PP.assets.image.load(s, "ASSETS/IMAGES/cestino1pera.png");
     img_cestino_2pere = PP.assets.image.load(s, "ASSETS/IMAGES/cestino2pere.png");
     img_cestino_pieno = PP.assets.image.load(s, "ASSETS/IMAGES/cestinopieno.png");
+    img_cestino_muffa = PP.assets.image.load(s, "ASSETS/IMAGES/cestinomuffa.png");
 
     img_vita = PP.assets.image.load(s, "ASSETS/IMAGES/vitaperina.png");
 }
@@ -55,10 +58,12 @@ function create_hud(s) {
     cestino1 = PP.assets.image.add(s, img_cestino_1pera, 75, 40, 0.5, 0.5);
     cestino2 = PP.assets.image.add(s, img_cestino_2pere, 75, 40, 0.5, 0.5);
     cestinopieno = PP.assets.image.add(s, img_cestino_pieno, 75, 40, 0.5, 0.5);
+    cestinomuffa = PP.assets.image.add(s, img_cestino_muffa, 75, 40, 0.5, 0.5);
 
     cestino1.visibility.hidden = true;
     cestino2.visibility.hidden = true;
     cestinopieno.visibility.hidden = true;
+    cestinomuffa.visibility.hidden = true;
 
     text_score = PP.shapes.text_styled_add(s, 10, 20, "0", 40, "Helvetica", "normal", "0xFFFFFF", null, 0, 0);
 
@@ -77,6 +82,9 @@ function create_hud(s) {
 
     cestinopieno.tile_geometry.scroll_factor_x = 0;
     cestinopieno.tile_geometry.scroll_factor_y = 0;
+
+    cestinomuffa.tile_geometry.scroll_factor_x = 0;
+    cestinomuffa.tile_geometry.scroll_factor_y = 0;
 
     vita1.tile_geometry.scroll_factor_x = 0;
     vita1.tile_geometry.scroll_factor_y = 0;
@@ -110,6 +118,7 @@ function change_cestino(s) {
         cestino1.visibility.hidden = false;
         cestino2.visibility.hidden = true;
         cestinopieno.visibility.hidden = true;
+        cestinomuffa.visibility.hidden = true;
 
     }
     else if (pere_raccolte === 2) {
@@ -117,21 +126,24 @@ function change_cestino(s) {
         cestino1.visibility.hidden = true;
         cestino2.visibility.hidden = false;
         cestinopieno.visibility.hidden = true;
+        cestinomuffa.visibility.hidden = true;
     }
 
-    else if (pere_raccolte >= 3) {
+    else if (pere_raccolte === 3) {
         cestino.visibility.hidden = true;
         cestino1.visibility.hidden = true;
         cestino2.visibility.hidden = true;
         cestinopieno.visibility.hidden = false;
+        cestinomuffa.visibility.hidden = true;
     }
 
-    /*else if (pere_raccolte >= 4) { 
-            nuova_immagine = img_cestino_pieno;
-         } */
-    /* else {
-        nuova_immagine = img_cestino_vuoto;
-    } */
+    else if (pere_raccolte > 3) {
+        cestino.visibility.hidden = true;
+        cestino1.visibility.hidden = true;
+        cestino2.visibility.hidden = true;
+        cestinopieno.visibility.hidden = true;
+        cestinomuffa.visibility.hidden = false;
+    }
 
 }
 

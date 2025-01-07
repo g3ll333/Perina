@@ -16,69 +16,46 @@ function goto_gameover(s) {
     PP.scenes.start("gameover");
 }
 
-/* function decrease_life(s) {
+function decrease_life(s) {
     contatore_vite--;
     if (contatore_vite === 0) {
         PP.scenes.start("gameover");
     }
     else if (contatore_vite === 4) {
-        life4(s);
+        vita5.visibility.hidden = true;
+        vita4.visibility.hidden = false;
+        vita3.visibility.hidden = false;
+        vita2.visibility.hidden = false;
+        vita1.visibility.hidden = false;
     }
     else if (contatore_vite === 3) {
-        life3(s);
+        vita5.visibility.hidden = true;
+        vita4.visibility.hidden = true;
+        vita3.visibility.hidden = false;
+        vita2.visibility.hidden = false;
+        vita1.visibility.hidden = false;
     }
     else if (contatore_vite === 2) {
-        life2(s);
+        vita5.visibility.hidden = true;
+        vita4.visibility.hidden = true;
+        vita3.visibility.hidden = true;
+        vita2.visibility.hidden = false;
+        vita1.visibility.hidden = false;
     }
     else if (contatore_vite === 1) {
-        life1(s);
+        vita5.visibility.hidden = true;
+        vita4.visibility.hidden = true;
+        vita3.visibility.hidden = true;
+        vita2.visibility.hidden = true;
+        vita1.visibility.hidden = false;
     }
 
 }
 
-function life5(s) {
-    vita5.visibility.hidden = false;
-    vita4.visibility.hidden = false;
-    vita3.visibility.hidden = false;
-    vita2.visibility.hidden = false;
-    vita1.visibility.hidden = false;
-}
-
-function life4(s) {
-    vita5.visibility.hidden = true;
-    vita4.visibility.hidden = false;
-    vita3.visibility.hidden = false;
-    vita2.visibility.hidden = false;
-    vita1.visibility.hidden = false;
-}
-
-function life3(s) {
-    vita5.visibility.hidden = true;
-    vita4.visibility.hidden = true;
-    vita3.visibility.hidden = false;
-    vita2.visibility.hidden = false;
-    vita1.visibility.hidden = false;
-}
-
-function life2(s) {
-    vita5.visibility.hidden = true;
-    vita4.visibility.hidden = true;
-    vita3.visibility.hidden = true;
-    vita2.visibility.hidden = false;
-    vita1.visibility.hidden = false;
-}
-
-function life1(s) {
-    vita5.visibility.hidden = true;
-    vita4.visibility.hidden = true;
-    vita3.visibility.hidden = true;
-    vita2.visibility.hidden = true;
-    vita1.visibility.hidden = false;
-} */
 
 function create_enemy(s) {
     // Creare nemico e posizionarlo
-    enemy = PP.assets.sprite.add(s, ss_enemy, 1000, 350, 0.5, 1);
+    enemy = PP.assets.sprite.add(s, ss_enemy, 1500, 575, 0.5, 1);
     enemy_2 = PP.assets.sprite.add(s, ss_enemy_2, 1980, 140, 0.5, 1);
     enemy_3 = PP.assets.sprite.add(s, ss_enemy, 2850, 140, 0.5, 1);
 
@@ -88,7 +65,7 @@ function create_enemy(s) {
     PP.physics.add(s, enemy_2, PP.physics.type.DYNAMIC);
     PP.physics.add(s, enemy_3, PP.physics.type.DYNAMIC);
 
-    PP.physics.add_collider_f(s, enemy, player, goto_gameover);
+    PP.physics.add_collider_f(s, enemy, player, decrease_life);
     PP.physics.add_collider_f(s, enemy_2, player, goto_gameover);
     PP.physics.add_collider_f(s, enemy_3, player, goto_gameover);
 
@@ -140,13 +117,13 @@ function update_enemy(s) {
     // caso in cui si trovi al limite dx o sx
     // scelto (830 - 1000)
 
-    if (enemy.geometry.x <= 830) {
+    if (enemy.geometry.x <= 930) {
         PP.physics.set_velocity_x(enemy, 100);
         PP.assets.sprite.animation_play(enemy, "walk_right");
         enemy.geometry.flip_x = true;
     }
 
-    if (enemy.geometry.x >= 1000) {
+    if (enemy.geometry.x >= 1500) {
         PP.physics.set_velocity_x(enemy, -100);
         PP.assets.sprite.animation_play(enemy, "walk_left");
         enemy.geometry.flip_x = false;
