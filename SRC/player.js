@@ -1,11 +1,14 @@
 let ss_player;
 let player;
+let img_shuriken;
 
 let player_speed = 700; // Velocità iniziale
 let jump_init_speed = 400; // Velocità iniziale del salto
 let floor_height = 575; // Altezza del terreno
 
 let curr_anim = "idle";
+
+let weapon_disable = false;
 
 
 function configure_player_animations(s) {
@@ -20,6 +23,7 @@ function configure_player_animations(s) {
 
 function preload_player(s) {
     ss_player = PP.assets.sprite.load_spritesheet(s, "ASSETS/IMAGES/PERINASPRITETOTALE2.png", 103, 162);
+    img_shuriken = PP.assets.image.load(s, "ASSETS/IMAGES/shuriken.png");
 }
 
 function create_player(s) {
@@ -75,8 +79,9 @@ function update_player(s) {
     }
 
     // Logica per l'animazione di lancio 
-    if (PP.interactive.kb.is_key_down(s, PP.key_codes.F)) {
+    if (PP.interactive.kb.is_key_down(s, PP.key_codes.A)) {
         next_anim = "throw";
+        PP.timers.add_timer(s, 800, manage_player_weapon, false);
 
         //pere_raccolte--;
     }
@@ -89,4 +94,41 @@ function update_player(s) {
 
     // Resetto il flag is_on_platform dopo ogni aggiornamento
     player.is_on_platform = false;
+}
+
+function hit_enemy(s, shuriken, enemy) {
+    PP.assets.destroy(shuriken);
+    PP.assets.destroy(enemy);
+}
+
+/* function reenable_weapon(s) {
+   weapon_disable = false;
+}  */
+
+function manage_player_weapon(s) {
+    let offset = 70;
+    let velocity = 1000;
+
+    if (player.geometry.flip_x == true) {
+        offset = -offset;
+        velocity = -velocity;
+    }
+
+    if (PP.interactive.kb.is_key_down(s, PP.key_codes.A)) {
+        if (weapon_disable == false) {
+            //quando premo il tasto A..
+            let shuriken = PP.assets.image.add(s, img_shuriken,
+                player.geometry.x + offset,
+                player.geometry.y - 70,
+                0.5, 0.5
+            );
+            PP.physics.add(s, shuriken, PP.physics.type.DYNAMIC);
+            PP.physics.set_allow_gravity(shuriken, false);
+            PP.physics.set_rotation(shuriken, 360);
+            PP.physics.set_velocity_x(shuriken, velocity);
+            PP.physics.add_collider_f(s, shuriken, enemy, hit_enemy);
+            //PP.timers.add_timer(s, 500, reenable_weapon, false);
+            weapon_disable = true;
+        }
+    }
 }
