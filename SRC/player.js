@@ -9,21 +9,24 @@ let floor_height = 575; // Altezza del terreno
 let curr_anim = "idle";
 
 let weapon_disable = false;
+let is_throwing = false;
+
 
 
 function configure_player_animations(s) {
-    PP.assets.sprite.animation_add_list(player, "walk", [13, 14, 15, 16, 17, 18, 19, 20], 8, -1);
-    PP.assets.sprite.animation_add_list(player, "idle", [0, 1, 2, 3], 4, -1);
-    PP.assets.sprite.animation_add_list(player, "jump_up", [21, 22, 23, 24, 25, 26, 27, 28], 8, 0);
-    PP.assets.sprite.animation_add_list(player, "jump_down", [4, 5, 6, 7, 8, 9, 10, 11, 12], 9, 0);
-    PP.assets.sprite.animation_add_list(player, "throw", [29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 29], 11, 0);
+    PP.assets.sprite.animation_add_list(player, "walk", [25, 26, 27, 28, 29, 30, 31, 32], 8, -1);
+    PP.assets.sprite.animation_add_list(player, "idle", [50, 51, 52, 53], 4, -1);
+    PP.assets.sprite.animation_add_list(player, "jump_up", [33, 34, 35, 36, 37, 38, 39, 40], 8, 0);
+    PP.assets.sprite.animation_add_list(player, "jump_down", [41, 42, 43, 44, 45, 46, 47, 48, 49], 9, 0);
+    PP.assets.sprite.animation_add_list(player, "throw", [7, 8, 9, 10, 11, 12, 13, 21, 22, 23, 24, 53], 12, 0);
 
     PP.assets.sprite.animation_play(player, "idle");
 }
 
 function preload_player(s) {
-    ss_player = PP.assets.sprite.load_spritesheet(s, "ASSETS/IMAGES/PERINASPRITETOTALE2.png", 103, 162);
-    img_shuriken = PP.assets.image.load(s, "ASSETS/IMAGES/shuriken.png");
+    //ss_player = PP.assets.sprite.load_spritesheet(s, "ASSETS/IMAGES/PERINASPRITETOTALE2.png", 103, 162);
+    ss_player = PP.assets.sprite.load_spritesheet(s, "ASSETS/IMAGES/perinaforsedef.png", 150, 168);
+    img_shuriken = PP.assets.image.load(s, "ASSETS/IMAGES/pera40.png");
 }
 
 function create_player(s) {
@@ -33,7 +36,7 @@ function create_player(s) {
     PP.physics.add(s, player, PP.physics.type.DYNAMIC);
 
     //Gestisco hitbox personaggio
-    PP.physics.set_collision_rectangle(player, 103, 162, 0, 0);
+    PP.physics.set_collision_rectangle(player, 110, 168, 0, 0);
 
     // Configuro le animazioni del playerf
     configure_player_animations(s);
@@ -78,36 +81,40 @@ function update_player(s) {
         next_anim = "jump_down";
     }
 
-    // Logica per l'animazione di lancio 
-    if (PP.interactive.kb.is_key_down(s, PP.key_codes.A)) {
-        next_anim = "throw";
-        PP.timers.add_timer(s, 800, manage_player_weapon, false);
 
+    if (PP.interactive.kb.is_key_down(s, PP.key_codes.A) && pere_raccolte != 0) {
+        next_anim = "throw";
+        PP.timers.add_timer(s, 610, manage_player_weapon, false);
         //pere_raccolte--;
+        svuota_cestino(s);
     }
 
-    // Logica per le animazioni
+    // Logica per le animazioni 
     if (next_anim !== curr_anim) {
         PP.assets.sprite.animation_play(player, next_anim);
         curr_anim = next_anim;
     }
 
+
+
+
     // Resetto il flag is_on_platform dopo ogni aggiornamento
     player.is_on_platform = false;
 }
+
 
 function hit_enemy(s, shuriken, enemy) {
     PP.assets.destroy(shuriken);
     PP.assets.destroy(enemy);
 }
 
-/* function reenable_weapon(s) {
-   weapon_disable = false;
-}  */
+function reenable_weapon(s) {
+    weapon_disable = false;
+}
 
 function manage_player_weapon(s) {
     let offset = 70;
-    let velocity = 1000;
+    let velocity = 550;
 
     if (player.geometry.flip_x == true) {
         offset = -offset;
@@ -124,10 +131,10 @@ function manage_player_weapon(s) {
             );
             PP.physics.add(s, shuriken, PP.physics.type.DYNAMIC);
             PP.physics.set_allow_gravity(shuriken, false);
-            PP.physics.set_rotation(shuriken, 360);
+            PP.physics.set_rotation(shuriken, 720);
             PP.physics.set_velocity_x(shuriken, velocity);
             PP.physics.add_collider_f(s, shuriken, enemy, hit_enemy);
-            //PP.timers.add_timer(s, 500, reenable_weapon, false);
+            PP.timers.add_timer(s, 2500, reenable_weapon, false);
             weapon_disable = true;
         }
     }

@@ -20,23 +20,7 @@ let text_score;
 let prev_score;
 let curr_score;
 
-
-/* function preload_hud_1(s) {
-    img_cestino_1pera = PP.assets.image.load(s, "ASSETS/IMAGES/cestino1pera.png");
-    //}
-    //function create_hud_1(s) {
-    cestino1 = PP.assets.image.add(s, img_cestino_1pera, 75, 40, 0.5, 0.5);
-
-    //non faccio muovere cestino e vite
-    text_score.tile_geometry.scroll_factor_x = 0;
-    text_score.tile_geometry.scroll_factor_y = 0;
-
-    cestino1.tile_geometry.scroll_factor_x = 0;
-    cestino1.tile_geometry.scroll_factor_y = 0;
-
-} */
-
-
+let isThrowing = false;
 
 function preload_hud(s) {
     img_cestino_vuoto = PP.assets.image.load(s, "ASSETS/IMAGES/cestinovuoto.png");
@@ -47,6 +31,7 @@ function preload_hud(s) {
 
     img_vita = PP.assets.image.load(s, "ASSETS/IMAGES/vitaperina.png");
 }
+
 function create_hud(s) {
     vita1 = PP.assets.image.add(s, img_vita, 150, 40, 0.5, 0.5);
     vita2 = PP.assets.image.add(s, img_vita, 200, 40, 0.5, 0.5);
@@ -110,36 +95,76 @@ function change_cestino(s) {
     //incremento il numero pere
     prev_score = PP.game_state.get_variable("count_pere", 0);
     PP.game_state.set_variable("count_pere", prev_score + 1);
-    console.log("pere_raccolte: ", pere_raccolte);
-    console.log("score attuale: ", prev_score + 1);
+
+    pere_raccolte = PP.game_state.get_variable("count_pere", 0); // Aggiungi questa riga
 
     if (pere_raccolte === 1) {
-        //console.log("cambio cestino. pere raccolte: ", pere_raccolte);
-
         cestino.visibility.hidden = true;
         cestino1.visibility.hidden = false;
         cestino2.visibility.hidden = true;
         cestinopieno.visibility.hidden = true;
         cestinomuffa.visibility.hidden = true;
 
-    }
-    else if (pere_raccolte === 2) {
+    } else if (pere_raccolte === 2) {
         cestino.visibility.hidden = true;
         cestino1.visibility.hidden = true;
         cestino2.visibility.hidden = false;
         cestinopieno.visibility.hidden = true;
         cestinomuffa.visibility.hidden = true;
-    }
-
-    else if (pere_raccolte === 3) {
+    } else if (pere_raccolte === 3) {
         cestino.visibility.hidden = true;
         cestino1.visibility.hidden = true;
         cestino2.visibility.hidden = true;
         cestinopieno.visibility.hidden = false;
         cestinomuffa.visibility.hidden = true;
+    } else if (pere_raccolte > 3) {
+        cestino.visibility.hidden = true;
+        cestino1.visibility.hidden = true;
+        cestino2.visibility.hidden = true;
+        cestinopieno.visibility.hidden = true;
+        cestinomuffa.visibility.hidden = false;
+    }
+}
+
+
+
+function svuota_cestino(s) {
+    if (isThrowing) return; // Evita esecuzioni multiple
+    isThrowing = true;
+
+    // Controlla se c'è almeno una pera da lanciare
+    if (curr_score > 0) {
+        // Decrementa il numero di pere
+        curr_score--;
+        prev_score = PP.game_state.get_variable("count_pere", 0);
+        PP.game_state.set_variable("count_pere", prev_score - 1);
     }
 
-    else if (pere_raccolte > 3) {
+    if (curr_score === 0) {
+        cestino.visibility.hidden = false;
+        cestino1.visibility.hidden = true;
+        cestino2.visibility.hidden = true;
+        cestinopieno.visibility.hidden = true;
+        cestinomuffa.visibility.hidden = true;
+    } else if (curr_score === 1) {
+        cestino.visibility.hidden = true;
+        cestino1.visibility.hidden = false;
+        cestino2.visibility.hidden = true;
+        cestinopieno.visibility.hidden = true;
+        cestinomuffa.visibility.hidden = true;
+    } else if (curr_score === 2) {
+        cestino.visibility.hidden = true;
+        cestino1.visibility.hidden = true;
+        cestino2.visibility.hidden = false;
+        cestinopieno.visibility.hidden = true;
+        cestinomuffa.visibility.hidden = true;
+    } else if (curr_score === 3) {
+        cestino.visibility.hidden = true;
+        cestino1.visibility.hidden = true;
+        cestino2.visibility.hidden = true;
+        cestinopieno.visibility.hidden = false;
+        cestinomuffa.visibility.hidden = true;
+    } else if (curr_score > 3) {
         cestino.visibility.hidden = true;
         cestino1.visibility.hidden = true;
         cestino2.visibility.hidden = true;
@@ -147,13 +172,14 @@ function change_cestino(s) {
         cestinomuffa.visibility.hidden = false;
     }
 
+    // Resetta il flag di lancio dopo un breve tempo per permettere nuovi lanci
+    PP.timers.add_timer(s, 2000, () => {
+        isThrowing = false;
+    }, false);
 }
+
 
 function update_hud(s) {
     curr_score = PP.game_state.get_variable("count_pere");
     PP.shapes.text_change(text_score, " " + curr_score);
-
 }
-
-
-
