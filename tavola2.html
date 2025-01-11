@@ -4,21 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rotten Witch Hunt</title>
+    <link rel="stylesheet" href="https://use.typekit.net/oro0nsk.css">
     <style>
+
+        @font-face {
+            font-family: 'ProximaNovaCondensed';
+            src: url('IMG/font/Proxima-Nova-Extra-Condensed/Demo_Fonts/Fontspring-DEMO-proximanova-regular.otf');
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'ProximaNovaCondensed';
+            src: url('IMG/font/Proxima-Nova-Extra-Condensed/Demo_Fonts/Fontspring-DEMO-proximanova-bold.otf');
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'ProximaNovaCondensed';
+            src: url('IMG/font/Proxima-Nova-Extra-Condensed/Demo_Fonts/Fontspring-DEMO-proximanova-black.otf');
+            font-weight: 900;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'ProximaNovaCondensed';
+            src: url('IMG/font/Proxima-Nova-Extra-Condensed/Demo_Fonts/Fontspring-DEMO-proximanovacond-mediumit.otf');
+            font-weight: 600;
+            font-style: italic;
+        }
+
         body {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
-            position: relative;
             background-image: url("IMG/legno.png");
+            font-family: 'ProximaNovaCondensed', sans-serif;
+            color: #5e3f2e;
         }
+
         img {
             position: absolute;
             width: 1280px;
             height: 720px;
         }
+
         .back-link {
             position: absolute;
             bottom: 0;
@@ -26,6 +59,7 @@
             margin: 10px;
             font-size: 14px;
         }
+
         .tavola2-link {
             position: absolute;
             bottom: 0;
@@ -33,6 +67,7 @@
             margin: 10px;
             font-size: 14px;
         }
+
         .tavola1-link {
             position: absolute;
             bottom: 0;
@@ -41,12 +76,89 @@
             margin: 10px;
             font-size: 14px;
         }
+
+        .back-link,
+        .tavola2-link,
+        .tavola1-link {
+            position: absolute;
+            bottom: 0.2%;
+            font-size: 14px;
+            text-decoration: none;
+            color: #5e3f2e;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 8px 12px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .image-container {
+            position: relative;
+            width: 1280px;
+            height: 720px;
+        }
+
+        .image-container img {
+            position: absolute;
+            width: 1280px;
+            height: 720px;
+            transition: opacity 1s ease-in-out;
+            z-index: 1; /* Ensuring both images are on the same level initially */
+        }
+
+        .image-container .pergamena {
+            opacity: 0;
+            z-index: 2; /* The pergamena is above the tavola */
+        }
+
+        .image-container:hover .pergamena {
+            opacity: 1;
+        }
+
+        .image-container .tavola2 {
+            opacity: 1; /* Tavola is visible by default */
+        }
+
+        .image-container:hover .tavola2 {
+            opacity: 0;
+        }
+
+        .text-overlay {
+            position: absolute;
+            top: 50%;
+            left: 60%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            font-family: 'Proxima-Nova', sans-serif;
+            font-weight: 400;
+            font-style: medium;
+            font-size: 20px;
+            text-align: left;
+            line-height: 1.5;
+            opacity: 0; /* Initially hidden */
+            transition: opacity 1s ease-in-out;
+            z-index: 3; /* Ensure text overlay is on top of everything */
+        }
+
+        .image-container:hover .text-overlay {
+            opacity: 1; /* Show text when hovering */
+        }
+
+        strong, b {
+            font-weight: 700; /* Bold weight */
+        }
     </style>
 </head>
 <body>
-    <img src="IMG/tavola 2.png" alt="Tavola 2">
+    <div class="image-container">
+        <img src="IMG/tavola 2.png" alt="Tavola 2" class="tavola2">
+        <img src="IMG/pergamena.png" alt="Pergamena" class="pergamena">
+        <div class="text-overlay">
+            In the kingdom, there had always been three witches: <br> <strong>the Witch of Mushrooms, the Witch of Molds, and the Witch of Worms. </strong> <br> They had long plotted to steal the fairy’s magic for their own gain. <br>Using their dark powers,<strong> they trapped her in a cage</strong>, sealing away her freedom. <br>
+            <br>With the fairy imprisoned, <strong>the kingdom began to decay. </strong> <br>The land withered, the air grew heavy, and the skies darkened. <br>From the shadows, <strong>an old woman watched</strong>, <br>deeply concerned for the future of the kingdom: <br> She knew that if nothing was done, the once-beautiful realm <br>would fall into ruin, <strong>consumed by the witches' greed.</strong>
+        </div>
+    </div>
     <a href="indexwebapp.html" class="back-link">Homepage</a>
-    <a href="tavola3.html" class="tavola2-link">Tavola 3</a>
-    <a href="story.html" class="tavola1-link">Tavola 1</a>
+    <a href="tavola3.html" class="tavola2-link">Next page</a>
+    <a href="story.html" class="tavola1-link">Previous page</a>
 </body>
 </html>
