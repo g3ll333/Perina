@@ -11,6 +11,8 @@ let curr_anim = "idle";
 let weapon_disable = false;
 let is_throwing = false;
 
+let contatore_morti = 0;
+
 
 
 function configure_player_animations(s) {
@@ -81,12 +83,13 @@ function update_player(s) {
         next_anim = "jump_down";
     }
 
-
-    if (PP.interactive.kb.is_key_down(s, PP.key_codes.A) && pere_raccolte != 0) {
+    //console.log("ccurr_score dopo svuota_cestino: ", curr_score);
+    if (PP.interactive.kb.is_key_down(s, PP.key_codes.A) && pere_raccolte > 0) {
         next_anim = "throw";
         PP.timers.add_timer(s, 610, manage_player_weapon, false);
-        //pere_raccolte--;
+
         svuota_cestino(s);
+        //console.log("ccurr_score dopo svuota_cestino: ", curr_score);
     }
 
     // Logica per le animazioni 
@@ -106,6 +109,8 @@ function update_player(s) {
 function hit_enemy(s, shuriken, enemy) {
     PP.assets.destroy(shuriken);
     PP.assets.destroy(enemy);
+    contatore_morti++;
+    console.log(contatore_morti);
 }
 
 function reenable_weapon(s) {
@@ -136,6 +141,7 @@ function manage_player_weapon(s) {
             PP.physics.add_collider_f(s, shuriken, enemy, hit_enemy);
             PP.timers.add_timer(s, 2500, reenable_weapon, false);
             weapon_disable = true;
+
         }
     }
 }

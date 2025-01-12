@@ -135,9 +135,16 @@ function svuota_cestino(s) {
     // Controlla se c'è almeno una pera da lanciare
     if (curr_score > 0) {
         // Decrementa il numero di pere
+
         curr_score--;
+        //console.log("ccurr_score prima: ", curr_score);
+
+        //console.log("ccurr_score dopo decremento: ", curr_score);
+        //pere_raccolte--;
         prev_score = PP.game_state.get_variable("count_pere", 0);
         PP.game_state.set_variable("count_pere", prev_score - 1);
+
+
     }
 
     if (curr_score === 0) {
@@ -175,7 +182,9 @@ function svuota_cestino(s) {
     // Resetta il flag di lancio dopo un breve tempo per permettere nuovi lanci
     PP.timers.add_timer(s, 2000, () => {
         isThrowing = false;
+        pere_raccolte--;
     }, false);
+
 }
 
 
