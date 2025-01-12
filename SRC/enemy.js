@@ -7,6 +7,8 @@ let invincibile = false;
 
 let contatore_vite = 5;
 
+
+
 function preload_enemy(s) {
     // Load della sprite del nemico 
     ss_enemy = PP.assets.sprite.load_spritesheet(s, "ASSETS/IMAGES/Funghetto1.png", 133, 111);
