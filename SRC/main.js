@@ -4,7 +4,7 @@ var config = {
     canvas_id: "game_area", // Specifica il div contenitore
     background_color: "a2faf5",
     debug_mode: true, //quando si consegna il progetto da mettere false
-    gravity_value: 400,
+    gravity_value: 500,
 };
 
 PP.game.create(config);

@@ -81,11 +81,11 @@ function update(s) {
     update_hud(s);
 
 
-    background_1.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.20;
-    background_2.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.08;
-    background_3.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.10;
-    background_4.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.12;
-    background_5.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.20;
+    background_1.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.10;
+    background_2.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.04;
+    background_3.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.06;
+    background_4.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.08;
+    background_5.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.10;
 
 
 }
