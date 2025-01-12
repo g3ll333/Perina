@@ -5,7 +5,7 @@ let background_1, background_2, background_3, background_4, background_5;
 
 
 function preload(s) {
-    console.log("Executing preload() - SCENE");
+    console.log("Executing preload() - SCENE 1");
 
     // Carico i background
     img_background_1 = PP.assets.image.load(s, "ASSETS/IMAGES/background1.png");
@@ -25,7 +25,7 @@ function preload(s) {
 }
 
 function create(s) {
-    console.log("Executing create() - SCENE");
+    console.log("Executing create() - SCENE 1");
 
     // Inserisco i background
     background_1 = PP.assets.tilesprite.add(s, img_background_1, 0, 5, 3840, 720, 0, 0);
@@ -91,7 +91,7 @@ function update(s) {
 }
 
 function destroy(s) {
-    console.log("Executing destroy() - SCENE");
+    console.log("Executing destroy() - SCENE 1");
 }
 
 PP.scenes.add("parallax", preload, create, update, destroy);

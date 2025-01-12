@@ -7,6 +7,7 @@
 
         <script src="SRC/SCENES/parallax.js" type="module"></script>
         <script src="SRC/SCENES/gameover.js" type="module"></script>
+        <script src="SRC/SCENES/scene2.js" type="module"></script>
         
         <script defer src="SRC/main.js"></script>
         <script src="SRC/pere.js"></script>
@@ -15,13 +16,26 @@
         <script src="SRC/platform.js"></script>
         <script src="SRC/enemy.js"></script>
         
-        
-
         <link rel="stylesheet" href="SRC/styles.css">
+
+        <style>
+            body, html {
+                height: 100%;
+                margin: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: url('IMG/legno.png') repeat;
+            }
+
+            #game_area {
+                width: 1280px;
+                height: 720px;
+                text-align: center;
+            }
+        </style>
     </head>
-    <body style="background-color:black;">
-        <div id="game_area" style="text-align:center;"></div>
+    <body>
+        <div id="game_area"></div>
     </body>
 </html>
-
-

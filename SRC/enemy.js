@@ -79,8 +79,8 @@ function create_enemy(s) {
     PP.physics.add(s, enemy_3, PP.physics.type.DYNAMIC);
 
     PP.physics.add_overlap_f(s, enemy, player, decrease_life);
-    PP.physics.add_collider_f(s, enemy_2, player, goto_gameover);
-    PP.physics.add_collider_f(s, enemy_3, player, goto_gameover);
+    PP.physics.add_collider_f(s, enemy_2, player, decrease_life);
+    PP.physics.add_collider_f(s, enemy_3, player, decrease_life);
 
     // Configurare le animazioni del nemico
     PP.assets.sprite.animation_add_list(enemy, "walk_right", [0, 1, 2, 3, 4, 5, 6, 7], 8, -1);
@@ -164,5 +164,10 @@ function update_enemy(s) {
         PP.physics.set_velocity_x(enemy_3, -80);
         PP.assets.sprite.animation_play(enemy_3, "walk_left");
         enemy_3.geometry.flip_x = false;
+    }
+
+    // Verifica se tutti i nemici sono stati uccisi 
+    if (contatore_morti >= 3) {
+        PP.scenes.start("scene2");
     }
 }

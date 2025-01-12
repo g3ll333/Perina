@@ -110,7 +110,21 @@ function hit_enemy(s, shuriken, enemy) {
     PP.assets.destroy(shuriken);
     PP.assets.destroy(enemy);
     contatore_morti++;
-    console.log(contatore_morti);
+    console.log("nemico1 ucciso. contatore morti: ", contatore_morti);
+}
+
+function hit_enemy_2(s, shuriken, enemy_2) {
+    PP.assets.destroy(shuriken);
+    PP.assets.destroy(enemy_2);
+    contatore_morti++;
+    console.log("nemico2 ucciso. contatore morti: ", contatore_morti);
+}
+
+function hit_enemy_3(s, shuriken, enemy_3) {
+    PP.assets.destroy(shuriken);
+    PP.assets.destroy(enemy_3);
+    contatore_morti++;
+    console.log("nemico3 ucciso. contatore morti: ", contatore_morti);
 }
 
 function reenable_weapon(s) {
@@ -139,6 +153,8 @@ function manage_player_weapon(s) {
             PP.physics.set_rotation(shuriken, 720);
             PP.physics.set_velocity_x(shuriken, velocity);
             PP.physics.add_collider_f(s, shuriken, enemy, hit_enemy);
+            PP.physics.add_collider_f(s, shuriken, enemy_2, hit_enemy_2);
+            PP.physics.add_collider_f(s, shuriken, enemy_3, hit_enemy_3);
             PP.timers.add_timer(s, 2500, reenable_weapon, false);
             weapon_disable = true;
 
