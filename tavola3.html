@@ -4,7 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rotten Witch Hunt</title>
+    <link rel="stylesheet" href="https://use.typekit.net/oro0nsk.css">
     <style>
+        @font-face {
+            font-family: 'ProximaNovaCondensed';
+            src: url('IMG/font/Proxima-Nova-Extra-Condensed/Demo_Fonts/Fontspring-DEMO-proximanova-regular.otf');
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'ProximaNovaCondensed';
+            src: url('IMG/font/Proxima-Nova-Extra-Condensed/Demo_Fonts/Fontspring-DEMO-proximanova-bold.otf');
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'ProximaNovaCondensed';
+            src: url('IMG/font/Proxima-Nova-Extra-Condensed/Demo_Fonts/Fontspring-DEMO-proximanova-black.otf');
+            font-weight: 900;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'ProximaNovaCondensed';
+            src: url('IMG/font/Proxima-Nova-Extra-Condensed/Demo_Fonts/Fontspring-DEMO-proximanovacond-mediumit.otf');
+            font-weight: 600;
+            font-style: italic;
+        }
+
         body {
             display: flex;
             justify-content: center;
@@ -13,32 +42,110 @@
             margin: 0;
             position: relative;
             background-image: url("IMG/legno.png");
+            font-family: 'ProximaNovaCondensed', sans-serif;
+            color: #5e3f2e;
         }
+
         img {
             position: absolute;
             width: 1280px;
             height: 720px;
         }
-        .back-link {
+
+        .back-link, .tavola2-link {
             position: absolute;
-            bottom: 0;
+            bottom: 0.2%;
+            font-size: 14px;
+            text-decoration: none;
+            color: #5e3f2e;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 8px 12px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            z-index: 4; /* Ensure the links are above other elements */
+        }
+
+        .back-link {
             left: 0;
             margin: 10px;
-            font-size: 14px;
         }
+
         .tavola2-link {
-            position: absolute;
-            bottom: 0;
             left: 50%;
             transform: translateX(-50%);
             margin: 10px;
-            font-size: 14px;
+        }
+
+        .image-container {
+            position: relative;
+            width: 1280px;
+            height: 720px;
+        }
+
+        .image-container img {
+            position: absolute;
+            width: 1280px;
+            height: 720px;
+            transition: opacity 1s ease-in-out;
+            z-index: 1;
+        }
+
+        .image-container .pergamena {
+            opacity: 0;
+            z-index: 2;
+        }
+
+        .image-container:hover .pergamena {
+            opacity: 1;
+        }
+
+        .image-container .tavola3 {
+            opacity: 1;
+        }
+
+        .image-container:hover .tavola3 {
+            opacity: 0;
+        }
+
+        .text-overlay {
+            position: absolute;
+            top: 50%;
+            left: 60%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            font-family: 'Proxima-Nova', sans-serif;
+            font-weight: 400;
+            font-style: medium;
+            font-size: 20px;
+            text-align: left;
+            line-height: 1.5;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            z-index: 3;
+        }
+
+        .image-container:hover .text-overlay {
+            opacity: 1;
+        }
+
+        strong, b {
+            font-weight: 700;
         }
     </style>
 </head>
 <body>
-    <img src="IMG/tavola 3.png" alt="Tavola 3">
+    <div class="image-container">
+        <img src="IMG/tavola 3.png" alt="Tavola 3" class="tavola3">
+        <img src="IMG/pergamena.png" alt="Pergamena" class="pergamena">
+        <div class="text-overlay">
+            <strong>Without the fairy, the kingdom sank into chaos. </strong> <br>The king, once wise and fair, became consumed by his insatiable hunger. <br> Mountains of food piled up, <strong>wasted and untouched, </strong><br> while the streets filled with trash and decay. <br> <strong>The once-thriving kingdom now reeked of neglect</strong>, <br>its people living in misery as the land crumbled around them. <br>
+
+            <br>The old woman sought out <strong>Perina</strong>, a brave and determined girl. <br>She approached her with urgency, her voice trembling with fear. <br> <strong>“The fairy has been taken by the witches <br>and is hidden in the woods!” </strong>she whispered. <br>
+
+            <br>Perina listened and without hesitation, made her decision. <br><strong>She would not allow the kingdom to fall to ruin. </strong><br>With courage and resolve, she set off on a perilous journey <br>to rescue the fairy and<strong> restore balance to the land.</strong>
+        </div>
+    </div>
     <a href="indexwebapp.html" class="back-link">Homepage</a>
-    <a href="tavola2.html" class="tavola2-link">Tavola 2</a>
+    <a href="tavola2.html" class="tavola2-link">Previous page</a>
 </body>
 </html>
