@@ -6,7 +6,7 @@ let playbutton;
 
 function preload(s) {
     img_sfondo = PP.assets.image.load(s, "ASSETS/IMAGES/vecchiettafunghi.jpg");
-    playbutton = PP.assets.image.load(s, "ASSETS/IMAGES/yesbutton.png");
+    playbutton = PP.assets.image.load(s, "ASSETS/IMAGES/okayvecchina.png");
 }
 
 function mouse_click_yes(s) {
@@ -20,7 +20,7 @@ function mouse_click_yes(s) {
 function create(s) {
     sfondo = PP.assets.image.add(s, img_sfondo, 0, 0, 0, 0);
 
-    let buttonplay = PP.assets.image.add(s, playbutton, 870, 500, 0.5, 0.5);
+    let buttonplay = PP.assets.image.add(s, playbutton, 860.2, 475.5, 0.5, 0.5);
 
     PP.interactive.mouse.add(buttonplay, "pointerdown", mouse_click_yes);
 }
