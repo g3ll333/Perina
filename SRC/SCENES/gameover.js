@@ -18,7 +18,6 @@ function mouse_click_home(s) {
 }
 
 
-
 function create(s) {
     sfondo = PP.assets.image.add(s, img_sfondo, 0, 0, 0, 0);
 
