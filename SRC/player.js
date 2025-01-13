@@ -27,7 +27,8 @@ function configure_player_animations(s) {
 
 function preload_player(s) {
     //ss_player = PP.assets.sprite.load_spritesheet(s, "ASSETS/IMAGES/PERINASPRITETOTALE2.png", 103, 162);
-    ss_player = PP.assets.sprite.load_spritesheet(s, "ASSETS/IMAGES/perinaforsedef.png", 150, 168);
+    //ss_player = PP.assets.sprite.load_spritesheet(s, "ASSETS/IMAGES/perinaforsedef.png", 150, 168);
+    ss_player = PP.assets.sprite.load_spritesheet(s, "ASSETS/IMAGES/sprite_colori_def.png", 150, 168);
     img_shuriken = PP.assets.image.load(s, "ASSETS/IMAGES/pera40.png");
 }
 
