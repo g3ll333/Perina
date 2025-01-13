@@ -3,9 +3,13 @@ let floor;
 let img_background_1, img_background_2, img_background_3, img_background_4, img_background_5;
 let background_1, background_2, background_3, background_4, background_5;
 
+let settings;
+let img_settings;
+let okaybutton;
+let buttonokay;
 
 function preload(s) {
-    console.log("Executing preload() - SCENE 1");
+    console.log("Executing preload() - TUTORIAL");
 
     // Carico i background
     img_background_1 = PP.assets.image.load(s, "ASSETS/IMAGES/background1.png");
@@ -14,6 +18,8 @@ function preload(s) {
     img_background_4 = PP.assets.image.load(s, "ASSETS/IMAGES/background4.png");
     img_background_5 = PP.assets.image.load(s, "ASSETS/IMAGES/background5.png");
 
+    img_settings = PP.assets.image.load(s, "ASSETS/IMAGES/settings.png");
+    okaybutton = PP.assets.image.load(s, "ASSETS/IMAGES/okay.png");
 
     preload_pere(s);
     preload_hud(s);
@@ -23,7 +29,7 @@ function preload(s) {
 }
 
 function create(s) {
-    console.log("Executing create() - SCENE 1");
+    console.log("Executing create() - TUTORIAL");
 
     // Inserisco i background
     background_1 = PP.assets.tilesprite.add(s, img_background_1, 0, 5, 3840, 720, 0, 0);
@@ -67,9 +73,25 @@ function create(s) {
     PP.camera.start_follow(s, player, 0, 0);
     PP.camera.set_follow_offset(s, -490, 210);
 
+    settings = PP.assets.image.add(s, img_settings, 0, 0, 0, 0);
+    settings.tile_geometry.scroll_factor_x = 0;
+    settings.tile_geometry.scroll_factor_y = 0;
+
+    buttonokay = PP.assets.image.add(s, okaybutton, 0, 0, 0, 0);
+    buttonokay.tile_geometry.scroll_factor_x = 0;
+    buttonokay.tile_geometry.scroll_factor_y = 0;
+
+    PP.interactive.mouse.add(buttonokay, "pointerdown", function () { mouse_click_yes(s, buttonokay, settings); });
 }
 
+function mouse_click_yes(s) {
+    console.log("Destroying button and settings image");
+    PP.assets.destroy(buttonokay);
+    PP.assets.destroy(settings);
+    console.log("Starting scene 1");
+    PP.scenes.start("parallax");
 
+}
 
 function update(s) {
     update_player(s);
@@ -86,7 +108,7 @@ function update(s) {
 }
 
 function destroy(s) {
-    console.log("Executing destroy() - SCENE 1");
+    console.log("Executing destroy() - TUTORIAL");
 }
 
-PP.scenes.add("parallax", preload, create, update, destroy);
+PP.scenes.add("tutorial", preload, create, update, destroy);
