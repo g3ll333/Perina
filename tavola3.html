@@ -62,7 +62,7 @@
             padding: 8px 12px;
             border-radius: 5px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            z-index: 4; /* Ensure the links are above other elements */
+            z-index: 4;
         }
 
         .back-link {
@@ -110,12 +110,11 @@
         .text-overlay {
             position: absolute;
             top: 50%;
-            left: 60%;
+            left: 40%;
             transform: translate(-50%, -50%);
-            width: 90%;
+            width: 50%;
             font-family: 'Proxima-Nova', sans-serif;
             font-weight: 400;
-            font-style: medium;
             font-size: 20px;
             text-align: left;
             line-height: 1.5;
@@ -125,6 +124,26 @@
         }
 
         .image-container:hover .text-overlay {
+            opacity: 1;
+        }
+
+        .text-right {
+            position: absolute;
+            top: 50%;
+            left: 70%;
+            transform: translate(-50%, -50%);
+            width: 30%;
+            font-family: 'Proxima-Nova', sans-serif;
+            font-weight: 900;
+            font-size: 25px;
+            text-align: right;
+            color: #5e3f2e;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            z-index: 3;
+        }
+
+        .image-container:hover .text-right {
             opacity: 1;
         }
 
@@ -138,11 +157,12 @@
         <img src="IMG/tavola 3.png" alt="Tavola 3" class="tavola3">
         <img src="IMG/pergamena.png" alt="Pergamena" class="pergamena">
         <div class="text-overlay">
-            <strong>Without the fairy, the kingdom sank into chaos. </strong> <br>The king, once wise and fair, became consumed by his insatiable hunger. <br> Mountains of food piled up, <strong>wasted and untouched, </strong><br> while the streets filled with trash and decay. <br> <strong>The once-thriving kingdom now reeked of neglect</strong>, <br>its people living in misery as the land crumbled around them. <br>
-
+            <strong>Without the fairy, the kingdom sank into chaos. </strong> <br>The king, once wise and fair, became <br>consumed by his insatiable hunger. <br> Mountains of food piled up, <strong>wasted and untouched, </strong><br> while the streets filled with trash and decay. <br> <strong>The once-thriving kingdom now reeked of neglect</strong>, <br>its people living in misery as the land crumbled around them. <br>
             <br>The old woman sought out <strong>Perina</strong>, a brave and determined girl. <br>She approached her with urgency, her voice trembling with fear. <br> <strong>“The fairy has been taken by the witches <br>and is hidden in the woods!” </strong>she whispered. <br>
-
             <br>Perina listened and without hesitation, made her decision. <br><strong>She would not allow the kingdom to fall to ruin. </strong><br>With courage and resolve, she set off on a perilous journey <br>to rescue the fairy and<strong> restore balance to the land.</strong>
+        </div>
+        <div class="text-right">
+            Will she reach her goal?
         </div>
     </div>
     <a href="indexwebapp.html" class="back-link">Homepage</a>
