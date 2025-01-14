@@ -10,7 +10,7 @@ function preloadwin2(s) {
 }
 
 function mouse_click_yes2(s) {
-    PP.scenes.start("scene3");
+    PP.scenes.start("vecchina3");
 }
 
 function mouse_click_home2(s) {
