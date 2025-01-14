@@ -25,33 +25,39 @@
             height: 100%;
         }
         
-        .link-image {
+        .link-image, .story-image, .play-image {
             position: absolute;
             left: 50%;
-            top: 79%;
             transform: translate(-50%, -50%);
             width: 238px;
-            height: 58px;
+            height: 57px;
             cursor: pointer;
+            transition: transform 0.1s ease, box-shadow 0.1s ease;
+            border-radius: 12px; /* Bordo stondato */
+        }
+
+        .link-image {
+            top: 79%;
         }
         .story-image {
-            position: absolute;
-            left: 50%;
             top: 60%;
-            transform: translate(-50%, -50%);
-            width: 238px;
-            height: 56px;
-            cursor: pointer;
         }
         .play-image {
-            position: absolute;
-            left: 50%;
             top: 69.17%;
-            transform: translate(-50%, -50%);
-            width: 238px;
-            height: 56px;
-            cursor: pointer;
         }
+
+        /* Effetto hover per indicare interattività */
+        .link-image:hover, .story-image:hover, .play-image:hover {
+            transform: translate(-50%, -50%) scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Effetto bottone premuto */
+        .link-image:active, .story-image:active, .play-image:active {
+            transform: translate(-50%, -50%) scale(0.95);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
     </style>
 </head>
 <body>
