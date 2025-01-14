@@ -95,16 +95,16 @@
             z-index: 2;
         }
 
-        .image-container:hover .pergamena {
-            opacity: 1;
-        }
-
         .image-container .tavola3 {
             opacity: 1;
         }
 
         .image-container:hover .tavola3 {
             opacity: 0;
+        }
+
+        .image-container:hover .pergamena {
+            opacity: 1;
         }
 
         .text-overlay {
@@ -130,7 +130,7 @@
         .text-right {
             position: absolute;
             top: 50%;
-            left: 70%;
+            left: 72%;
             transform: translate(-50%, -50%);
             width: 30%;
             font-family: 'Proxima-Nova', sans-serif;
@@ -150,12 +150,30 @@
         strong, b {
             font-weight: 700;
         }
+
+        /* Zona rettangolare cliccabile */
+        .clickable-area {
+            position: absolute;
+            left: 863px;  /* Posizione X */
+            top: 405px;   /* Posizione Y */
+            width: 239px; /* Larghezza del rettangolo */
+            height: 57px; /* Altezza del rettangolo */
+            background-color: rgba(255, 255, 255, 0); /* Area invisibile ma cliccabile */
+            cursor: pointer;
+            z-index: 5; /* Garantisce che l'area sia sopra gli altri contenuti */
+        }
+
+        /* Quando l'utente passa sopra la zona cliccabile */
+        .clickable-area:hover {
+            background-color: rgba(255, 255, 255, 0.3); /* Opacità leggera per indicare che è cliccabile */
+        }
+
     </style>
 </head>
 <body>
     <div class="image-container">
         <img src="IMG/tavola 3.png" alt="Tavola 3" class="tavola3">
-        <img src="IMG/pergamena.png" alt="Pergamena" class="pergamena">
+        <img src="IMG/pergamenaebottone.png" alt="Pergamena" class="pergamena">
         <div class="text-overlay">
             <strong>Without the fairy, the kingdom sank into chaos. </strong> <br>The king, once wise and fair, became <br>consumed by his insatiable hunger. <br> Mountains of food piled up, <strong>wasted and untouched, </strong><br> while the streets filled with trash and decay. <br> <strong>The once-thriving kingdom now reeked of neglect</strong>, <br>its people living in misery as the land crumbled around them. <br>
             <br>The old woman sought out <strong>Perina</strong>, a brave and determined girl. <br>She approached her with urgency, her voice trembling with fear. <br> <strong>“The fairy has been taken by the witches <br>and is hidden in the woods!” </strong>she whispered. <br>
@@ -164,6 +182,8 @@
         <div class="text-right">
             Will she reach her goal?
         </div>
+        <!-- Zona cliccabile che porta a index.html -->
+        <a href="index.html" class="clickable-area"></a>
     </div>
     <a href="indexwebapp.html" class="back-link">Homepage</a>
     <a href="tavola2.html" class="tavola2-link">Previous page</a>
