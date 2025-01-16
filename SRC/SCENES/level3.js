@@ -105,13 +105,13 @@ function create3(s) {
     //PP.physics.add_collider(s, enemy_5, floor_4);
     PP.physics.add_collider(s, enemy2, piattaforma_2);
     //PP.physics.add_collider(s, enemy2, floor_7);
-    PP.physics.add_collider(s, enemy3, floor_sx);
+    //PP.physics.add_collider(s, enemy3, floor_sx);
 
     // Faccio sì che il player non esca dai confini del gioco
     //PP.physics.set_collide_world_bounds(player, true);
 
     PP.camera.start_follow(s, player2, 0, 0);
-    PP.camera.set_follow_offset(s, -559, -53);
+    PP.camera.set_follow_offset(s, -280, -33);
 
 }
 
@@ -129,11 +129,11 @@ function update3(s) {
     let max_camera_y_2 = 1585;
     if (y_2 >= max_camera_y_2) {
         // Smette di seguire il giocatore oltre il limite
-        PP.camera.set_follow_offset(s, -559, -53 + (player2.geometry.body_y - max_camera_y_2));
+        PP.camera.set_follow_offset(s, -280, -33 + (player2.geometry.body_y - max_camera_y_2));
     } else {
         // Continua a seguire il giocatore
         PP.camera.start_follow(s, player2, 0, 0);
-        PP.camera.set_follow_offset(s, -559, -53);
+        PP.camera.set_follow_offset(s, -280, -33);
     }
 }
 

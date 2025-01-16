@@ -65,26 +65,26 @@ function create_platforms(s) {
     PP.physics.add(s, platform1, PP.physics.type.STATIC);
     PP.physics.add_collider_f(s, player, platform1, collision_platform);
 
-    platform2 = PP.assets.image.add(s, img_platform5, 760, 330, 0, 0);
+    platform2 = PP.assets.image.add(s, img_platform6, 760, 330, 0, 0);
     PP.physics.add(s, platform2, PP.physics.type.STATIC);
     PP.physics.add_collider_f(s, player, platform2, collision_platform);
     PP.physics.add_collider(s, enemy, platform2);
 
-    platform5 = PP.assets.image.add(s, img_platform5, 1740, 140, 0, 0);
+    platform5 = PP.assets.image.add(s, img_platform6, 1740, 140, 0, 0);
     PP.physics.add(s, platform5, PP.physics.type.STATIC);
     PP.physics.add_collider_f(s, player, platform5, collision_platform);
     PP.physics.add_collider(s, enemy_2, platform5);
 
-    platform7 = PP.assets.image.add(s, img_platform4, 2600, 480, 0, 0);
+    platform7 = PP.assets.image.add(s, img_platform5, 2540, 370, 0, 0);
     PP.physics.add(s, platform7, PP.physics.type.STATIC);
     PP.physics.add_collider_f(s, player, platform7, collision_platform);
 
-    platform8 = PP.assets.image.add(s, img_platform6, 2780, 140, 0, 0);
+    platform8 = PP.assets.image.add(s, img_platform6, 2740, 120, 0, 0);
     PP.physics.add(s, platform8, PP.physics.type.STATIC);
     PP.physics.add_collider_f(s, player, platform8, collision_platform);
     PP.physics.add_collider(s, enemy_3, platform8);
 
-    platform9 = PP.assets.image.add(s, img_platform2, 3300, 400, 0, 0);
+    platform9 = PP.assets.image.add(s, img_platform2, 3270, 300, 0, 0);
     PP.physics.add(s, platform9, PP.physics.type.STATIC);
     PP.physics.add_collider_f(s, player, platform9, collision_platform);
 
@@ -110,7 +110,7 @@ function create_platforms(s) {
     PP.physics.set_immovable(platform_mobile_3, true);
     PP.physics.set_allow_gravity(platform_mobile_3, false);
     PP.physics.add_collider_f(s, player, platform_mobile_3, collision_platform);
-    PP.physics.set_velocity_x(platform_mobile_3, 90);
+    PP.physics.set_velocity_y(platform_mobile_3, 90);
 
 }
 
@@ -134,10 +134,10 @@ function update_platforms(s) {
         PP.physics.set_velocity_x(platform_mobile_2, 80);
     }
 
-    if (platform_mobile_3.geometry.x >= 2320) {
-        PP.physics.set_velocity_x(platform_mobile_3, -90);
+    if (platform_mobile_3.geometry.y >= 270) {
+        PP.physics.set_velocity_y(platform_mobile_3, -80);
     }
-    else if (platform_mobile_3.geometry.x <= 2180) {
-        PP.physics.set_velocity_x(platform_mobile_3, 90);
+    else if (platform_mobile_3.geometry.y <= 150) {
+        PP.physics.set_velocity_y(platform_mobile_3, 80);
     }
 }

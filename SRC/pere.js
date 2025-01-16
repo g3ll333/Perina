@@ -34,7 +34,7 @@ function create_pere(s) {
     pera_2 = PP.assets.image.add(s, img_pera, 1380, 500, 0, 0);
     pera_3 = PP.assets.image.add(s, img_pera, 1450, 130, 0, 0);
     pera_4 = PP.assets.image.add(s, img_pera, 1850, 500, 0, 0);
-    pera_5 = PP.assets.image.add(s, img_pera, 2670, 405, 0, 0);
+    pera_5 = PP.assets.image.add(s, img_pera, 2670, 300, 0, 0);
 
     PP.physics.add(s, pera, PP.physics.type.STATIC);
     PP.physics.add_overlap_f(s, player, pera, collision_pera);

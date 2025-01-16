@@ -68,8 +68,8 @@ function decrease_life3(s) {
 function create_enemy3(s) {
     // Creare nemico e posizionarlo
 
-    enemy2 = PP.assets.sprite.add(s, ss_enemy3, 2350, 1600, 0.5, 1);
-    enemy3 = PP.assets.sprite.add(s, ss_enemy4, 2560, 1287, 0.5, 1);
+    enemy2 = PP.assets.sprite.add(s, ss_enemy3, 2290, 1650, 0.5, 1);
+    enemy3 = PP.assets.sprite.add(s, ss_enemy4, 2690, 1287, 0.5, 1);
 
     PP.physics.add(s, enemy2, PP.physics.type.DYNAMIC);
     PP.physics.add(s, enemy3, PP.physics.type.DYNAMIC);
@@ -106,18 +106,18 @@ function update_enemy3(s) {
         PP.assets.sprite.animation_play(enemy2, "walk_right");
         enemy2.geometry.flip_x = true;
     }
-    if (enemy2.geometry.x >= 2370) {
+    if (enemy2.geometry.x >= 2400) {
         PP.physics.set_velocity_x(enemy2, -70);
         PP.assets.sprite.animation_play(enemy2, "walk_left");
         enemy2.geometry.flip_x = false;
     }
 
-    if (enemy3.geometry.x <= 2630) {
+    if (enemy3.geometry.x <= 2620) {
         PP.physics.set_velocity_x(enemy3, 80);
         PP.assets.sprite.animation_play(enemy3, "walk_right");
         enemy3.geometry.flip_x = true;
     }
-    if (enemy3.geometry.x >= 2740) {
+    if (enemy3.geometry.x >= 2760) {
         PP.physics.set_velocity_x(enemy3, -80);
         PP.assets.sprite.animation_play(enemy3, "walk_left");
         enemy3.geometry.flip_x = false;

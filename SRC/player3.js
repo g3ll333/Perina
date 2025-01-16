@@ -2,7 +2,7 @@ let ss_player2;
 let player2;
 let img_shuriken2;
 
-let player_speed2 = 700; // Velocità iniziale
+let player_speed2 = 500; // Velocità iniziale
 let jump_init_speed2 = 400; // Velocità iniziale del salto
 let floor_height3 = 720 - 413; // Altezza del terreno
 
@@ -30,7 +30,7 @@ function preload_player3(s) {
 }
 
 function create_player3(s) {
-    player2 = PP.assets.sprite.add(s, ss_player2, 2000, 2007, 0.5, 1);
+    player2 = PP.assets.sprite.add(s, ss_player2, 1900, 2015, 0.5, 1);
 
     // Aggiungo il giocatore alla fisica
     PP.physics.add(s, player2, PP.physics.type.DYNAMIC);
@@ -104,7 +104,7 @@ function update_player3(s) {
     player2.is_on_platform = false;
 }
 
-function hit_enemy_3(s, shuriken2, enemy2) {
+function hit_enemy5(s, shuriken2, enemy2) {
     PP.assets.destroy(shuriken2);
     PP.assets.destroy(enemy2);
     contatore_morti2++;
