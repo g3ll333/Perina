@@ -55,41 +55,41 @@
 
         .back-link {
             position: absolute;
-            bottom: 0;
-            left: 0;
-            margin: 10px;
-            font-size: 14px;
+            bottom: 12px;
+            left: 10px;
+            width: 100px;
+            height: 60px;
+            background-image: url('IMG/bottonefreccia.png');
+            background-size: cover;
+            transform: scaleX(-1); /* Specchia il bottone orizzontalmente */
+            border: none;
+            cursor: pointer;
+            transition: transform 0.1s ease-in-out; /* Aggiungi transizione */
         }
 
         .tavola2-link {
             position: absolute;
-            bottom: 0;
-            right: 0;
-            margin: 10px;
-            font-size: 14px;
+            bottom: 12px;
+            right: 10px;
+            width: 100px;
+            height: 60px;
+            background-image: url('IMG/bottonefreccia.png');
+            background-size: cover;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.1s ease-in-out; /* Aggiungi transizione */
         }
 
-        .tavola1-link {
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            margin: 10px;
-            font-size: 14px;
+        /* Effetto al passaggio del mouse per i bottoni */
+        .back-link:hover,
+        .tavola2-link:hover {
+            opacity: 0.8; /* Leggero effetto di opacità quando il mouse passa sopra */
         }
 
-        .back-link,
-        .tavola2-link,
-        .tavola1-link {
-            position: absolute;
-            bottom: 0.2%;
-            font-size: 14px;
-            text-decoration: none;
-            color: #5e3f2e;
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 8px 12px;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        /* Effetto al clic (quando i bottoni sono premuti) */
+        .back-link:active,
+        .tavola2-link:active {
+            transform: scale(0.95); /* Crea l'effetto di compressione (premere il bottone) */
         }
 
         .image-container {
@@ -158,8 +158,7 @@
             <br>With the fairy imprisoned, <strong>the kingdom began to decay. </strong> <br>The land withered, the air grew heavy, and the skies darkened. <br>From the shadows, <strong>an old woman watched</strong>, <br>deeply concerned for the future of the kingdom: <br> She knew that if nothing was done, the once-beautiful realm <br>would fall into ruin, <strong>consumed by the witches' greed.</strong>
         </div>
     </div>
-    <a href="indexwebapp.html" class="back-link">Homepage</a>
-    <a href="tavola3.html" class="tavola2-link">Next page</a>
-    <a href="story.html" class="tavola1-link">Previous page</a>
+    <a href="story.html" class="back-link"></a>
+    <a href="tavola3.html" class="tavola2-link"></a>
 </body>
 </html>
