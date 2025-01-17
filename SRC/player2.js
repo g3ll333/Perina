@@ -12,6 +12,9 @@ let is_throwing1 = false;
 
 let contatore_morti1 = 0;
 
+let world_left_limit2 = 0;
+let world_right_limit2 = 1300;
+
 function configure_player_animations2(s) {
     PP.assets.sprite.animation_add_list(player1, "walk", [25, 26, 27, 28, 29, 30, 31, 32], 8, -1);
     PP.assets.sprite.animation_add_list(player1, "idle", [50, 51, 52, 53], 4, -1);
@@ -48,16 +51,27 @@ function update_player2(s) {
 
     if (PP.interactive.kb.is_key_down(s, PP.key_codes.RIGHT)) {
         // Se Ã¨ premuto il tasto destro...
-        PP.physics.set_velocity_x(player1, player_speed1);
-        next_anim1 = "walk";
+        if (player1.geometry.x < world_right_limit2) {
+            PP.physics.set_velocity_x(player1, player_speed1);
+            next_anim1 = "walk";
+        } else {
+            PP.physics.set_velocity_x(player1, 0);
+            next_anim1 = "idle";
+        }
     } else if (PP.interactive.kb.is_key_down(s, PP.key_codes.LEFT)) {
         // Se Ã¨ premuto il tasto sinistro...
-        PP.physics.set_velocity_x(player1, -player_speed1);
-        next_anim1 = "walk";
+        if (player1.geometry.x > world_left_limit2) {
+            PP.physics.set_velocity_x(player1, -player_speed1);
+            next_anim1 = "walk";
+        } else {
+            PP.physics.set_velocity_x(player1, 0);
+            next_anim1 = "idle";
+        }
     } else {
         // Se non Ã¨ premuto alcun tasto...
         PP.physics.set_velocity_x(player1, 0);
-        next_anim1 = "idle";
+        next_anim1 = "idle"
+    
     }
 
     // Salto

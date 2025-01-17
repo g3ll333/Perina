@@ -13,6 +13,9 @@ let is_throwing = false;
 
 let contatore_morti = 0;
 
+let world_left_limit = 0;
+let world_right_limit = 3600; 
+
 
 
 function configure_player_animations(s) {
@@ -49,17 +52,28 @@ function update_player(s) {
     let next_anim = curr_anim;
 
     if (PP.interactive.kb.is_key_down(s, PP.key_codes.RIGHT)) {
-        // Se è premuto il tasto destro...
-        PP.physics.set_velocity_x(player, player_speed);
-        next_anim = "walk";
+        // Se Ã¨ premuto il tasto destro...
+        if (player.geometry.x < world_right_limit) {
+            PP.physics.set_velocity_x(player, player_speed);
+            next_anim = "walk";
+        } else {
+            PP.physics.set_velocity_x(player, 0);
+            next_anim = "idle";
+        }
     } else if (PP.interactive.kb.is_key_down(s, PP.key_codes.LEFT)) {
-        // Se è premuto il tasto sinistro...
-        PP.physics.set_velocity_x(player, -player_speed);
-        next_anim = "walk";
+        // Se Ã¨ premuto il tasto sinistro...
+        if (player.geometry.x > world_left_limit) {
+            PP.physics.set_velocity_x(player, -player_speed);
+            next_anim = "walk";
+        } else {
+            PP.physics.set_velocity_x(player, 0);
+            next_anim = "idle";
+        }
     } else {
-        // Se non è premuto alcun tasto...
+        // Se non Ã¨ premuto alcun tasto...
         PP.physics.set_velocity_x(player, 0);
-        next_anim = "idle";
+        next_anim = "idle"
+    
     }
 
     if (player.geometry.y >= floor_height - 1 || player.is_on_platform) {
@@ -98,8 +112,6 @@ function update_player(s) {
         PP.assets.sprite.animation_play(player, next_anim);
         curr_anim = next_anim;
     }
-
-
 
 
     // Resetto il flag is_on_platform dopo ogni aggiornamento
