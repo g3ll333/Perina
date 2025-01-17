@@ -68,9 +68,9 @@ function decrease_life(s) {
 
 function create_enemy(s) {
     // Creare nemico e posizionarlo
-    enemy = PP.assets.sprite.add(s, ss_enemy, 1500, 575, 0.5, 1);
+    enemy = PP.assets.sprite.add(s, ss_enemy, 960, 330, 0.5, 1);
     enemy_2 = PP.assets.sprite.add(s, ss_enemy_2, 1980, 140, 0.5, 1);
-    enemy_3 = PP.assets.sprite.add(s, ss_enemy, 2850, 140, 0.5, 1);
+    enemy_3 = PP.assets.sprite.add(s, ss_enemy, 2850, 120, 0.5, 1);
 
     console.log("Nemici creati:", enemy, enemy_2, enemy_3);
 
@@ -130,25 +130,25 @@ function update_enemy(s) {
     // caso in cui si trovi al limite dx o sx
     // scelto (830 - 1000)
 
-    if (enemy.geometry.x <= 930) {
-        PP.physics.set_velocity_x(enemy, 100);
+    if (enemy.geometry.x <= 960) {
+        PP.physics.set_velocity_x(enemy, 80);
         PP.assets.sprite.animation_play(enemy, "walk_right");
         enemy.geometry.flip_x = true;
     }
 
-    if (enemy.geometry.x >= 1500) {
-        PP.physics.set_velocity_x(enemy, -100);
+    if (enemy.geometry.x >= 1060) {
+        PP.physics.set_velocity_x(enemy, -80);
         PP.assets.sprite.animation_play(enemy, "walk_left");
         enemy.geometry.flip_x = false;
     }
 
-    if (enemy_2.geometry.x <= 1890) {
+    if (enemy_2.geometry.x <= 1940) {
         PP.physics.set_velocity_x(enemy_2, 70);
         PP.assets.sprite.animation_play(enemy_2, "walk_right");
         enemy_2.geometry.flip_x = true;
     }
 
-    if (enemy_2.geometry.x >= 2000) {
+    if (enemy_2.geometry.x >= 2080) {
         PP.physics.set_velocity_x(enemy_2, -70);
         PP.assets.sprite.animation_play(enemy_2, "walk_left");
         enemy_2.geometry.flip_x = false;
@@ -160,7 +160,7 @@ function update_enemy(s) {
         enemy_3.geometry.flip_x = true;
     }
 
-    if (enemy_3.geometry.x >= 3100) {
+    if (enemy_3.geometry.x >= 3050) {
         PP.physics.set_velocity_x(enemy_3, -80);
         PP.assets.sprite.animation_play(enemy_3, "walk_left");
         enemy_3.geometry.flip_x = false;

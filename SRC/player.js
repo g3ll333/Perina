@@ -111,21 +111,21 @@ function hit_enemy(s, shuriken, enemy) {
     PP.assets.destroy(shuriken);
     PP.assets.destroy(enemy);
     contatore_morti++;
-    console.log("nemico1 ucciso. contatore morti: ", contatore_morti);
+    console.log("nemico1ucciso.contatore morti: ", contatore_morti);
 }
 
 function hit_enemy_2(s, shuriken, enemy_2) {
     PP.assets.destroy(shuriken);
     PP.assets.destroy(enemy_2);
     contatore_morti++;
-    console.log("nemico2 ucciso. contatore morti: ", contatore_morti);
+    console.log("nemico2ucciso.contatore morti: ", contatore_morti);
 }
 
 function hit_enemy_3(s, shuriken, enemy_3) {
     PP.assets.destroy(shuriken);
     PP.assets.destroy(enemy_3);
     contatore_morti++;
-    console.log("nemico3 ucciso. contatore morti: ", contatore_morti);
+    console.log("nemico3ucciso.contatore morti: ", contatore_morti);
 }
 
 function reenable_weapon(s) {

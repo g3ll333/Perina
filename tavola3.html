@@ -55,26 +55,37 @@
 
         .back-link, .tavola2-link {
             position: absolute;
-            bottom: 0.2%;
-            font-size: 14px;
-            text-decoration: none;
-            color: #5e3f2e;
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 8px 12px;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            bottom: 12px;
+            width: 100px;
+            height: 60px;
+            background-size: cover;
+            border: none;
+            cursor: pointer;
             z-index: 4;
+            transition: transform 0.1s ease-in-out; /* Transizione per animazione al clic */
         }
 
         .back-link {
-            left: 0;
-            margin: 10px;
+            left: 10px;
+            background-image: url('IMG/bottonehome.png');
         }
 
         .tavola2-link {
-            left: 50%;
-            transform: translateX(-50%);
-            margin: 10px;
+            right: 45%;
+            background-image: url('IMG/bottonefreccia.png');
+            transform: scaleX(-1); /* Specchia il bottone */
+        }
+
+        /* Effetto hover: modifica opacità per visualizzare quando il mouse è sopra */
+        .back-link:hover,
+        .tavola2-link:hover {
+            opacity: 0.8;
+        }
+
+        /* Effetto active: riduce la dimensione del bottone per simulare la pressione */
+        .back-link:active,
+        .tavola2-link:active {
+            transform: scale(0.95);
         }
 
         .image-container {
@@ -168,7 +179,6 @@
         .clickable-area:hover {
             background-color: rgba(255, 255, 255, 0.3); /* Opacità leggera per indicare che è cliccabile */
         }
-
     </style>
 </head>
 <body>
@@ -186,7 +196,7 @@
         <!-- Zona cliccabile che porta a index.html -->
         <a href="index.html" class="clickable-area"></a>
     </div>
-    <a href="indexwebapp.html" class="back-link">Homepage</a>
-    <a href="tavola2.html" class="tavola2-link">Previous page</a>
+    <a href="indexwebapp.html" class="back-link"></a>
+    <a href="tavola2.html" class="tavola2-link"></a>
 </body>
 </html>

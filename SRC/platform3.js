@@ -54,7 +54,7 @@ platform7 = PP.assets.image.add(s, img_platform16, 2717, 1550, 0, 0); //modifica
 PP.physics.add(s, platform7, PP.physics.type.STATIC);
 PP.physics.add_collider_f(s, player2, platform7, collision_platform3);
 
-platform8 = PP.assets.image.add(s, img_platform3viola, 3049, 1381, 0, 0);
+platform8 = PP.assets.image.add(s, img_platform3viola, 3049, 1370, 0, 0);
 PP.physics.add(s, platform8, PP.physics.type.STATIC);
 PP.physics.add_collider_f(s, player2, platform8, collision_platform3);
 
