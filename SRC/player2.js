@@ -26,7 +26,7 @@ function configure_player_animations2(s) {
 }
 
 function preload_player2(s) {
-    ss_player1 = PP.assets.sprite.load_spritesheet(s, "ASSETS/IMAGES/SPRITETOTALE_PERINA.png", 150, 168);
+    ss_player1 = PP.assets.sprite.load_spritesheet(s, "ASSETS/IMAGES/sprite_colori_def.png", 150, 168);
     img_shuriken1 = PP.assets.image.load(s, "ASSETS/IMAGES/pomodoro40.png");
 }
 

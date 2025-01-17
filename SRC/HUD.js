@@ -50,7 +50,7 @@ function create_hud(s) {
     cestinopieno.visibility.hidden = true;
     cestinomuffa.visibility.hidden = true;
 
-    text_score = PP.shapes.text_styled_add(s, 10, 20, "0", 40, "Helvetica", "normal", "0xFFFFFF", null, 0, 0);
+    text_score = PP.shapes.text_styled_add(s, 10, 20, "0", 40, "Helvetica", "normal", "0xb86127", null, 0, 0);
 
     //non faccio muovere cestini e vite
     text_score.tile_geometry.scroll_factor_x = 0;

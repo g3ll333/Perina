@@ -14,6 +14,7 @@ let contatore_morti2 = 0;
 function configure_player_animations3(s) {
     PP.assets.sprite.animation_add_list(player2, "walk", [25, 26, 27, 28, 29, 30, 31, 32], 8, -1);
     PP.assets.sprite.animation_add_list(player2, "idle", [50, 51, 52, 53], 4, -1);
+    //PP.assets.sprite.animation_add_list(player2, "idle", [50, 63], 2, -1);
     PP.assets.sprite.animation_add_list(player2, "jump_up", [33, 34, 35, 36, 37, 38, 39, 40], 8, 0);
     PP.assets.sprite.animation_add_list(player2, "jump_down", [41, 42, 43, 44, 45, 46, 47, 48, 49], 9, 0);
     PP.assets.sprite.animation_add_list(player2, "throw", [14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24], 11, 0);
@@ -25,7 +26,8 @@ function configure_player_animations3(s) {
 }
 
 function preload_player3(s) {
-    ss_player2 = PP.assets.sprite.load_spritesheet(s, "ASSETS/IMAGES/SPRITETOTALE_PERINA.png", 150, 168);
+    ss_player2 = PP.assets.sprite.load_spritesheet(s, "ASSETS/IMAGES/sprite_colori_def.png", 150, 168);
+    //ss_player2 = PP.assets.sprite.load_spritesheet(s, "ASSETS/IMAGES/SPERO_SIA_ULTIMA_SPRITE.png", 150, 168);
     img_shuriken2 = PP.assets.image.load(s, "ASSETS/IMAGES/zucca40.png");
 }
 

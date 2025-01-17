@@ -55,7 +55,7 @@ function create_hud3(s) {
     cestinopieno_3.visibility.hidden = true;
     cestinomuffa_3.visibility.hidden = true;
 
-    text_score_3 = PP.shapes.text_styled_add(s, 10, 20, "0", 40, "Helvetica", "normal", "0xFFFFFF", null, 0, 0);
+    text_score_3 = PP.shapes.text_styled_add(s, 10, 20, "0", 40, "Helvetica", "normal", "0xb86127", null, 0, 0);
 
     //non faccio muovere cestini e vite
     text_score_3.tile_geometry.scroll_factor_x = 0;
@@ -104,7 +104,7 @@ function change_cestino3(s) {
     prev_score_3 = PP.game_state.get_variable("count_zucche", 0);
     PP.game_state.set_variable("count_zucche", prev_score_3 + 1);
 
-   zucche_raccolte = PP.game_state.get_variable("count_zucche", 0); // Aggiungi questa riga
+    zucche_raccolte = PP.game_state.get_variable("count_zucche", 0); // Aggiungi questa riga
 
     if (zucche_raccolte === 1) {
         cestino_3.visibility.hidden = true;
