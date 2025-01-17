@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Music</title>
+</head>
+<body>
+    <!-- Audio element -->
+    <audio id="background-music" autoplay loop>
+        <source src="IMG/SFX/silly juminocore playlist for mood boost !!.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        // Evita il ricaricamento della musica più volte
+        window.addEventListener("load", function() {
+            const audio = document.getElementById('background-music');
+
+            // Se la musica è già in esecuzione, non farla partire di nuovo
+            if (audio.paused) {
+                audio.play();
+            }
+
+            // Salva la posizione della musica in localStorage ogni volta che la pagina sta per essere ricaricata
+            window.addEventListener('beforeunload', function() {
+                localStorage.setItem('music-time', audio.currentTime);
+            });
+
+            // Quando la pagina si carica di nuovo, riprende dalla posizione salvata
+            if (localStorage.getItem('music-time')) {
+                audio.currentTime = parseFloat(localStorage.getItem('music-time'));
+            }
+        });
+    </script>
+</body>
+</html>
