@@ -19,7 +19,7 @@ function preload(s) {
     img_background_5 = PP.assets.image.load(s, "ASSETS/IMAGES/background5.png");
 
     img_settings = PP.assets.image.load(s, "ASSETS/IMAGES/settings.png");
-    okaybutton = PP.assets.image.load(s, "ASSETS/IMAGES/okay.png");
+    okaybutton = PP.assets.image.load(s, "ASSETS/IMAGES/okayvecchina.png");
 
     preload_pere(s);
     preload_hud(s);
@@ -77,7 +77,7 @@ function create(s) {
     settings.tile_geometry.scroll_factor_x = 0;
     settings.tile_geometry.scroll_factor_y = 0;
 
-    buttonokay = PP.assets.image.add(s, okaybutton, 0, 0, 0, 0);
+    buttonokay = PP.assets.image.add(s, okaybutton, 873.59, 493.68, 0.5, 0.5);
     buttonokay.tile_geometry.scroll_factor_x = 0;
     buttonokay.tile_geometry.scroll_factor_y = 0;
 

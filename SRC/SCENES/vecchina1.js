@@ -5,7 +5,7 @@ let playbutton;
 
 
 function preload(s) {
-    img_sfondo = PP.assets.image.load(s, "ASSETS/IMAGES/vecchiettafunghi.jpg");
+    img_sfondo = PP.assets.image.load(s, "ASSETS/IMAGES/vecchiettafunghi.png");
     playbutton = PP.assets.image.load(s, "ASSETS/IMAGES/okayvecchina.png");
 }
 

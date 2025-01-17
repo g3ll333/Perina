@@ -6,7 +6,7 @@ let playbuttonvecchina3;
 
 function preloadvecchina3(s) {
     img_sfondovecchina3 = PP.assets.image.load(s, "ASSETS/IMAGES/vecchiettalarve.png");
-    playbuttonvecchina3 = PP.assets.image.load(s, "ASSETS/IMAGES/okayvecchina.png");
+    playbuttonvecchina3 = PP.assets.image.load(s, "ASSETS/IMAGES/okayvecchina3.png");
 }
 
 function mouse_click_yesvecchina3(s) {
@@ -20,7 +20,7 @@ function mouse_click_yesvecchina3(s) {
 function createvecchina3(s) {
     sfondovecchina3 = PP.assets.image.add(s, img_sfondovecchina3, 0, 0, 0, 0);
 
-    let buttonplayvecchina3 = PP.assets.image.add(s, playbuttonvecchina3, 860.2, 475.5, 0.5, 0.5);
+    let buttonplayvecchina3 = PP.assets.image.add(s, playbuttonvecchina3, 881, 466.76, 0.5, 0.5);
 
     PP.interactive.mouse.add(buttonplayvecchina3, "pointerdown", mouse_click_yesvecchina3);
 }
