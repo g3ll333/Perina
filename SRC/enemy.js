@@ -21,6 +21,7 @@ function goto_gameover(s) {
 
 function reset_invincibile(s) {
     invincibile = false;
+    console.log("resettata invincibilità");
 }
 
 function decrease_life(s) {

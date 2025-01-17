@@ -4,8 +4,7 @@ let img_background_1, img_background_2, img_background_3, img_background_4, img_
 let background_1, background_2, background_3, background_4, background_5;
 
 
-
-function preload(s) {
+function preloadstrega1(s) {
     console.log("Executing preload() - SCENE 1");
 
     // Carico i background
@@ -16,18 +15,14 @@ function preload(s) {
     img_background_5 = PP.assets.image.load(s, "ASSETS/IMAGES/background5.png");
 
 
-    preload_pere(s);
-    preload_hud(s);
+
     preload_platforms(s);
     preload_player(s);
-    preload_enemy(s);
+
 }
 
-function create(s) {
+function createstrega1(s) {
     console.log("Executing create() - SCENE 1");
-
-    invincibile = false;
-    contatore_vite = 5;
 
     // Inserisco i background
     background_1 = PP.assets.tilesprite.add(s, img_background_1, 0, 5, 3840, 720, 0, 0);
@@ -50,22 +45,14 @@ function create(s) {
     // Aggiungo il pavimento alla fisica
     PP.physics.add(s, floor, PP.physics.type.STATIC);
 
-    // Creazione player, pere, nemici e piattaforme
+    // Creazione player e piattaforme
     create_player(s);
-    create_enemy(s);
     create_platforms(s);
-    create_pere(s);
+
 
     // Creo la collisione pavimento giocatore e nemico
     PP.physics.add_collider(s, player, floor);
-    PP.physics.add_collider(s, enemy, floor);
-    PP.physics.add_collider(s, enemy_2, floor);
 
-    // Interfaccia hud
-    create_hud(s);
-
-    // Faccio sì che il player non esca dai confini del gioco
-    // PP.physics.set_collide_world_bounds(player, true);
 
     // Offset camera
     PP.camera.start_follow(s, player, 0, 0);
@@ -75,12 +62,9 @@ function create(s) {
 
 
 
-function update(s) {
+function updatestrega1(s) {
     update_player(s);
     update_platforms(s);
-    update_pere(s);
-    update_enemy(s);
-    update_hud(s);
 
     background_1.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.10;
     background_2.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.04;
@@ -89,8 +73,8 @@ function update(s) {
     background_5.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.10;
 }
 
-function destroy(s) {
-    console.log("Executing destroy() - SCENE 1");
+function destroystrega1(s) {
+
 }
 
-PP.scenes.add("parallax", preload, create, update, destroy);
+PP.scenes.add("strega1morte", preloadstrega1, createstrega1, updatestrega1, destroystrega1);

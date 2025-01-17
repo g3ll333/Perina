@@ -21,7 +21,7 @@ function configure_player_animations2(s) {
     PP.assets.sprite.animation_add_list(player1, "jump_up", [33, 34, 35, 36, 37, 38, 39, 40], 8, 0);
     PP.assets.sprite.animation_add_list(player1, "jump_down", [41, 42, 43, 44, 45, 46, 47, 48, 49], 9, 0);
     PP.assets.sprite.animation_add_list(player1, "throw", [0, 1, 2, 3, 4, 5, 6, 21, 22, 23, 24], 11, 0);
-    //PP.assets.sprite.animation_add_list(player1, "climb", [54, 55, 56, 57, 58, 59, 60, 61, 62], 9, 0);
+    PP.assets.sprite.animation_add_list(player1, "climb", [54, 55, 56, 57, 58, 59, 60, 61, 62], 9, 0);
 
 
     PP.assets.sprite.animation_play(player1, "idle");
@@ -71,7 +71,7 @@ function update_player2(s) {
         // Se non Ã¨ premuto alcun tasto...
         PP.physics.set_velocity_x(player1, 0);
         next_anim1 = "idle"
-    
+
     }
 
     // Salto
@@ -101,10 +101,13 @@ function update_player2(s) {
 
     //console.log("ccurr_score dopo svuota_cestino: ", curr_score);
     if (PP.interactive.kb.is_key_down(s, PP.key_codes.A) && pomodori_raccolti > 0) {
-        next_anim1 = "throw";
-        PP.timers.add_timer(s, 610, manage_player_weapon2, false);
+        if (Math.abs(player1.geometry.x - enemy4.geometry.x) < 500) {
+            next_anim1 = "throw";
+            PP.timers.add_timer(s, 610, manage_player_weapon2, false);
+            svuota_cestino2(s);
+        }
 
-        svuota_cestino2(s);
+
         //console.log("ccurr_score dopo svuota_cestino: ", curr_score);
     }
 
