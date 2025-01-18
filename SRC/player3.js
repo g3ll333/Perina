@@ -2,7 +2,7 @@ let ss_player2;
 let player2;
 let img_shuriken2;
 
-let player_speed2 = 500; // Velocità iniziale
+let player_speed2 = 300; // Velocità iniziale
 let jump_init_speed2 = 400; // Velocità iniziale del salto
 let floor_height3 = 720 - 413; // Altezza del terreno
 
