@@ -30,7 +30,7 @@ function create_zucche(s) {
     zucca = PP.assets.image.add(s, img_zucca, 3600, 1930, 0, 0);
     zucca_2 = PP.assets.image.add(s, img_zucca, 3350, 1425, 0, 0);
     zucca_3 = PP.assets.image.add(s, img_zucca, 3250, 975, 0, 0);
-    zucca_4 = PP.assets.image.add(s, img_zucca, 2800, 555, 0, 0);
+    zucca_4 = PP.assets.image.add(s, img_zucca, 2670, 1215, 0, 0);
     
     
     PP.physics.add(s, zucca, PP.physics.type.STATIC);

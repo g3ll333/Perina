@@ -61,9 +61,9 @@ PP.physics.add_collider_f(s, player2, platform8, collision_platform3);
 platform9 = PP.assets.image.add(s, img_platform17, 2560, 1287, 0, 0);
 PP.physics.add(s, platform9, PP.physics.type.STATIC);
 PP.physics.add_collider_f(s, player2, platform9, collision_platform3);
-PP.physics.add_collider_f(s, enemy3, platform9, collision_platform3);
+//PP.physics.add_collider_f(s, enemy3, platform9, collision_platform3);
 
-platform10 = PP.assets.image.add(s, img_platform17, 2989, 1047, 0, 0);
+platform10 = PP.assets.image.add(s, img_platform7, 2978, 1053, 0, 0);
 PP.physics.add(s, platform10, PP.physics.type.STATIC);
 PP.physics.add_collider_f(s, player2, platform10, collision_platform3);
 
@@ -74,6 +74,7 @@ PP.physics.add_collider_f(s, player2, platform11, collision_platform3);
 platform12 = PP.assets.image.add(s, img_platform8, 2593, 630, 0, 0);
 PP.physics.add(s, platform12, PP.physics.type.STATIC);
 PP.physics.add_collider_f(s, player2, platform12, collision_platform3);
+PP.physics.add_collider_f(s, enemy3, platform12, collision_platform3);
 
 platform13 = PP.assets.image.add(s, img_platform16, 2923, 468, 0, 0);
 PP.physics.add(s, platform13, PP.physics.type.STATIC);
