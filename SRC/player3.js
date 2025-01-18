@@ -12,7 +12,7 @@ let is_throwing2 = false;
 let contatore_morti2 = 0;
 
 let world_left_limit3 = 1950;
-let world_right_limit3 = 3750; 
+let world_right_limit3 = 3750;
 
 function configure_player_animations3(s) {
     PP.assets.sprite.animation_add_list(player2, "walk", [25, 26, 27, 28, 29, 30, 31, 32], 8, -1);
@@ -72,7 +72,7 @@ function update_player3(s) {
         // Se non Ã¨ premuto alcun tasto...
         PP.physics.set_velocity_x(player2, 0);
         next_anim2 = "idle"
-    
+
     }
 
     // Salto
@@ -131,7 +131,7 @@ function hit_enemy4(s, shuriken2, enemy3) {
     PP.assets.destroy(shuriken2);
     PP.assets.destroy(enemy3);
     contatore_morti2++;
-    console.log("nemico1 ucciso. contatore morti: ", contatore_morti2);
+    console.log("nemico2 ucciso. contatore morti: ", contatore_morti2);
 }
 
 function reenable_weapon3(s) {
@@ -159,7 +159,7 @@ function manage_player_weapon3(s) {
             PP.physics.set_allow_gravity(shuriken2, false);
             PP.physics.set_rotation(shuriken2, 720);
             PP.physics.set_velocity_x(shuriken2, velocity2);
-            PP.physics.add_collider_f(s, shuriken2, enemy2, hit_enemy_3);
+            PP.physics.add_collider_f(s, shuriken2, enemy2, hit_enemy5);
             PP.physics.add_collider_f(s, shuriken2, enemy3, hit_enemy4);
             PP.timers.add_timer(s, 2500, reenable_weapon3, false);
             weapon_disable2 = true;

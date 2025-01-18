@@ -1,80 +1,85 @@
-let floor;
+let floor_v;
 
-let img_background_1, img_background_2, img_background_3, img_background_4, img_background_5;
-let background_1, background_2, background_3, background_4, background_5;
+let img_background_1_v, img_background_2_v, img_background_3_v, img_background_4_v, img_background_5_v;
+let background_1_v, background_2_v, background_3_v, background_4_v, background_5_v;
 
 
-function preloadstrega1(s) {
+function preload(s) {
     console.log("Executing preload() - SCENE 1");
 
     // Carico i background
-    img_background_1 = PP.assets.image.load(s, "ASSETS/IMAGES/background1.png");
-    img_background_2 = PP.assets.image.load(s, "ASSETS/IMAGES/background2.png");
-    img_background_3 = PP.assets.image.load(s, "ASSETS/IMAGES/background3.png");
-    img_background_4 = PP.assets.image.load(s, "ASSETS/IMAGES/background4.png");
-    img_background_5 = PP.assets.image.load(s, "ASSETS/IMAGES/background5.png");
+    img_background_1_v = PP.assets.image.load(s, "ASSETS/IMAGES/background1.png");
+    img_background_2_v = PP.assets.image.load(s, "ASSETS/IMAGES/background2.png");
+    img_background_3_v = PP.assets.image.load(s, "ASSETS/IMAGES/background3.png");
+    img_background_4_v = PP.assets.image.load(s, "ASSETS/IMAGES/background4.png");
+    img_background_5_v = PP.assets.image.load(s, "ASSETS/IMAGES/background5.png");
 
 
 
-    preload_platforms(s);
-    preload_player(s);
+    preload_platforms_v(s);
+    preload_player_v(s);
+    preload_strega1_v(s);
 
 }
 
-function createstrega1(s) {
+function create(s) {
     console.log("Executing create() - SCENE 1");
 
     // Inserisco i background
-    background_1 = PP.assets.tilesprite.add(s, img_background_1, 0, 5, 3840, 720, 0, 0);
-    background_1.tile_geometry.scroll_factor_x = 0;
+    background_1_v = PP.assets.tilesprite.add(s, img_background_1_v, 0, 5, 3840, 720, 0, 0);
+    background_1_v.tile_geometry.scroll_factor_x = 0;
 
-    background_2 = PP.assets.tilesprite.add(s, img_background_2, 0, 10, 3840, 720, 0, 0);
-    background_2.tile_geometry.scroll_factor_x = 0;
+    background_2_v = PP.assets.tilesprite.add(s, img_background_2_v, 0, 10, 3840, 720, 0, 0);
+    background_2_v.tile_geometry.scroll_factor_x = 0;
 
-    background_3 = PP.assets.tilesprite.add(s, img_background_3, 0, 10, 3840, 720, 0, 0);
-    background_3.tile_geometry.scroll_factor_x = 0;
+    background_3_v = PP.assets.tilesprite.add(s, img_background_3_v, 0, 10, 3840, 720, 0, 0);
+    background_3_v.tile_geometry.scroll_factor_x = 0;
 
-    background_4 = PP.assets.tilesprite.add(s, img_background_4, 0, 10, 3840, 720, 0, 0);
-    background_4.tile_geometry.scroll_factor_x = 0;
+    background_4_v = PP.assets.tilesprite.add(s, img_background_4_v, 0, 10, 3840, 720, 0, 0);
+    background_4_v.tile_geometry.scroll_factor_x = 0;
 
-    background_5 = PP.assets.tilesprite.add(s, img_background_5, 0, 10, 3840, 720, 0, 0);
-    background_5.tile_geometry.scroll_factor_x = 0;
+    background_5_v = PP.assets.tilesprite.add(s, img_background_5_v, 0, 10, 3840, 720, 0, 0);
+    background_5_v.tile_geometry.scroll_factor_x = 0;
 
     // Creo un pavimento "trasparente"
-    floor = PP.shapes.rectangle_add(s, 1920, 575, 3840, 1, "0x000000", 0);
+    floor_v = PP.shapes.rectangle_add(s, 1920, 575, 4200, 1, "0x000000", 0);
     // Aggiungo il pavimento alla fisica
-    PP.physics.add(s, floor, PP.physics.type.STATIC);
+    PP.physics.add(s, floor_v, PP.physics.type.STATIC);
 
-    // Creazione player e piattaforme
-    create_player(s);
-    create_platforms(s);
+    // Creazione player, piattaforme e strega
+    create_player_v(s);
+    create_platforms_v(s);
+    create_strega1_v(s)
 
 
     // Creo la collisione pavimento giocatore e nemico
-    PP.physics.add_collider(s, player, floor);
+    PP.physics.add_collider(s, player_v, floor_v);
+    PP.physics.add_collider(s, strega1_v, floor_v);
 
 
     // Offset camera
-    PP.camera.start_follow(s, player, 0, 0);
+    PP.camera.start_follow(s, player_v, 0, 0);
     PP.camera.set_follow_offset(s, -490, 210);
 
 }
 
 
 
-function updatestrega1(s) {
-    update_player(s);
-    update_platforms(s);
+function update(s) {
+    update_player_v(s);
+    update_platforms_v(s);
+    update_strega1_v(s)
 
-    background_1.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.10;
-    background_2.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.04;
-    background_3.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.06;
-    background_4.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.08;
-    background_5.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.10;
+
+    background_1_v.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.10;
+    background_2_v.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.04;
+    background_3_v.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.06;
+    background_4_v.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.08;
+    background_5_v.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.10;
 }
 
-function destroystrega1(s) {
-
+function destroy(s) {
+    console.log("Executing destroy() - SCENE 1");
 }
 
-PP.scenes.add("strega1morte", preloadstrega1, createstrega1, updatestrega1, destroystrega1);
+PP.scenes.add("strega1morte", preload, create, update, destroy);

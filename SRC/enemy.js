@@ -169,6 +169,6 @@ function update_enemy(s) {
 
     // Verifica se tutti i nemici sono stati uccisi 
     if (contatore_morti >= 3) {
-        PP.scenes.start("win");
+        PP.scenes.start("strega1morte");
     }
 }
