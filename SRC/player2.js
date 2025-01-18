@@ -101,12 +101,17 @@ function update_player2(s) {
 
     //console.log("ccurr_score dopo svuota_cestino: ", curr_score);
     if (PP.interactive.kb.is_key_down(s, PP.key_codes.A) && pomodori_raccolti > 0) {
-        if (Math.abs(player1.geometry.x - enemy4.geometry.x) < 500) {
+        if (Math.abs(player1.geometry.x - enemy1.geometry.x) < 100) {
             next_anim1 = "throw";
             PP.timers.add_timer(s, 610, manage_player_weapon2, false);
             svuota_cestino2(s);
         }
 
+        if (Math.abs(player1.geometry.x - enemy4.geometry.x) < 500) {
+            next_anim1 = "throw";
+            PP.timers.add_timer(s, 610, manage_player_weapon2, false);
+            svuota_cestino2(s);
+        }
 
         //console.log("ccurr_score dopo svuota_cestino: ", curr_score);
     }

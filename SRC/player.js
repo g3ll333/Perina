@@ -14,7 +14,7 @@ let is_throwing = false;
 let contatore_morti = 0;
 
 let world_left_limit = 0;
-let world_right_limit = 3600; 
+let world_right_limit = 3600;
 
 
 
@@ -73,7 +73,7 @@ function update_player(s) {
         // Se non Ã¨ premuto alcun tasto...
         PP.physics.set_velocity_x(player, 0);
         next_anim = "idle"
-    
+
     }
 
     if (player.geometry.y >= floor_height - 1 || player.is_on_platform) {
@@ -100,11 +100,31 @@ function update_player(s) {
 
     //console.log("ccurr_score dopo svuota_cestino: ", curr_score);
     if (PP.interactive.kb.is_key_down(s, PP.key_codes.A) && pere_raccolte > 0) {
-        next_anim = "throw";
-        PP.timers.add_timer(s, 610, manage_player_weapon, false);
 
-        svuota_cestino(s);
-        //console.log("ccurr_score dopo svuota_cestino: ", curr_score);
+        if (Math.abs(player.geometry.x - enemy.geometry.x) < 500) {
+            next_anim = "throw";
+            PP.timers.add_timer(s, 610, manage_player_weapon, false);
+
+            svuota_cestino(s);
+            //console.log("ccurr_score dopo svuota_cestino: ", curr_score);
+        }
+
+        if (Math.abs(player.geometry.x - enemy_2.geometry.x) < 500) {
+            next_anim = "throw";
+            PP.timers.add_timer(s, 610, manage_player_weapon, false);
+
+            svuota_cestino(s);
+            //console.log("ccurr_score dopo svuota_cestino: ", curr_score);
+        }
+
+        if (Math.abs(player.geometry.x - enemy_3.geometry.x) < 500) {
+            next_anim = "throw";
+            PP.timers.add_timer(s, 610, manage_player_weapon, false);
+
+            svuota_cestino(s);
+            //console.log("ccurr_score dopo svuota_cestino: ", curr_score);
+        }
+
     }
 
     // Logica per le animazioni 
