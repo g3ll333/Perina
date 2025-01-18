@@ -54,7 +54,7 @@ function create3(s) {
     console.log("Executing create() - SCENE 3");
     sfondo1_2 = PP.assets.image.add(s, sfondo1_2, 0, 0, 0, 0);
     //blocco1_2 = PP.assets.image.add(s, blocco1_2, 0, 2160 - 1853, 0, 0);
-    blocco2_2 = PP.assets.image.add(s, blocco2_2, 412, 248, 0, 0);
+    blocco2_2 = PP.assets.image.add(s, blocco2_2, 531, 248, 0, 0);
     blocco3_2 = PP.assets.image.add(s, blocco3_2, 2989, 248, 0, 0);
     // blocco4 = PP.assets.image.add(s, blocco4, 531, 1368, 0, 0);
     //blocco5 = PP.assets.image.add(s, blocco5, 531, 1442, 0, 0);

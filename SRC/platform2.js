@@ -6,6 +6,8 @@ let platform1_2;
 let platform2_2;
 let platform3_2;
 let platform4_2;
+let platform_mobile2;
+let platform_mobile3;
 
 
 function preload_platforms2(s) {
@@ -62,21 +64,50 @@ function create_platforms2(s) {
     PP.physics.add(s, platform1_2, PP.physics.type.STATIC);
     PP.physics.add_collider_f(s, player1, platform1_2, collision_platform2);
 
-    platform2_2 = PP.assets.image.add(s, img_platform2_2, 413, 1042, 0, 0);
-    PP.physics.add(s, platform2_2, PP.physics.type.STATIC);
-    PP.physics.add_collider_f(s, player1, platform2_2, collision_platform2);
+    //platform2_2 = PP.assets.image.add(s, img_platform2_2, 413, 1042, 0, 0);
+    //PP.physics.add(s, platform2_2, PP.physics.type.STATIC);
+    //PP.physics.add_collider_f(s, player1, platform2_2, collision_platform2);
 
-    platform3_2 = PP.assets.image.add(s, img_platform2_2, 161.5, 1507, 0, 0);
-    PP.physics.add(s, platform3_2, PP.physics.type.STATIC);
-    PP.physics.add_collider_f(s, player1, platform3_2, collision_platform2);
+    //platform3_2 = PP.assets.image.add(s, img_platform2_2, 161.5, 1507, 0, 0);
+    //PP.physics.add(s, platform3_2, PP.physics.type.STATIC);
+    //PP.physics.add_collider_f(s, player1, platform3_2, collision_platform2);
 
     platform4_2 = PP.assets.image.add(s, img_platform2_2, 413, 1692, 0, 0);
     PP.physics.add(s, platform4_2, PP.physics.type.STATIC);
     PP.physics.add_collider_f(s, player1, platform4_2, collision_platform2);
+
+    //piattaforme mobili verdi
+    platform_mobile2 = PP.assets.image.add(s, img_platform2_2, 413, 1042, 0, 0);
+    PP.physics.add(s, platform_mobile2, PP.physics.type.DYNAMIC);
+    PP.physics.set_immovable(platform_mobile2, true);
+    PP.physics.set_allow_gravity(platform_mobile2, false);
+    PP.physics.add_collider_f(s, player1, platform_mobile2, collision_platform2);
+    PP.physics.set_velocity_x(platform_mobile2, 80);
+
+    platform_mobile3 = PP.assets.image.add(s, img_platform2_2, 161.5, 1507, 0, 0);
+    PP.physics.add(s, platform_mobile3, PP.physics.type.DYNAMIC);
+    PP.physics.set_immovable(platform_mobile3, true);
+    PP.physics.set_allow_gravity(platform_mobile3, false);
+    PP.physics.add_collider_f(s, player1, platform_mobile3, collision_platform2);
+    PP.physics.set_velocity_x(platform_mobile3, 80);
 
 
 }
 
 function update_platforms2(s) {
     // Funzioni di aggiornamento specifiche per le piattaforme possono andare qui
+
+    if (platform_mobile2.geometry.x >= 413) {
+        PP.physics.set_velocity_x(platform_mobile2, -70);
+    }
+    else if (platform_mobile2.geometry.x <= 320) {
+        PP.physics.set_velocity_x(platform_mobile2, 70);
+    }
+
+    if (platform_mobile3.geometry.x >= 250) {
+        PP.physics.set_velocity_x(platform_mobile3, -70);
+    }
+    else if (platform_mobile3.geometry.x <= 161.5) {
+        PP.physics.set_velocity_x(platform_mobile3, 70);
+    }
 }
