@@ -19,15 +19,17 @@ let scalaviola2;
 let img_scalaviola;
 let piattaforma_2;
 let alberiviola;
+let alberiviola2;
+let alberiviola3;
 let floor_sx;
 let floor_7;
 
 function preload3(s) {
     console.log("Executing preload() - SCENE 3");
-    sfondo1_2 = PP.assets.image.load(s, "ASSETS/IMAGES/ennesimosfondo.png");
+    sfondo1_2 = PP.assets.image.load(s, "ASSETS/IMAGES/ennesimosfondo2.png");
     //blocco1_2 = PP.assets.image.load(s, "ASSETS/IMAGES/blocco1.png");
-    blocco2_2 = PP.assets.image.load(s, "ASSETS/IMAGES/blocco2.png");
-    blocco3_2 = PP.assets.image.load(s, "ASSETS/IMAGES/blocco3.png");
+    blocco2_2 = PP.assets.image.load(s, "ASSETS/IMAGES/bloccodimezzo.png");
+    blocco3_2 = PP.assets.image.load(s, "ASSETS/IMAGES/blocco3nuovo.png");
     //blocco4 = PP.assets.image.load(s, "ASSETS/IMAGES/blocco4.png");
     //blocco5 = PP.assets.image.load(s, "ASSETS/IMAGES/blocco5.png");
     //blocco6 = PP.assets.image.load(s, "ASSETS/IMAGES/blocco6.png");
@@ -35,7 +37,10 @@ function preload3(s) {
     img_scalaviola = PP.assets.image.load(s, "ASSETS/IMAGES/scalaviola.png");
     //scalaviola2 = PP.assets.image.load(s, "ASSETS/IMAGES/scalaviola.png");
     pavimentox_2 = PP.assets.image.load(s, "ASSETS/IMAGES/pavimento.png");
-    alberiviola = PP.assets.image.load(s, "ASSETS/IMAGES/alberiviola.png");
+    alberiviola = PP.assets.image.load(s, "ASSETS/IMAGES/alberiviolanuovi.png");
+    alberiviola2 = PP.assets.image.load(s, "ASSETS/IMAGES/alberiviolanuovi.png");
+    alberiviola3 = PP.assets.image.load(s, "ASSETS/IMAGES/alberiviolanuovi.png");
+
 
     preload_platforms3(s);
     preload_hud3(s);
@@ -49,8 +54,8 @@ function create3(s) {
     console.log("Executing create() - SCENE 3");
     sfondo1_2 = PP.assets.image.add(s, sfondo1_2, 0, 0, 0, 0);
     //blocco1_2 = PP.assets.image.add(s, blocco1_2, 0, 2160 - 1853, 0, 0);
-    blocco2_2 = PP.assets.image.add(s, blocco2_2, 531, 0, 0, 0);
-    blocco3_2 = PP.assets.image.add(s, blocco3_2, 3407, 248, 0, 0);
+    blocco2_2 = PP.assets.image.add(s, blocco2_2, 412, 248, 0, 0);
+    blocco3_2 = PP.assets.image.add(s, blocco3_2, 2989, 248, 0, 0);
     // blocco4 = PP.assets.image.add(s, blocco4, 531, 1368, 0, 0);
     //blocco5 = PP.assets.image.add(s, blocco5, 531, 1442, 0, 0);
     //blocco6 = PP.assets.image.add(s, blocco6, 531, 1650, 0, 0);
@@ -58,7 +63,9 @@ function create3(s) {
     scalaviola = PP.assets.image.add(s, img_scalaviola, 3275, 1561, 0, 0);
     scalaviola2 = PP.assets.image.add(s, img_scalaviola, 2590, 700, 0, 0);
     pavimentox_2 = PP.assets.image.add(s, pavimentox_2, 0, 2007, 0, 0);
-    alberiviola = PP.assets.image.add(s, alberiviola, 3412, 0, 0, 0);
+    alberiviola = PP.assets.image.add(s, alberiviola, 3385, 8, 0, 0);
+    alberiviola2 = PP.assets.image.add(s, alberiviola2, 4100, 8, 0, 0);
+    alberiviola3 = PP.assets.image.add(s, alberiviola3, 1720, 8, 0, 0);
 
     // Creo un pavimento "trasparente"
     floor_2 = PP.shapes.rectangle_add(s, 163 / 2, 2160 - 1853 / 2, 163, 1853, "0x000000", 0);

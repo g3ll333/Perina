@@ -12,8 +12,8 @@ let is_throwing1 = false;
 
 let contatore_morti1 = 0;
 
-let world_left_limit2 = 0;
-let world_right_limit2 = 1300;
+let world_left_limit2 = 81;
+let world_right_limit2 = 1100;
 
 function configure_player_animations2(s) {
     PP.assets.sprite.animation_add_list(player1, "walk", [25, 26, 27, 28, 29, 30, 31, 32], 8, -1);
