@@ -21,6 +21,7 @@ function preload(s) {
     preload_platforms(s);
     preload_player(s);
     preload_enemy(s);
+    preload_strega1_v(s);
 }
 
 function create(s) {
@@ -55,11 +56,13 @@ function create(s) {
     create_enemy(s);
     create_platforms(s);
     create_pere(s);
+    create_strega1_idle_v(s);
 
     // Creo la collisione pavimento giocatore e nemico
     PP.physics.add_collider(s, player, floor);
     PP.physics.add_collider(s, enemy, floor);
     PP.physics.add_collider(s, enemy_2, floor);
+    PP.physics.add_collider(s, strega1_v, floor);
 
     // Interfaccia hud
     create_hud(s);
@@ -80,6 +83,7 @@ function update(s) {
     update_platforms(s);
     update_pere(s);
     update_enemy(s);
+    update_strega1_v(s)
     update_hud(s);
 
     background_1.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.10;
