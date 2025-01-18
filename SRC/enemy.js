@@ -70,7 +70,7 @@ function decrease_life(s) {
 function create_enemy(s) {
     // Creare nemico e posizionarlo
     enemy = PP.assets.sprite.add(s, ss_enemy, 960, 330, 0.5, 1);
-    enemy_2 = PP.assets.sprite.add(s, ss_enemy_2, 1980, 140, 0.5, 1);
+    enemy_2 = PP.assets.sprite.add(s, ss_enemy_2, 1980, 150, 0.5, 1);
     enemy_3 = PP.assets.sprite.add(s, ss_enemy, 2850, 120, 0.5, 1);
 
     console.log("Nemici creati:", enemy, enemy_2, enemy_3);

@@ -70,7 +70,7 @@ function create_platforms(s) {
     PP.physics.add_collider_f(s, player, platform2, collision_platform);
     PP.physics.add_collider(s, enemy, platform2);
 
-    platform5 = PP.assets.image.add(s, img_platform6, 1740, 140, 0, 0);
+    platform5 = PP.assets.image.add(s, img_platform6, 1740, 150, 0, 0);
     PP.physics.add(s, platform5, PP.physics.type.STATIC);
     PP.physics.add_collider_f(s, player, platform5, collision_platform);
     PP.physics.add_collider(s, enemy_2, platform5);
