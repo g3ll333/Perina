@@ -83,6 +83,12 @@ function create_enemy(s) {
     PP.physics.add_overlap_f(s, enemy_2, player, decrease_life);
     PP.physics.add_overlap_f(s, enemy_3, player, decrease_life);
 
+    //Gestisco hitbox personaggio
+    PP.physics.set_collision_rectangle(enemy, 50, 80, 40, 30);
+    PP.physics.set_collision_rectangle(enemy_2, 50, 85, 40, 0);
+    PP.physics.set_collision_rectangle(enemy_3, 50, 80, 40, 30);
+    
+
     // Configurare le animazioni del nemico
     PP.assets.sprite.animation_add_list(enemy, "walk_right", [0, 1, 2, 3, 4, 5, 6, 7], 8, -1);
     PP.assets.sprite.animation_add_list(enemy, "walk_left", [7, 6, 5, 4, 3, 2, 1, 0], 8, -1);

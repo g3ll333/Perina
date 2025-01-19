@@ -92,6 +92,11 @@ function create_enemy3(s) {
     PP.assets.sprite.animation_play(enemy3, "walk_left");
     PP.physics.set_velocity_x(enemy3, 100);
 
+    //Gestisco hitbox personaggio 
+    PP.physics.set_collision_rectangle(enemy2, 60, 100, 45, 0);
+    PP.physics.set_collision_rectangle(enemy3, 100, 70, 35, 0);
+    
+    
 }
 
 

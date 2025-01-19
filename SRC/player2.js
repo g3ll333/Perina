@@ -4,7 +4,9 @@ let img_shuriken1;
 
 let player_speed1 = 300;
 let jump_init_speed1 = 400;
-let floor_height1 = 720 - 413;
+let floor_height1 = 2007
+let starting_point = 720 - 413;
+
 
 let curr_anim1 = "stop";
 let weapon_disable1 = false;
@@ -15,7 +17,7 @@ let contatore_morti1 = 0;
 let world_left_limit2 = 81;
 let world_right_limit2 = 1100;
 
-let is_jumping = false; // Variabile per tracciare lo stato del salto
+
 
 function configure_player_animations2(s) {
     PP.assets.sprite.animation_add_list(player1, "walk", [25, 26, 27, 28, 29, 30, 31, 32], 8, -1);
@@ -34,20 +36,10 @@ function preload_player2(s) {
 }
 
 function create_player2(s) {
-    player1 = PP.assets.sprite.add(s, ss_player1, 81, floor_height1, 0.5, 1);
+    player1 = PP.assets.sprite.add(s, ss_player1, 81, starting_point, 0.5, 1);
     PP.physics.add(s, player1, PP.physics.type.DYNAMIC);
-    PP.physics.set_collision_rectangle(player1, 110, 168, 0, 0);
+    PP.physics.set_collision_rectangle(player1, 50, 140, 40, 28);
     configure_player_animations2(s);
-
-    // Gestisco hitbox personaggio
-    //PP.physics.set_collision_rectangle(player2, 110, 163, 0, 0);
-    let hitboxWidth1 = 60;
-    let hitboxHeight1 = 163;
-    let offsetX1 = (150 - hitboxWidth1) / 2; // Center horizontally
-    let offsetY1 = (163 - hitboxHeight1) / 2; // Center vertically
-    PP.physics.set_collision_rectangle(player1, hitboxWidth1, hitboxHeight1, offsetX1, offsetY1);
-
-
 }
 
 function update_player2(s) {
@@ -75,14 +67,12 @@ function update_player2(s) {
     }
 
     // Salto
-    if ((player1.geometry.y >= floor_height1 - 1 || player1.is_on_platform) && !is_jumping) {
+    if (player1.geometry.y >= floor_height1 - 1 || player1.is_on_platform) {
         if (PP.interactive.kb.is_key_down(s, PP.key_codes.SPACE)) {
             PP.physics.set_velocity_y(player1, -jump_init_speed1);
-            is_jumping = true;
+            } 
         }
-    } else if (player1.geometry.y >= floor_height1 - 1) {
-        is_jumping = false;
-    }
+
 
     if (PP.physics.get_velocity_x(player1) < 0) {
         player1.geometry.flip_x = true;

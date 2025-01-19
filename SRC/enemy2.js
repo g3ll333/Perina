@@ -83,6 +83,11 @@ function create_enemy2(s) {
 
     //PP.physics.add_collider_f(s, enemy_5, player, goto_gameover);
 
+    //Gestisco hitbox personaggio 
+    PP.physics.set_collision_rectangle(enemy4, 50, 100, 50, 12);
+    PP.physics.set_collision_rectangle(enemy1, 110, 70, 35, 0);
+    
+
 
     // Configurare le animazioni del nemico
     PP.assets.sprite.animation_add_list(enemy1, "walk_right", [0, 1, 2, 3, 4, 5], 6, -1);
