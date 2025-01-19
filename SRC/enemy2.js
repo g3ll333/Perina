@@ -86,7 +86,7 @@ function create_enemy2(s) {
     //Gestisco hitbox personaggio 
     PP.physics.set_collision_rectangle(enemy4, 50, 100, 50, 12);
     PP.physics.set_collision_rectangle(enemy1, 110, 70, 35, 0);
-    
+
 
 
     // Configurare le animazioni del nemico
@@ -151,6 +151,6 @@ function update_enemy2(s) {
 
     // Verifica se tutti i nemici sono stati uccisi 
     if (contatore_morti1 >= 2) {
-        PP.scenes.start("win2");
+        PP.scenes.start("strega2morte");
     }
 }

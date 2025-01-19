@@ -42,6 +42,7 @@ function preload2(s) {
     //preload_zucche(s);
     preload_player2(s);
     preload_enemy2(s);
+    preload_strega2_v(s);
 
 }
 
@@ -90,6 +91,7 @@ function create2(s) {
     create_platforms2(s);
     create_pomodori(s);
     // create_zucche(s);
+    create_strega2_idle_v(s);
 
     // Creo la collisione pavimento giocatore e nemico
     PP.physics.add_collider(s, player1, floor_1);
@@ -105,6 +107,7 @@ function create2(s) {
     PP.physics.add_collider(s, enemy4, floor_2);
     //PP.physics.add_collider(s, enemy_5, floor_4);
     //PP.physics.add_collider(s, enemy2, piattaforma);
+    PP.physics.add_collider(s, strega2_v, floor_pavimentox_1);
 
     //interdaccia hudù
     create_hud2(s);
@@ -124,6 +127,7 @@ function update2(s) {
     update_pomodori(s);
     update_hud2(s);
     //update_zucche(s);
+    update_strega2_v(s);
 
     // Aggiorna la variabile y con la posizione y del giocatore
     y_1 = player1.geometry.body_y;
