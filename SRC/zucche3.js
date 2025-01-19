@@ -27,7 +27,7 @@ function collision_zucche(s, player2, zucca) {
 function create_zucche(s) {
     // Ora creo la pera, la aggiungo alla fisica e imposto la funzione
     // di collisione
-    zucca = PP.assets.image.add(s, img_zucca, 3600, 1930, 0, 0);
+    zucca = PP.assets.image.add(s, img_zucca, 3480, 1930, 0, 0);
     zucca_2 = PP.assets.image.add(s, img_zucca, 3350, 1425, 0, 0);
     zucca_3 = PP.assets.image.add(s, img_zucca, 3250, 975, 0, 0);
     zucca_4 = PP.assets.image.add(s, img_zucca, 2670, 1215, 0, 0);

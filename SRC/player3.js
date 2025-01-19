@@ -12,7 +12,7 @@ let is_throwing2 = false;
 let contatore_morti2 = 0;
 
 let world_left_limit3 = 1950;
-let world_right_limit3 = 3750;
+let world_right_limit3 = 3560;
 
 function configure_player_animations3(s) {
     PP.assets.sprite.animation_add_list(player2, "walk", [25, 26, 27, 28, 29, 30, 31, 32], 8, -1);
@@ -41,7 +41,13 @@ function create_player3(s) {
     PP.physics.add(s, player2, PP.physics.type.DYNAMIC);
 
     // Gestisco hitbox personaggio
-    PP.physics.set_collision_rectangle(player2, 110, 163, 0, 0);
+    //PP.physics.set_collision_rectangle(player2, 110, 163, 0, 0);
+    let hitboxWidth2 = 60;
+    let hitboxHeight2 = 163;
+    let offsetX2 = (150 - hitboxWidth2) / 2; // Center horizontally
+    let offsetY2 = (163 - hitboxHeight2) / 2; // Center vertically
+    PP.physics.set_collision_rectangle(player2, hitboxWidth2, hitboxHeight2, offsetX2, offsetY2);
+
 
     // Configuro le animazioni del player
     configure_player_animations3(s);

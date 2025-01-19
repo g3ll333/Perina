@@ -42,7 +42,12 @@ function create_player(s) {
     PP.physics.add(s, player, PP.physics.type.DYNAMIC);
 
     //Gestisco hitbox personaggio
-    PP.physics.set_collision_rectangle(player, 110, 168, 0, 0);
+    //PP.physics.set_collision_rectangle(player, 110, 168, 0, 0);
+    let hitboxWidth = 60;
+    let hitboxHeight = 168;
+    let offsetX = (150 - hitboxWidth) / 2; // Center horizontally
+    let offsetY = (168 - hitboxHeight) / 2; // Center vertically
+    PP.physics.set_collision_rectangle(player, hitboxWidth, hitboxHeight, offsetX, offsetY);
 
     // Configuro le animazioni del playerf
     configure_player_animations(s);

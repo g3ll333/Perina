@@ -77,14 +77,14 @@ function create_platforms2(s) {
     PP.physics.add_collider_f(s, player1, platform4_2, collision_platform2);
 
     //piattaforme mobili verdi
-    platform_mobile2 = PP.assets.image.add(s, img_platform2_2, 413, 1042, 0, 0);
+    platform_mobile2 = PP.assets.image.add(s, img_platform2_2, 413, 1050, 0, 0);
     PP.physics.add(s, platform_mobile2, PP.physics.type.DYNAMIC);
     PP.physics.set_immovable(platform_mobile2, true);
     PP.physics.set_allow_gravity(platform_mobile2, false);
     PP.physics.add_collider_f(s, player1, platform_mobile2, collision_platform2);
     PP.physics.set_velocity_x(platform_mobile2, 80);
 
-    platform_mobile3 = PP.assets.image.add(s, img_platform2_2, 161.5, 1507, 0, 0);
+    platform_mobile3 = PP.assets.image.add(s, img_platform2_2, 161.5, 1430, 0, 0);
     PP.physics.add(s, platform_mobile3, PP.physics.type.DYNAMIC);
     PP.physics.set_immovable(platform_mobile3, true);
     PP.physics.set_allow_gravity(platform_mobile3, false);
@@ -100,11 +100,11 @@ function update_platforms2(s) {
     if (platform_mobile2.geometry.x >= 413) {
         PP.physics.set_velocity_x(platform_mobile2, -70);
     }
-    else if (platform_mobile2.geometry.x <= 320) {
+    else if (platform_mobile2.geometry.x <= 280) {
         PP.physics.set_velocity_x(platform_mobile2, 70);
     }
 
-    if (platform_mobile3.geometry.x >= 250) {
+    if (platform_mobile3.geometry.x >= 255) {
         PP.physics.set_velocity_x(platform_mobile3, -70);
     }
     else if (platform_mobile3.geometry.x <= 161.5) {

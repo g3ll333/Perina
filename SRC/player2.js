@@ -38,6 +38,16 @@ function create_player2(s) {
     PP.physics.add(s, player1, PP.physics.type.DYNAMIC);
     PP.physics.set_collision_rectangle(player1, 110, 168, 0, 0);
     configure_player_animations2(s);
+
+    // Gestisco hitbox personaggio
+    //PP.physics.set_collision_rectangle(player2, 110, 163, 0, 0);
+    let hitboxWidth1 = 60;
+    let hitboxHeight1 = 163;
+    let offsetX1 = (150 - hitboxWidth1) / 2; // Center horizontally
+    let offsetY1 = (163 - hitboxHeight1) / 2; // Center vertically
+    PP.physics.set_collision_rectangle(player1, hitboxWidth1, hitboxHeight1, offsetX1, offsetY1);
+
+
 }
 
 function update_player2(s) {
