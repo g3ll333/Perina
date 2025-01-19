@@ -10,7 +10,7 @@ function configure_strega2_animations_v(s) {
 }
 
 function preload_strega2_v(s) {
-    ss_strega2_v = PP.assets.sprite.load_spritesheet(s, "ASSETS/IMAGES/Stregamuffe.png", 260, 300);
+    ss_strega2_v = PP.assets.sprite.load_spritesheet(s, "ASSETS/IMAGES/Stregamuffe.png", 216.75, 250);
 }
 
 function create_strega2_v(s) {
