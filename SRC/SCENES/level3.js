@@ -93,11 +93,11 @@ function create3(s) {
 
     // Creo il player e le platform
     create_player3(s);
-    create_hud3(s);
     create_enemy3(s);
     create_platforms3(s);
     create_zucche(s);
     create_strega3_idle_v(s);
+
 
     // Creo la collisione pavimento giocatore e nemico
     PP.physics.add_collider(s, player2, floor_2);
@@ -120,17 +120,20 @@ function create3(s) {
     // Faccio sì che il player non esca dai confini del gioco
     //PP.physics.set_collide_world_bounds(player, true);
 
+    create_hud3(s);
+
     PP.camera.start_follow(s, player2, 0, 0);
     PP.camera.set_follow_offset(s, -280, -33);
 
 }
 
 function update3(s) {
-    update_hud3(s);
+
     update_player3(s);
     update_enemy3(s);
     update_platforms3(s);
     update_zucche(s);
+    update_hud3(s);
     update_strega3_v(s);
 
     // Aggiorna la variabile y con la posizione y del giocatore

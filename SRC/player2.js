@@ -23,7 +23,7 @@ function configure_player_animations2(s) {
     PP.assets.sprite.animation_add_list(player1, "walk", [25, 26, 27, 28, 29, 30, 31, 32], 8, -1);
     PP.assets.sprite.animation_add_list(player1, "idle", [50, 51, 52, 53], 4, -1);
     PP.assets.sprite.animation_add_list(player1, "jump_up", [33, 34, 35, 36, 37, 38, 39, 40], 8, 0);
-    PP.assets.sprite.animation_add_list(player1, "jump_down", [41, 42, 43, 44, 45, 46, 47, 48, 49], 9, 0);
+    PP.assets.sprite.animation_add_list(player1, "jump_down", [41, 42, 43, 44, 45, 46, 47, 48, 49], 9, -1);
     PP.assets.sprite.animation_add_list(player1, "throw", [0, 1, 2, 3, 4, 5, 6, 21, 22, 23, 24], 11, 0);
     PP.assets.sprite.animation_add_list(player1, "climb", [54, 55, 56, 57, 58, 59, 60, 61, 62], 9, 0);
 
@@ -70,8 +70,8 @@ function update_player2(s) {
     if (player1.geometry.y >= floor_height1 - 1 || player1.is_on_platform) {
         if (PP.interactive.kb.is_key_down(s, PP.key_codes.SPACE)) {
             PP.physics.set_velocity_y(player1, -jump_init_speed1);
-            } 
         }
+    }
 
 
     if (PP.physics.get_velocity_x(player1) < 0) {
