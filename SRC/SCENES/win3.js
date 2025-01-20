@@ -10,7 +10,7 @@ function preloadwin3(s) {
 }
 
 function mouse_click_yes3(s) {
-    PP.scenes.start("tavolafinale");
+    location.href = 'fatinalibera.html';
 }
 
 function mouse_click_home3(s) {
