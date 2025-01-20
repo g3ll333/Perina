@@ -105,7 +105,7 @@ function create_platforms(s) {
     PP.physics.set_velocity_x(platform_mobile_2, 80);
 
     // Piattaforma mobile 3
-    platform_mobile_3 = PP.assets.image.add(s, img_platform_mobile, 2200, 190, 0, 0);
+    platform_mobile_3 = PP.assets.image.add(s, img_platform_mobile, 2300, 190, 0, 0);
     PP.physics.add(s, platform_mobile_3, PP.physics.type.DYNAMIC);
     PP.physics.set_immovable(platform_mobile_3, true);
     PP.physics.set_allow_gravity(platform_mobile_3, false);

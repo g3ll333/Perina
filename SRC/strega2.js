@@ -3,7 +3,7 @@ let strega2_v;
 
 
 function configure_strega2_animations_v(s) {
-    PP.assets.sprite.animation_add_list(strega2_v, "death2", [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 15, 15], 8, 0);
+    PP.assets.sprite.animation_add_list(strega2_v, "death2", [0, 1, 2, 3, 6, 7, 8, 4, 5, 9, 10, 11, 12, 13, 14, 15, 15, 15], 8, 0);
     PP.assets.sprite.animation_add_list(strega2_v, "stop", [0, 0], 2, 1);
     PP.assets.sprite.animation_add_list(strega2_v, "idle", [0, 1, 2, 3], 4, -1);
 

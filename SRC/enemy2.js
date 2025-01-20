@@ -85,7 +85,7 @@ function create_enemy2(s) {
 
     //Gestisco hitbox personaggio 
     PP.physics.set_collision_rectangle(enemy4, 50, 100, 50, 12);
-    PP.physics.set_collision_rectangle(enemy1, 110, 70, 35, 0);
+    PP.physics.set_collision_rectangle(enemy1, 110, 90, 35, -20);
 
 
 

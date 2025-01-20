@@ -41,7 +41,7 @@ function preload_player2(s) {
 function create_player2(s) {
     player1 = PP.assets.sprite.add(s, ss_player1, 130, starting_point, 0.5, 1);
     PP.physics.add(s, player1, PP.physics.type.DYNAMIC);
-    PP.physics.set_collision_rectangle(player1, 50, 140, 40, 28);
+    PP.physics.set_collision_rectangle (player1, 30, 140, 50, 28);
     configure_player_animations2(s);
 }
 
@@ -93,11 +93,14 @@ function update_player2(s) {
             }
         }
 
-        if (PP.physics.get_velocity_x(player1) < 0) {
-            player1.geometry.flip_x = true;
-        } else if (PP.physics.get_velocity_x(player1) > 0) {
-            player1.geometry.flip_x = false;
-        }
+    // Logica per specchiare il giocatore
+    if (PP.physics.get_velocity_x(player1) < 0) {
+        player1.geometry.flip_x = true;
+        PP.physics.set_collision_rectangle (player1, 30, 140, 70, 28)
+    } else if (PP.physics.get_velocity_x(player1) > 0) {
+        player1.geometry.flip_x = false;
+        PP.physics.set_collision_rectangle (player1, 30, 140, 50, 28)
+    }
 
         if (PP.physics.get_velocity_y(player1) < 0) {
             next_anim1 = "jump_up";

@@ -41,7 +41,7 @@ function create_player3(s) {
     PP.physics.add(s, player2, PP.physics.type.DYNAMIC);
 
     // Gestisco hitbox personaggio
-    PP.physics.set_collision_rectangle(player2, 50, 140, 40, 28);
+    PP.physics.set_collision_rectangle (player2, 30, 140, 50, 28);
 
     // Configuro le animazioni del player
     configure_player_animations3(s);
@@ -85,12 +85,14 @@ function update_player3(s) {
             }
         }
 
-        // Logica per specchiare il giocatore
-        if (PP.physics.get_velocity_x(player2) < 0) {
-            player2.geometry.flip_x = true;
-        } else if (PP.physics.get_velocity_x(player2) > 0) {
-            player2.geometry.flip_x = false;
-        }
+    // Logica per specchiare il giocatore
+    if (PP.physics.get_velocity_x(player2) < 0) {
+        player2.geometry.flip_x = true;
+        PP.physics.set_collision_rectangle (player2, 30, 140, 70, 28)
+    } else if (PP.physics.get_velocity_x(player2) > 0) {
+        player2.geometry.flip_x = false;
+        PP.physics.set_collision_rectangle (player2, 30, 140, 50, 28)
+    }
 
 
         // Le animazioni del salto vengono gestite in base alla velocitÃ  verticale
