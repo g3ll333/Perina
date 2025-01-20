@@ -36,7 +36,7 @@ function create2(s) {
     sfondo1 = PP.assets.image.add(s, sfondo1, 0, 0, 0, 0);
     blocco1 = PP.assets.image.add(s, blocco1, 0, 2160 - 1853, 0, 0);
     blocco2 = PP.assets.image.add(s, blocco2, 531, 248, 0, 0);
-    scalaverde = PP.assets.image.add(s, scalaverde, 472, 1752, 0, 0);
+    scalaverde = PP.assets.image.add(s, scalaverde, 465, 1692, 0, 0);
     pavimentox_1 = PP.assets.image.add(s, pavimentox_1, 0, 2007, 0, 0);
     alberiverdi = PP.assets.image.add(s, alberiverdi, 0, 30, 0, 0);
     alberiverdi2 = PP.assets.image.add(s, alberiverdi2, 462, 2, 0, 0);
@@ -46,7 +46,7 @@ function create2(s) {
     floor_2 = PP.shapes.rectangle_add(s, 532 + 1702 / 2, 1365 + 387 / 2, 1702, 387, "0x000000", 0);
     floor_grande = PP.shapes.rectangle_add(s, 531 + 1698 / 2, 1100 / 2, 1694, 1105, "0x000000", 0);
     floor_6 = PP.shapes.rectangle_add(s, 1190 + 1042 / 2, 1099 + 268 / 2, 1042, 268, "0x000000", 0);
-    floorscalaverde = PP.shapes.rectangle_add(s, 472 + 69 / 2, 1752 + 256 / 2, 69, 256, "0x000000", 0);
+    floorscalaverde = PP.shapes.rectangle_add(s, 465 + 69 / 2, 1692 + 325 / 2, 73, 325, "0x000000", 0);
 
     PP.physics.add(s, floor_1, PP.physics.type.STATIC);
     PP.physics.add(s, floor_pavimentox_1, PP.physics.type.STATIC);
