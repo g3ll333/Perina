@@ -4,7 +4,7 @@ let img_shuriken2;
 
 let player_speed2 = 300; // Velocità iniziale
 let jump_init_speed2 = 400; // Velocità iniziale del salto
-let floor_height3 = 720 - 413; // Altezza del terreno
+let floor_height3 = 2007; // Altezza del terreno
 
 let curr_anim2 = "idle";
 let weapon_disable2 = false;
@@ -35,13 +35,13 @@ function preload_player3(s) {
 }
 
 function create_player3(s) {
-    player2 = PP.assets.sprite.add(s, ss_player2, 1900, 2015, 0.5, 1);
+    player2 = PP.assets.sprite.add(s, ss_player2, 1900, 2007, 0.5, 1);
 
     // Aggiungo il giocatore alla fisica
     PP.physics.add(s, player2, PP.physics.type.DYNAMIC);
 
     // Gestisco hitbox personaggio
-    PP.physics.set_collision_rectangle(player2, 110, 163, 0, 0);
+    PP.physics.set_collision_rectangle(player2, 50, 140, 40, 28);
 
     // Configuro le animazioni del player
     configure_player_animations3(s);
