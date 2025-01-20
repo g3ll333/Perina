@@ -86,11 +86,11 @@ function update(s) {
     update_strega1_v(s)
     update_hud(s);
 
-    background_1.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.10;
-    background_2.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.04;
-    background_3.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.06;
-    background_4.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.08;
-    background_5.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.10;
+    background_1.tile_geometry.x = PP.camera.get_scroll_x(s) * 1;
+    background_2.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.2;
+    background_3.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.4;
+    background_4.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.6;
+    background_5.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.8;
 }
 
 function destroy(s) {
