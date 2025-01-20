@@ -95,8 +95,8 @@ function create_enemy3(s) {
     //Gestisco hitbox personaggio 
     PP.physics.set_collision_rectangle(enemy2, 60, 100, 45, 0);
     PP.physics.set_collision_rectangle(enemy3, 100, 70, 35, 0);
-    
-    
+
+
 }
 
 
@@ -130,6 +130,6 @@ function update_enemy3(s) {
 
     // Verifica se tutti i nemici sono stati uccisi 
     if (contatore_morti2 >= 2) {
-        PP.scenes.start("win3");
+        PP.scenes.start("strega3morte");
     }
 }

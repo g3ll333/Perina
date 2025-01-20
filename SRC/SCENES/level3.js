@@ -47,6 +47,7 @@ function preload3(s) {
     preload_zucche(s);
     preload_player3(s);
     preload_enemy3(s);
+    preload_strega3_v(s);
 
 }
 
@@ -96,6 +97,7 @@ function create3(s) {
     create_enemy3(s);
     create_platforms3(s);
     create_zucche(s);
+    create_strega3_idle_v(s);
 
     // Creo la collisione pavimento giocatore e nemico
     PP.physics.add_collider(s, player2, floor_2);
@@ -113,6 +115,7 @@ function create3(s) {
     PP.physics.add_collider(s, enemy2, piattaforma_2);
     //PP.physics.add_collider(s, enemy2, floor_7);
     //PP.physics.add_collider(s, enemy3, floor_sx);
+    PP.physics.add_collider(s, strega3_v, floor_5_2);
 
     // Faccio sì che il player non esca dai confini del gioco
     //PP.physics.set_collide_world_bounds(player, true);
@@ -128,6 +131,7 @@ function update3(s) {
     update_enemy3(s);
     update_platforms3(s);
     update_zucche(s);
+    update_strega3_v(s);
 
     // Aggiorna la variabile y con la posizione y del giocatore
     y_2 = player2.geometry.body_y;
