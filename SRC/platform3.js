@@ -38,11 +38,12 @@ function collision_platform3(s, player2, platform_s3) {
 function create_platforms3(s) {
 
     //piattaforme viola
-    platform15 = PP.assets.image.add(s, img_platform15, 2227, 1651, 0, 0);
+    platform15 = PP.assets.image.add(s, img_platform15, 2227, 1668, 0, 0);
     PP.physics.add(s, platform15, PP.physics.type.STATIC);
     PP.physics.add_collider_f(s, player2, platform15, collision_platform3);
+    PP.physics.add_collider_f(s, enemy2, platform15, collision_platform3)
 
-    platform16 = PP.assets.image.add(s, img_platform7, 3840 - 896, 1774, 0, 0);
+    platform16 = PP.assets.image.add(s, img_platform7, 3840 - 896, 1785, 0, 0);
     PP.physics.add(s, platform16, PP.physics.type.STATIC);
     PP.physics.add_collider_f(s, player2, platform16, collision_platform3);
 
@@ -50,7 +51,7 @@ function create_platforms3(s) {
     PP.physics.add(s, platform17, PP.physics.type.STATIC);
     PP.physics.add_collider_f(s, player2, platform17, collision_platform3);
 
-    platform7 = PP.assets.image.add(s, img_platform16, 2717, 1550, 0, 0); //modificata la y perchè se no perina non ci passava
+    platform7 = PP.assets.image.add(s, img_platform16, 2714, 1570, 0, 0); //modificata la y perchè se no perina non ci passava
     PP.physics.add(s, platform7, PP.physics.type.STATIC);
     PP.physics.add_collider_f(s, player2, platform7, collision_platform3);
 
@@ -63,7 +64,7 @@ function create_platforms3(s) {
     PP.physics.add_collider_f(s, player2, platform9, collision_platform3);
     //PP.physics.add_collider_f(s, enemy3, platform9, collision_platform3);
 
-    platform10 = PP.assets.image.add(s, img_platform7, 2978, 1053, 0, 0);
+    platform10 = PP.assets.image.add(s, img_platform7, 2978, 1065, 0, 0);
     PP.physics.add(s, platform10, PP.physics.type.STATIC);
     PP.physics.add_collider_f(s, player2, platform10, collision_platform3);
 

@@ -75,8 +75,8 @@ function create3(s) {
     // floor_3 = PP.shapes.rectangle_add(s, 739, 1442 + 209 / 2, 415, 209, "0x000000", 0);
     floor_4_2 = PP.shapes.rectangle_add(s, 906, 1650 + 102 / 2, 749, 102, "0x000000", 0);
     floor_5_2 = PP.shapes.rectangle_add(s, 3624, 248 + 1596 / 2, 432, 1596, "0x000000", 0); // ultimo blocco dx
-    piattaforma_2 = PP.shapes.rectangle_add(s, 2227 + 335 / 2, 1651 + 30, 335, 60, "0x000000", 0);
-    floor_sx = PP.shapes.rectangle_add(s, 1188 + 1373 / 2, 0 + 1440 / 2, 1373, 1440, "0x000000", 0);
+    //piattaforma_2 = PP.shapes.rectangle_add(s, 2227 + 335 / 2, 1651 + 30, 335, 60, "0x000000", 0);
+    floor_sx = PP.shapes.rectangle_add(s, 1188 + 1373 / 2, 0 + 1410/ 2, 1373, 1410, "0x000000", 0);
     floor_7 = PP.shapes.rectangle_add(s, 1188 + 1037 / 2, 1443 + 308 / 2, 1037, 308, "0x000000", 0);
 
 
@@ -87,7 +87,7 @@ function create3(s) {
     //PP.physics.add(s, floor_3, PP.physics.type.STATIC);
     PP.physics.add(s, floor_4_2, PP.physics.type.STATIC);
     PP.physics.add(s, floor_5_2, PP.physics.type.STATIC);
-    PP.physics.add(s, piattaforma_2, PP.physics.type.STATIC);
+   // PP.physics.add(s, piattaforma_2, PP.physics.type.STATIC);
     PP.physics.add(s, floor_sx, PP.physics.type.STATIC);
     PP.physics.add(s, floor_7, PP.physics.type.STATIC);
 
@@ -112,7 +112,7 @@ function create3(s) {
     // PP.physics.add_collider(s, enemy_3, floor_pavimentox);
     //PP.physics.add_collider(s, enemy4, floor_2);
     //PP.physics.add_collider(s, enemy_5, floor_4);
-    PP.physics.add_collider(s, enemy2, piattaforma_2);
+    //PP.physics.add_collider(s, enemy2, piattaforma_2);
     //PP.physics.add_collider(s, enemy2, floor_7);
     //PP.physics.add_collider(s, enemy3, floor_sx);
     PP.physics.add_collider(s, strega3_v, floor_5_2);

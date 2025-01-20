@@ -68,7 +68,7 @@ function decrease_life3(s) {
 function create_enemy3(s) {
     // Creare nemico e posizionarlo
 
-    enemy2 = PP.assets.sprite.add(s, ss_enemy3, 2290, 1650, 0.5, 1);
+    enemy2 = PP.assets.sprite.add(s, ss_enemy3, 2290, 1668, 0.5, 1);
     enemy3 = PP.assets.sprite.add(s, ss_enemy4, 2820, 630, 0.5, 1);
 
     PP.physics.add(s, enemy2, PP.physics.type.DYNAMIC);
