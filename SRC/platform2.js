@@ -15,7 +15,7 @@ function preload_platforms2(s) {
     //img_platform = PP.assets.image.load(s, "ASSETS/IMAGES/blocco.png");
     img_platform3 = PP.assets.image.load(s, "ASSETS/IMAGES/plat3.png"); //piattaforma a 3 blocchi verde
     img_platform2_2 = PP.assets.image.load(s, "ASSETS/IMAGES/plat2.png"); //piattaforma a 2 blocchi verde
-    
+
 }
 
 function collision_platform2(s, player1, platform_s2) {
@@ -72,7 +72,7 @@ function create_platforms2(s) {
     //PP.physics.add(s, platform3_2, PP.physics.type.STATIC);
     //PP.physics.add_collider_f(s, player1, platform3_2, collision_platform2);
 
-    platform4_2 = PP.assets.image.add(s, img_platform2_2, 413, 1692, 0, 0);
+    platform4_2 = PP.assets.image.add(s, img_platform2_2, 340, 1692, 0, 0);
     PP.physics.add(s, platform4_2, PP.physics.type.STATIC);
     PP.physics.add_collider_f(s, player1, platform4_2, collision_platform2);
 

@@ -17,7 +17,9 @@ let contatore_morti1 = 0;
 let world_left_limit2 = 81;
 let world_right_limit2 = 1100;
 
-
+let is_climbing = false; // Flag per indicare se il player sta arrampicando
+let is_on_ladder = false; // Flag per indicare se il player Ã¨ sulla scala
+let is_holding = false; // Flag per indicare se il player Ã¨ sulla scala
 
 function configure_player_animations2(s) {
     PP.assets.sprite.animation_add_list(player1, "walk", [25, 26, 27, 28, 29, 30, 31, 32], 8, -1);
@@ -26,6 +28,7 @@ function configure_player_animations2(s) {
     PP.assets.sprite.animation_add_list(player1, "jump_down", [41, 42, 43, 44, 45, 46, 47, 48, 49], 9, -1);
     PP.assets.sprite.animation_add_list(player1, "throw", [0, 1, 2, 3, 4, 5, 6, 21, 22, 23, 24], 11, 0);
     PP.assets.sprite.animation_add_list(player1, "climb", [54, 55, 56, 57, 58, 59, 60, 61, 62], 9, 0);
+    PP.assets.sprite.animation_add_list(player1, "stop_climb", [54, 54], 9, 0);
 
     PP.assets.sprite.animation_play(player1, "idle");
 }
@@ -36,7 +39,7 @@ function preload_player2(s) {
 }
 
 function create_player2(s) {
-    player1 = PP.assets.sprite.add(s, ss_player1, 81, starting_point, 0.5, 1);
+    player1 = PP.assets.sprite.add(s, ss_player1, 130, starting_point, 0.5, 1);
     PP.physics.add(s, player1, PP.physics.type.DYNAMIC);
     PP.physics.set_collision_rectangle(player1, 50, 140, 40, 28);
     configure_player_animations2(s);
@@ -66,25 +69,46 @@ function update_player2(s) {
         next_anim1 = "idle";
     }
 
+    if (is_on_ladder) {
+        PP.physics.set_velocity_y(player1, 0);
+        if (PP.interactive.kb.is_key_down(s, PP.key_codes.UP)) {
+            PP.physics.set_velocity_y(player1, -player_speed1);
+            next_anim1 = "climb";
+        }
+        else if (PP.interactive.kb.is_key_down(s, PP.key_codes.DOWN)) {
+            PP.physics.set_velocity_y(player1, player_speed1);
+            next_anim1 = "climb";
+        } else if (PP.interactive.kb.is_key_up(s, PP.key_codes.UP)) {
+            PP.physics.set_velocity_y(player1, 0);
+            is_holding = true; // Il giocatore si ferma sulla scala 
+            next_anim1 = "stop_climb"; // Usa l'animazione di arrampicata per fermo 
+        }
+
+    }
     // Salto
-    if (player1.geometry.y >= floor_height1 - 1 || player1.is_on_platform) {
-        if (PP.interactive.kb.is_key_down(s, PP.key_codes.SPACE)) {
-            PP.physics.set_velocity_y(player1, -jump_init_speed1);
+    if (!is_on_ladder) {
+        if (player1.geometry.y >= floor_height1 - 1 || player1.is_on_platform) {
+            if (PP.interactive.kb.is_key_down(s, PP.key_codes.SPACE)) {
+                PP.physics.set_velocity_y(player1, -jump_init_speed1);
+            }
+        }
+
+        if (PP.physics.get_velocity_x(player1) < 0) {
+            player1.geometry.flip_x = true;
+        } else if (PP.physics.get_velocity_x(player1) > 0) {
+            player1.geometry.flip_x = false;
+        }
+
+        if (PP.physics.get_velocity_y(player1) < 0) {
+            next_anim1 = "jump_up";
+        } else if (PP.physics.get_velocity_y(player1) > 0) {
+            next_anim1 = "jump_down";
         }
     }
 
 
-    if (PP.physics.get_velocity_x(player1) < 0) {
-        player1.geometry.flip_x = true;
-    } else if (PP.physics.get_velocity_x(player1) > 0) {
-        player1.geometry.flip_x = false;
-    }
 
-    if (PP.physics.get_velocity_y(player1) < 0) {
-        next_anim1 = "jump_up";
-    } else if (PP.physics.get_velocity_y(player1) > 0) {
-        next_anim1 = "jump_down";
-    }
+
 
     if (PP.interactive.kb.is_key_down(s, PP.key_codes.A) && pomodori_raccolti > 0) {
         if (Math.abs(player1.geometry.x - enemy1.geometry.x) < 100) {
@@ -106,7 +130,20 @@ function update_player2(s) {
     }
 
     player1.is_on_platform = false;
+    is_on_ladder = false; // Resetto il flag is_on_ladder dopo ogni aggiornamento
+
+    if (is_holding) {
+        PP.physics.set_velocity_y(player1, 0);
+    }
+    is_holding = false; // Resetto il flag is_on_ladder dopo ogni aggiornamento
 }
+
+
+function overlap_ladder(s, player1, floorscalaverde) {
+    console.log("Player is on the ladder");
+    is_on_ladder = true;
+}
+
 
 function hit_enemy2(s, shuriken1, enemy1) {
     PP.assets.destroy(shuriken1);
