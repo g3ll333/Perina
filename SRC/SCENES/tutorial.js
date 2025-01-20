@@ -77,7 +77,7 @@ function create(s) {
     settings.tile_geometry.scroll_factor_x = 0;
     settings.tile_geometry.scroll_factor_y = 0;
 
-    buttonokay = PP.assets.image.add(s, okaybutton, 873.59, 493.68, 0.5, 0.5);
+    buttonokay = PP.assets.image.add(s, okaybutton, 800, 360, 0.5, 0.5);
     buttonokay.tile_geometry.scroll_factor_x = 0;
     buttonokay.tile_geometry.scroll_factor_y = 0;
 
