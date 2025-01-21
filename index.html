@@ -1,92 +1,203 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Rotten Witch Hunt</title>
-        <link rel="icon" href="ASSETS/IMAGES/pera50.png" type="image/png">
-        <script src="LIB/phaser.min.js"></script>
-        <script src="LIB/poliphaser.js"></script>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rotten Witch Hunt</title>
+    <link rel="icon" href="ASSETS/IMAGES/pera50.png" type="image/png">
+    <script src="LIB/phaser.min.js"></script>
+    <script src="LIB/poliphaser.js"></script>
 
-        <!--<script src="SRC/SCENES/vecchina0.js" type="module"></script>
-        <script src="SRC/SCENES/vecchina1.js" type="module"></script>
-        <script src="SRC/SCENES/tutorial.js" type="module"></script> 
-        <script src="SRC/SCENES/parallax.js" type="module"></script>
-        <script src="SRC/SCENES/gameover.js" type="module"></script> 
-        <script src="SRC/SCENES/strega1morte.js" type="module"></script> 
-        <script src="SRC/SCENES/win.js" type="module"></script>
-        
-        
- 
-        <script src="SRC/SCENES/vecchina2.js" type="module"></script> 
-        <script src="SRC/SCENES/level2.js" type="module"></script>
-        <script src="SRC/SCENES/gameover2.js" type="module"></script>   
-        <script src="SRC/SCENES/strega2morte.js" type="module"></script> 
-        <script src="SRC/SCENES/win2.js" type="module"></script>-->
+    <!-- Script per il gioco e le scene -->
+    <script src="SRC/SCENES/level3.js" type="module"></script>
+    <script src="SRC/SCENES/gameover3.js" type="module"></script>
+    <script src="SRC/SCENES/strega3morte.js" type="module"></script>
+    <script src="SRC/SCENES/win3.js" type="module"></script> 
+    <script src="SRC/SCENES/tavolafinale.js" type="module"></script>
+    
+    <script defer src="SRC/main.js"></script>
 
+    <script src="SRC/pere.js"></script>
+    <script src="SRC/HUD.js"></script>
+    <script defer src="SRC/player.js"></script>
+    <script src="SRC/platform.js"></script>
+    <script src="SRC/enemy.js"></script> 
 
-        <!-- <script src="SRC/SCENES/vecchina3.js" type="module"></script>  -->
-        <script src="SRC/SCENES/level3.js" type="module"></script>
-        <script src="SRC/SCENES/gameover3.js" type="module"></script>
-        <script src="SRC/SCENES/strega3morte.js" type="module"></script>
-        <script src="SRC/SCENES/win3.js" type="module"></script> 
-        <script src="SRC/SCENES/tavolafinale.js" type="module"></script>
-        
-        
-        <script defer src="SRC/main.js"></script>
-        
+    <script src="SRC/platformvincita1.js"></script> 
+    <script src="SRC/playervincita1.js"></script>
+    <script src="SRC/strega1.js"></script> 
+    
+    <script src="SRC/pomodori2.js"></script>
+    <script src="SRC/HUD2.js"></script>
+    <script defer src="SRC/player2.js"></script>
+    <script src="SRC/platform2.js"></script>
+    <script src="SRC/enemy2.js"></script>
 
-        <script src="SRC/pere.js"></script>
-        <script src="SRC/HUD.js"></script>
-        <script defer src="SRC/player.js"></script>
-        <script src="SRC/platform.js"></script>
-        <script src="SRC/enemy.js"></script> 
+    <script src="SRC/playervincita2.js"></script>
+    <script src="SRC/strega2.js"></script> 
+    
+    <script defer src="SRC/player3.js"></script>
+    <script src="SRC/enemy3.js"></script>
+    <script src="SRC/platform3.js"></script>
+    <script src="SRC/zucche3.js"></script>
+    <script src="SRC/HUD3.js"></script>
 
-        <script src="SRC/platformvincita1.js"></script> 
-        <script src="SRC/playervincita1.js"></script>
-        <script src="SRC/strega1.js"></script> 
-        
-        
-        <script src="SRC/pomodori2.js"></script>
-        <script src="SRC/HUD2.js"></script>
-        <script defer src="SRC/player2.js"></script>
-        <script src="SRC/platform2.js"></script>
-        <script src="SRC/enemy2.js"></script>
+    <script src="SRC/platformvincita3.js"></script> 
+    <script src="SRC/playervincita3.js"></script>
+    <script src="SRC/strega3.js"></script> 
 
-        <script src="SRC/playervincita2.js"></script>
-        <script src="SRC/strega2.js"></script> 
-        
+    <link rel="stylesheet" href="SRC/styles.css">
+    <link rel="stylesheet" href="https://use.typekit.net/oro0nsk.css">
 
-        <script defer src="SRC/player3.js"></script>
-        <script src="SRC/enemy3.js"></script>
-        <script src="SRC/platform3.js"></script>
-        <script src="SRC/zucche3.js"></script>
-        <script src="SRC/HUD3.js"></script>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url('IMG/legno.png') repeat;
+            font-family: 'fatfrank', Arial, sans-serif;
+        }
 
-        <script src="SRC/platformvincita3.js"></script> 
-        <script src="SRC/playervincita3.js"></script>
-        <script src="SRC/strega3.js"></script> 
+        #game_area {
+            width: 1280px;
+            height: 720px;
+            text-align: center;
+        }
 
+        /* Stile generale per i pulsanti */
+        .pause-button {
+            position: relative;
+            width: 160px;
+            height: 90px;
+            background-size: cover;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 4;
+            transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out; /* Transizioni per interazione */
+        }
 
-        <link rel="stylesheet" href="SRC/styles.css">
+        /* Bottone di restart */
+        .restart-button {
+            background-image: url('IMG/bottonefrecciaspecchio.png');
+        }
 
-        <style>
-            body, html {
-                height: 100%;
-                margin: 0;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                background: url('IMG/legno.png') repeat;
+        /* Bottone per tornare alla home */
+        .back-button {
+            background-image: url('IMG/bottonehome.png');
+        }
+
+        /* Effetto hover: scaling e riduzione opacità */
+        .pause-button:hover {
+            transform: scale(1.1); /* Ingrandisce il bottone per indicare l'interattività */
+            opacity: 0.9;
+        }
+
+        /* Effetto active: leggero rimpicciolimento per simulare la pressione */
+        .pause-button:active {
+            transform: scale(1.1);
+        }
+
+        /* Stile del menu di pausa */
+        #pauseMenu {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(249, 244, 235, 0.747);
+            padding: 20px;
+            text-align: center;
+            color: #3E2723; 
+            font-size: 24px;
+            border-radius: 20px;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+            width: 450px;
+        }
+
+        #pauseMenu p {
+            font-family: 'fatfrank', Arial, sans-serif;
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #4E342E; /* Marrone leggermente più chiaro */
+        }
+
+        /* Layout per i pulsanti nel menu di pausa */
+        #pauseMenu .pause-button {
+            display: inline-block;
+            margin: 5px;
+        }
+
+        /* Testo sotto i pulsanti */
+        #pauseMenu div {
+            text-align: center;
+            font-family: 'proxima-nova', Arial, sans-serif; /* Font Proxima-Nova */
+            font-weight: 700;
+            font-size: 21px;
+            color: #4E342E;
+        }
+    </style>
+</head>
+<body>
+    <div id="game_area"></div>
+
+    <!-- Menu di Pausa -->
+    <div id="pauseMenu">
+        <p>Menu</p>
+        <div style="display: flex; justify-content: center; gap: 20px; align-items: center;">
+            <!-- Bottone di restart -->
+            <div style="text-align: center;">
+                <button class="pause-button restart-button" onclick="restartGame()"></button>
+                <div>Restart</div>
+            </div>
+
+            <!-- Bottone per tornare alla home -->
+            <div style="text-align: center;">
+                <button class="pause-button back-button" onclick="goToIndex()"></button>
+                <div>Back to Home</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let isGamePaused = false;
+
+        // Funzione per mostrare il menu di pausa
+        function showPauseMenu() {
+            document.getElementById('pauseMenu').style.display = 'block';
+            isGamePaused = true;
+        }
+
+        // Funzione per nascondere il menu e riprendere il gioco
+        function hidePauseMenu() {
+            document.getElementById('pauseMenu').style.display = 'none';
+            isGamePaused = false;
+        }
+
+        // Funzione per ricominciare il gioco
+        function restartGame() {
+            hidePauseMenu();
+            window.location.reload();  // Ricarica la pagina per ricominciare il gioco
+        }
+
+        // Funzione per tornare alla pagina principale
+        function goToIndex() {
+            window.location.href = 'indexwebapp.html';  // Vai alla pagina principale
+        }
+
+        // Gestisci l'evento di pressione del tasto ESC
+        window.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                if (isGamePaused) {
+                    hidePauseMenu();  // Se il gioco è in pausa, nascondi il menu
+                } else {
+                    showPauseMenu();  // Se il gioco non è in pausa, mostra il menu
+                }
             }
-
-            #game_area {
-                width: 1280px;
-                height: 720px;
-                text-align: center;
-            }
-        </style>
-    </head>
-    <body>
-        <!-- <iframe src="music.html" style="display:none;"></iframe> -->
-        <div id="game_area"></div>
-    </body>
+        });
+    </script>
+</body>
 </html>
