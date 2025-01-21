@@ -23,6 +23,7 @@ let alberiviola2;
 let alberiviola3;
 let floor_sx;
 let floor_7;
+let floorscalaviola;
 
 function preload3(s) {
     console.log("Executing preload() - SCENE 3");
@@ -36,7 +37,7 @@ function preload3(s) {
     //scalaverde = PP.assets.image.load(s, "ASSETS/IMAGES/scalaverde.png");
     img_scalaviola = PP.assets.image.load(s, "ASSETS/IMAGES/scalaviola.png");
     //scalaviola2 = PP.assets.image.load(s, "ASSETS/IMAGES/scalaviola.png");
-    pavimentox_2 = PP.assets.image.load(s, "ASSETS/IMAGES/pavimento.png");
+    pavimentox_2 = PP.assets.image.load(s, "ASSETS/IMAGES/pavimentonuovo.png");
     alberiviola = PP.assets.image.load(s, "ASSETS/IMAGES/alberiviolanuovi.png");
     alberiviola2 = PP.assets.image.load(s, "ASSETS/IMAGES/alberiviolanuovi.png");
     alberiviola3 = PP.assets.image.load(s, "ASSETS/IMAGES/alberiviolanuovi.png");
@@ -76,8 +77,9 @@ function create3(s) {
     floor_4_2 = PP.shapes.rectangle_add(s, 906, 1650 + 102 / 2, 749, 102, "0x000000", 0);
     floor_5_2 = PP.shapes.rectangle_add(s, 3624, 248 + 1596 / 2, 432, 1596, "0x000000", 0); // ultimo blocco dx
     //piattaforma_2 = PP.shapes.rectangle_add(s, 2227 + 335 / 2, 1651 + 30, 335, 60, "0x000000", 0);
-    floor_sx = PP.shapes.rectangle_add(s, 1188 + 1373 / 2, 0 + 1410/ 2, 1373, 1410, "0x000000", 0);
+    floor_sx = PP.shapes.rectangle_add(s, 1188 + 1373 / 2, 0 + 1410 / 2, 1373, 1410, "0x000000", 0);
     floor_7 = PP.shapes.rectangle_add(s, 1188 + 1037 / 2, 1443 + 308 / 2, 1037, 308, "0x000000", 0);
+    floorscalaviola = PP.shapes.rectangle_add(s, 2560 + 69 / 2, 630 + 325 / 2, 69, 325, "0x000000", 0);
 
 
     // Aggiungo il pavimento alla fisica
@@ -87,9 +89,10 @@ function create3(s) {
     //PP.physics.add(s, floor_3, PP.physics.type.STATIC);
     PP.physics.add(s, floor_4_2, PP.physics.type.STATIC);
     PP.physics.add(s, floor_5_2, PP.physics.type.STATIC);
-   // PP.physics.add(s, piattaforma_2, PP.physics.type.STATIC);
+    // PP.physics.add(s, piattaforma_2, PP.physics.type.STATIC);
     PP.physics.add(s, floor_sx, PP.physics.type.STATIC);
     PP.physics.add(s, floor_7, PP.physics.type.STATIC);
+    PP.physics.add(s, floorscalaviola, PP.physics.type.STATIC);
 
     // Creo il player e le platform
     create_player3(s);
@@ -116,6 +119,8 @@ function create3(s) {
     //PP.physics.add_collider(s, enemy2, floor_7);
     //PP.physics.add_collider(s, enemy3, floor_sx);
     PP.physics.add_collider(s, strega3_v, floor_5_2);
+
+    PP.physics.add_overlap_f(s, player2, floorscalaviola, overlap_ladder_v);
 
     // Faccio sì che il player non esca dai confini del gioco
     //PP.physics.set_collide_world_bounds(player, true);

@@ -14,6 +14,11 @@ let contatore_morti2 = 0;
 let world_left_limit3 = 1950;
 let world_right_limit3 = 3560;
 
+let is_climbing_v = false; // Flag per indicare se il player sta arrampicando
+let is_on_ladder_v = false; // Flag per indicare se il player Ã¨ sulla scala
+let is_holding_v = false; // Flag per indicare se il player Ã¨ sulla scala
+
+
 function configure_player_animations3(s) {
     PP.assets.sprite.animation_add_list(player2, "walk", [25, 26, 27, 28, 29, 30, 31, 32], 8, -1);
     PP.assets.sprite.animation_add_list(player2, "idle", [50, 51, 52, 53], 4, -1);
@@ -21,7 +26,8 @@ function configure_player_animations3(s) {
     PP.assets.sprite.animation_add_list(player2, "jump_up", [33, 34, 35, 36, 37, 38, 39, 40], 8, 0);
     PP.assets.sprite.animation_add_list(player2, "jump_down", [41, 42, 43, 44, 45, 46, 47, 48, 49], 9, 0);
     PP.assets.sprite.animation_add_list(player2, "throw", [14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24], 11, 0);
-    //PP.assets.sprite.animation_add_list(player2, "climb", [54, 55, 56, 57, 58, 59, 60, 61, 62], 9, 0);
+    PP.assets.sprite.animation_add_list(player2, "climb", [54, 55, 56, 57, 58, 59, 60, 61, 62], 9, 0);
+    PP.assets.sprite.animation_add_list(player2, "stop_climb", [54, 54], 9, 0);
 
 
     PP.assets.sprite.animation_play(player2, "idle");
@@ -35,13 +41,13 @@ function preload_player3(s) {
 }
 
 function create_player3(s) {
-    player2 = PP.assets.sprite.add(s, ss_player2, 1900, 2007, 0.5, 1);
+    player2 = PP.assets.sprite.add(s, ss_player2, 2000, 2007, 0.5, 1);
 
     // Aggiungo il giocatore alla fisica
     PP.physics.add(s, player2, PP.physics.type.DYNAMIC);
 
     // Gestisco hitbox personaggio
-    PP.physics.set_collision_rectangle (player2, 30, 140, 50, 28);
+    PP.physics.set_collision_rectangle(player2, 30, 140, 50, 28);
 
     // Configuro le animazioni del player
     configure_player_animations3(s);
@@ -75,8 +81,25 @@ function update_player3(s) {
 
     }
 
+    if (is_on_ladder_v) {
+        PP.physics.set_velocity_y(player2, 0);
+        if (PP.interactive.kb.is_key_down(s, PP.key_codes.UP)) {
+            PP.physics.set_velocity_y(player2, -player_speed2);
+            next_anim2 = "climb";
+        }
+        else if (PP.interactive.kb.is_key_down(s, PP.key_codes.DOWN)) {
+            PP.physics.set_velocity_y(player2, player_speed2);
+            next_anim2 = "climb";
+        } else if (PP.interactive.kb.is_key_up(s, PP.key_codes.UP)) {
+            PP.physics.set_velocity_y(player2, 0);
+            is_holding_v = true; // Il giocatore si ferma sulla scala 
+            next_anim2 = "stop_climb"; // Usa l'animazione di arrampicata per fermo 
+        }
+
+    }
+
     // Salto
-    {
+    if (!is_on_ladder_v) {
         if (player2.geometry.y >= floor_height3 - 1 || player2.is_on_platform) {
             // Se mi trovo sul pavimento OPPURE su una piattaforma...
             if (PP.interactive.kb.is_key_down(s, PP.key_codes.SPACE)) {
@@ -85,14 +108,14 @@ function update_player3(s) {
             }
         }
 
-    // Logica per specchiare il giocatore
-    if (PP.physics.get_velocity_x(player2) < 0) {
-        player2.geometry.flip_x = true;
-        PP.physics.set_collision_rectangle (player2, 30, 140, 70, 28)
-    } else if (PP.physics.get_velocity_x(player2) > 0) {
-        player2.geometry.flip_x = false;
-        PP.physics.set_collision_rectangle (player2, 30, 140, 50, 28)
-    }
+        // Logica per specchiare il giocatore
+        if (PP.physics.get_velocity_x(player2) < 0) {
+            player2.geometry.flip_x = true;
+            PP.physics.set_collision_rectangle(player2, 30, 140, 70, 28)
+        } else if (PP.physics.get_velocity_x(player2) > 0) {
+            player2.geometry.flip_x = false;
+            PP.physics.set_collision_rectangle(player2, 30, 140, 50, 28)
+        }
 
 
         // Le animazioni del salto vengono gestite in base alla velocitÃ  verticale
@@ -120,7 +143,21 @@ function update_player3(s) {
 
     // Resetto il flag is_on_platform dopo ogni aggiornamento
     player2.is_on_platform = false;
+    is_on_ladder_v = false; // Resetto il flag is_on_ladder dopo ogni aggiornamento
+
+    if (is_holding_v) {
+        PP.physics.set_velocity_y(player2, 0);
+    }
+    is_holding_v = false; // Resetto il flag is_on_ladder dopo ogni aggiornamento
+
 }
+
+function overlap_ladder_v(s, player2, floorscalaviola) {
+    console.log("Player is on the ladder");
+    is_on_ladder_v = true;
+}
+
+
 
 function hit_enemy5(s, shuriken2, enemy2) {
     PP.assets.destroy(shuriken2);
