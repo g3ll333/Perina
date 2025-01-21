@@ -3,14 +3,14 @@ let strega3_v;
 
 
 function configure_strega3_animations_v(s) {
-    PP.assets.sprite.animation_add_list(strega3_v, "death3", [0, 1, 2, 3, 6, 7, 8, 4, 5, 9, 10, 11, 12, 13, 14, 15, 15, 15, 15], 8, 0);
+    PP.assets.sprite.animation_add_list(strega3_v, "death3", [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 15, 15, 15], 8, 0);
     PP.assets.sprite.animation_add_list(strega3_v, "stop", [0, 0], 2, 1);
     PP.assets.sprite.animation_add_list(strega3_v, "idle", [0, 1, 2, 3], 4, -1);
 
 }
 
 function preload_strega3_v(s) {
-    ss_strega3_v = PP.assets.sprite.load_spritesheet(s, "ASSETS/IMAGES/Stregalarve.png", 203.47, 250);
+    ss_strega3_v = PP.assets.sprite.load_spritesheet(s, "ASSETS/IMAGES/Stregalarve.png", 146.47, 180);
 }
 
 function create_strega3_v(s) {

@@ -12,7 +12,7 @@ function configure_strega1_animations_v(s) {
 }
 
 function preload_strega1_v(s) {
-    ss_strega1_v = PP.assets.sprite.load_spritesheet(s, "ASSETS/IMAGES/Stregafunghi.png", 189.46, 220);
+    ss_strega1_v = PP.assets.sprite.load_spritesheet(s, "ASSETS/IMAGES/Stregafunghi.png", 155, 180);
 }
 
 function create_strega1_v(s) {
