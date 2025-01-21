@@ -61,8 +61,8 @@ function create3(s) {
     //blocco5 = PP.assets.image.add(s, blocco5, 531, 1442, 0, 0);
     //blocco6 = PP.assets.image.add(s, blocco6, 531, 1650, 0, 0);
     //scalaverde = PP.assets.image.add(s, scalaverde, 472, 1752, 0, 0);
-    scalaviola = PP.assets.image.add(s, img_scalaviola, 3275, 1561, 0, 0);
-    scalaviola2 = PP.assets.image.add(s, img_scalaviola, 2590, 700, 0, 0);
+    //scalaviola = PP.assets.image.add(s, img_scalaviola, 3275, 1561, 0, 0);
+    scalaviola2 = PP.assets.image.add(s, img_scalaviola, 2560, 630, 0, 0);
     pavimentox_2 = PP.assets.image.add(s, pavimentox_2, 0, 2007, 0, 0);
     alberiviola = PP.assets.image.add(s, alberiviola, 3385, 8, 0, 0);
     alberiviola2 = PP.assets.image.add(s, alberiviola2, 4100, 8, 0, 0);
