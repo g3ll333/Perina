@@ -7,41 +7,13 @@
     <link rel="icon" href="ASSETS/IMAGES/pera50.png" type="image/png">
     <link rel="stylesheet" href="https://use.typekit.net/oro0nsk.css">
     <style>
-
-        @font-face {
-            font-family: 'ProximaNovaCondensed';
-            src: url('IMG/font/Proxima-Nova-Extra-Condensed/Demo_Fonts/Fontspring-DEMO-proximanova-regular.otf');
-            font-weight: 400;
-            font-style: normal;
-        }
-
-        @font-face {
-            font-family: 'ProximaNovaCondensed';
-            src: url('IMG/font/Proxima-Nova-Extra-Condensed/Demo_Fonts/Fontspring-DEMO-proximanova-bold.otf');
-            font-weight: 700;
-            font-style: normal;
-        }
-
-        @font-face {
-            font-family: 'ProximaNovaCondensed';
-            src: url('IMG/font/Proxima-Nova-Extra-Condensed/Demo_Fonts/Fontspring-DEMO-proximanova-black.otf');
-            font-weight: 900;
-            font-style: normal;
-        }
-
-        @font-face {
-            font-family: 'ProximaNovaCondensed';
-            src: url('IMG/font/Proxima-Nova-Extra-Condensed/Demo_Fonts/Fontspring-DEMO-proximanovacond-mediumit.otf');
-            font-weight: 600;
-            font-style: italic;
-        }
-
         body {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
+            position: relative;
             background-image: url("IMG/legno.png");
             font-family: 'ProximaNovaCondensed', sans-serif;
             color: #5e3f2e;
@@ -53,43 +25,39 @@
             height: 720px;
         }
 
+        .back-link, .tavola3-link {
+            position: absolute;
+            bottom: 12px;
+            width: 100px;
+            height: 60px;
+            background-size: cover;
+            border: none;
+            cursor: pointer;
+            z-index: 4;
+            transition: transform 0.1s ease-in-out; /* Transizione per animazione al clic */
+        }
+
         .back-link {
-            position: absolute;
-            bottom: 12px;
-            left: 10px;
-            width: 100px;
-            height: 60px;
+            left: 2%;
             background-image: url('IMG/bottonefreccia.png');
-            background-size: cover;
-            transform: scaleX(-1); /* Specchia il bottone orizzontalmente */
-            border: none;
-            cursor: pointer;
-            transition: transform 0.1s ease-in-out; /* Aggiungi transizione */
+            transform: scaleX(-1); /* Specchia il bottone */
         }
 
-        .tavola2-link {
-            position: absolute;
-            bottom: 12px;
-            right: 10px;
-            width: 100px;
-            height: 60px;
+        .tavola3-link {
+            right: 1%;
             background-image: url('IMG/bottonefreccia.png');
-            background-size: cover;
-            border: none;
-            cursor: pointer;
-            transition: transform 0.1s ease-in-out; /* Aggiungi transizione */
         }
 
-        /* Effetto al passaggio del mouse per i bottoni */
+        /* Effetto hover: modifica opacità per visualizzare quando il mouse è sopra */
         .back-link:hover,
-        .tavola2-link:hover {
-            opacity: 0.8; /* Leggero effetto di opacità quando il mouse passa sopra */
+        .tavola3-link:hover {
+            opacity: 0.8;
         }
 
-        /* Effetto al clic (quando i bottoni sono premuti) */
+        /* Effetto active: riduce la dimensione del bottone per simulare la pressione */
         .back-link:active,
-        .tavola2-link:active {
-            transform: scale(0.95); /* Crea l'effetto di compressione (premere il bottone) */
+        .tavola3-link:active {
+            transform: scale(0.95);
         }
 
         .image-container {
@@ -103,49 +71,68 @@
             width: 1280px;
             height: 720px;
             transition: opacity 1s ease-in-out;
-            z-index: 1; /* Ensuring both images are on the same level initially */
+            z-index: 1;
         }
 
         .image-container .pergamena {
             opacity: 0;
-            z-index: 2; /* The pergamena is above the tavola */
-        }
-
-        .image-container:hover .pergamena {
-            opacity: 1;
+            z-index: 2;
         }
 
         .image-container .tavola2 {
-            opacity: 1; /* Tavola is visible by default */
+            opacity: 1;
         }
 
         .image-container:hover .tavola2 {
             opacity: 0;
         }
 
+        .image-container:hover .pergamena {
+            opacity: 1;
+        }
+
         .text-overlay {
             position: absolute;
             top: 50%;
-            left: 60%;
+            left: 40%;
             transform: translate(-50%, -50%);
-            width: 90%;
+            width: 50%;
             font-family: 'Proxima-Nova', sans-serif;
             font-weight: 400;
-            font-style: medium;
             font-size: 20px;
             text-align: left;
             line-height: 1.5;
-            opacity: 0; /* Initially hidden */
+            opacity: 0;
             transition: opacity 1s ease-in-out;
-            z-index: 3; /* Ensure text overlay is on top of everything */
+            z-index: 3;
         }
 
         .image-container:hover .text-overlay {
-            opacity: 1; /* Show text when hovering */
+            opacity: 1;
+        }
+
+        .text-right {
+            position: absolute;
+            top: 50%;
+            left: 72%;
+            transform: translate(-50%, -50%);
+            width: 35%;
+            font-family: 'Proxima-Nova', sans-serif;
+            font-weight: 900;
+            font-size: 25px;
+            text-align: right;
+            color: #5e3f2e;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            z-index: 3;
+        }
+
+        .image-container:hover .text-right {
+            opacity: 1;
         }
 
         strong, b {
-            font-weight: 700; /* Bold weight */
+            font-weight: 700;
         }
     </style>
 </head>
@@ -161,7 +148,7 @@
             <br>With the fairy imprisoned, <strong>the kingdom began to decay. </strong> <br>The land withered, the air grew heavy, and the skies darkened. <br>From the shadows, <strong>an old woman watched</strong>, <br>deeply concerned for the future of the kingdom: <br> She knew that if nothing was done, the once-beautiful realm <br>would fall into ruin, <strong>consumed by the witches' greed.</strong>
         </div>
     </div>
-    <a href="story.html" class="back-link"></a>
-    <a href="tavola3.html" class="tavola2-link"></a>
+    <a href="tavola1nuovo.html" class="back-link"></a>
+    <a href="tavola3.html" class="tavola3-link"></a>
 </body>
 </html>
