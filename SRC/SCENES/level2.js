@@ -12,6 +12,21 @@ let alberiverdi2;
 let floor_grande;
 let floor_6;
 let floorscalaverde;
+let img_pomomarcia1;
+let img_pomomarcia2;
+let img_pomomarcia3;
+let img_pomomarcia4;
+let img_pomomarcia5;
+let pomomarcia1;
+let pomomarcia2;
+let pomomarcia3;
+let pomomarcia4;
+let pomomarcia5;
+let pomomarcia6;
+let pomomarcia7;
+let pomomarcia8;
+let pomomarcia9;
+let pomomarcia10;
 
 function preload2(s) {
     console.log("Executing preload() - SCENE 2");
@@ -29,6 +44,12 @@ function preload2(s) {
     preload_player2(s);
     preload_enemy2(s);
     preload_strega2_v(s);
+
+    img_pomomarcia1 = PP.assets.image.load(s, "ASSETS/IMAGES/pomomorto1.png");
+    img_pomomarcia2 = PP.assets.image.load(s, "ASSETS/IMAGES/pomomorto2.png");
+    img_pomomarcia3 = PP.assets.image.load(s, "ASSETS/IMAGES/pomomorto3.png");
+    img_pomomarcia4 = PP.assets.image.load(s, "ASSETS/IMAGES/pomomorto4.png");
+    img_pomomarcia5 = PP.assets.image.load(s, "ASSETS/IMAGES/pomomorto5.png");
 }
 
 function create2(s) {
@@ -76,6 +97,19 @@ function create2(s) {
 
     PP.camera.start_follow(s, player1, 0, 0);
     PP.camera.set_follow_offset(s, -559, -53);
+
+    pomomarcia1 = PP.assets.image.add(s, img_pomomarcia1, 260, 660, 0, 1);
+    pomomarcia2 = PP.assets.image.add(s, img_pomomarcia2, 160, 1580, 0, 1);
+    pomomarcia3 = PP.assets.image.add(s, img_pomomarcia3, 530, 1365, 0, 1);
+    pomomarcia4 = PP.assets.image.add(s, img_pomomarcia4, 1000, 1365, 0, 1);
+    pomomarcia5 = PP.assets.image.add(s, img_pomomarcia5, 630, 1365, 0, 1);
+    pomomarcia6 = PP.assets.image.add(s, img_pomomarcia1, 340, 1693, 0, 1);
+    pomomarcia7 = PP.assets.image.add(s, img_pomomarcia2, 500, 2007, 0, 1);
+    pomomarcia8 = PP.assets.image.add(s, img_pomomarcia3, 1320, 2007, 0, 1);
+    pomomarcia9 = PP.assets.image.add(s, img_pomomarcia4, 1150, 2007, 0, 1);
+    pomomarcia10 = PP.assets.image.add(s, img_pomomarcia5, 210, 2007, 0, 1);
+
+
 }
 
 function update2(s) {

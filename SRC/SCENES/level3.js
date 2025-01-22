@@ -24,6 +24,31 @@ let alberiviola3;
 let floor_sx;
 let floor_7;
 let floorscalaviola;
+let img_zuccamarcia1;
+let img_zuccamarcia2;
+let img_zuccamarcia3;
+let img_zuccamarcia4;
+let img_zuccamarcia5;
+let zuccamarcia1;
+let zuccamarcia2;
+let zuccamarcia3;
+let zuccamarcia4;
+let zuccamarcia5;
+let zuccamarcia6;
+let zuccamarcia7;
+let zuccamarcia8;
+let zuccamarcia9;
+let zuccamarcia10;
+let zuccamarcia11;
+let zuccamarcia12;
+let zuccamarcia13;
+let zuccamarcia14;
+let zuccamarcia15;
+let zuccamarcia16;
+let zuccamarcia17;
+let zuccamarcia18;
+let zuccamarcia19;
+let zuccamarcia20;
 
 function preload3(s) {
     console.log("Executing preload() - SCENE 3");
@@ -49,6 +74,12 @@ function preload3(s) {
     preload_player3(s);
     preload_enemy3(s);
     preload_strega3_v(s);
+
+    img_zuccamarcia1 = PP.assets.image.load(s, "ASSETS/IMAGES/zuccamorta1.png");
+    img_zuccamarcia2 = PP.assets.image.load(s, "ASSETS/IMAGES/zuccamorta2.png");
+    img_zuccamarcia3 = PP.assets.image.load(s, "ASSETS/IMAGES/zuccamorta3.png");
+    img_zuccamarcia4 = PP.assets.image.load(s, "ASSETS/IMAGES/zuccamorta4.png");
+    img_zuccamarcia5 = PP.assets.image.load(s, "ASSETS/IMAGES/zuccamorta5.png");
 
 }
 
@@ -129,6 +160,28 @@ function create3(s) {
 
     PP.camera.start_follow(s, player2, 0, 0);
     PP.camera.set_follow_offset(s, -280, -33);
+
+    zuccamarcia1 = PP.assets.image.add(s, img_zuccamarcia1, 2600, 2007, 0, 1);
+    zuccamarcia2 = PP.assets.image.add(s, img_zuccamarcia2, 3000, 1785, 0, 1);
+    zuccamarcia3 = PP.assets.image.add(s, img_zuccamarcia3, 2450, 1668, 0, 1);
+    zuccamarcia4 = PP.assets.image.add(s, img_zuccamarcia4, 2800, 1570, 0, 1);
+    zuccamarcia5 = PP.assets.image.add(s, img_zuccamarcia5, 3300, 1500, 0, 1);
+    zuccamarcia6 = PP.assets.image.add(s, img_zuccamarcia1, 3070, 1370, 0, 1);
+    zuccamarcia7 = PP.assets.image.add(s, img_zuccamarcia2, 2550, 1287, 0, 1);
+    zuccamarcia8 = PP.assets.image.add(s, img_zuccamarcia3, 2970, 1065, 0, 1);
+    zuccamarcia9 = PP.assets.image.add(s, img_zuccamarcia4, 2700, 904, 0, 1);
+    zuccamarcia10 = PP.assets.image.add(s, img_zuccamarcia5, 2600, 630, 0, 1);
+    zuccamarcia11 = PP.assets.image.add(s, img_zuccamarcia1, 2950, 468, 0, 1);
+    zuccamarcia12 = PP.assets.image.add(s, img_zuccamarcia4, 3150, 315, 0, 1);
+    zuccamarcia13 = PP.assets.image.add(s, img_zuccamarcia3, 1800, 2007, 0, 1);
+    zuccamarcia14 = PP.assets.image.add(s, img_zuccamarcia4, 2900, 2007, 0, 1);
+    zuccamarcia15 = PP.assets.image.add(s, img_zuccamarcia5, 3550, 2007, 0, 1);
+    zuccamarcia16 = PP.assets.image.add(s, img_zuccamarcia1, 3250, 1785, 0, 1);
+    zuccamarcia17 = PP.assets.image.add(s, img_zuccamarcia2, 3070, 2007, 0, 1);
+    zuccamarcia18 = PP.assets.image.add(s, img_zuccamarcia3, 2800, 1287, 0, 1);
+    zuccamarcia19 = PP.assets.image.add(s, img_zuccamarcia5, 3300, 1065, 0, 1);
+    zuccamarcia20 = PP.assets.image.add(s, img_zuccamarcia2, 3000, 630, 0, 1);
+    
 
 }
 
