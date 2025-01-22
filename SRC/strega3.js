@@ -41,6 +41,7 @@ function create_strega3_idle_v(s) {
 }
 
 function morte_strega3(s) {
+    console.log("sono dentro a morte strega. zucche raccolte: ", zucche_raccolte);
     PP.assets.sprite.animation_play(strega3_v, "death3");
 
     if (zucche_raccolte > 0) {

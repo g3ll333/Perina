@@ -130,9 +130,13 @@ function update_enemy3(s) {
 
     // Verifica se tutti i nemici sono stati uccisi 
     if (contatore_morti2 >= 2) {
-        PP.scenes.start("strega3morte");
+        console.log(zucche_raccolte);
+        PP.timers.add_timer(s, 2500, stregamortissima, false);
     }
 
 
 }
 
+function stregamortissima(s) {
+    PP.scenes.start("strega3morte");
+}

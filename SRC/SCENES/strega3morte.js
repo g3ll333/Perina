@@ -31,6 +31,7 @@ function preload3_v(s) {
 
 function create3_v(s) {
     console.log("Executing create() - SCENE 3");
+    console.log(zucche_raccolte);
     sfondo1_2_v = PP.assets.image.add(s, sfondo1_2_v, 0, 0, 0, 0);
 
     blocco3_2_v = PP.assets.image.add(s, blocco3_2_v, 2989, 248, 0, 0);
