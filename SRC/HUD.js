@@ -19,7 +19,7 @@ let img_cestino_muffa;
 let img_bottonemenu;
 
 let text_score;
-let text_menu
+let text_menu;
 let prev_score;
 let curr_score;
 
