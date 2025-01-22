@@ -24,6 +24,7 @@ function configure_player_animations(s) {
     PP.assets.sprite.animation_add_list(player, "jump_up", [33, 34, 35, 36, 37, 38, 39, 40], 8, 0);
     PP.assets.sprite.animation_add_list(player, "jump_down", [41, 42, 43, 44, 45, 46, 47, 48, 49], 9, 0);
     PP.assets.sprite.animation_add_list(player, "throw", [7, 8, 9, 10, 11, 12, 13, 21, 22, 23, 24, 53], 12, 0);
+    PP.assets.sprite.animation_add_list(player, "collision", [63, 50, 63, 50], 4, -1);
 
     PP.assets.sprite.animation_play(player, "idle");
 }
@@ -31,7 +32,7 @@ function configure_player_animations(s) {
 function preload_player(s) {
     //ss_player = PP.assets.sprite.load_spritesheet(s, "ASSETS/IMAGES/PERINASPRITETOTALE2.png", 103, 162);
     //ss_player = PP.assets.sprite.load_spritesheet(s, "ASSETS/IMAGES/perinaforsedef.png", 150, 168);
-    ss_player = PP.assets.sprite.load_spritesheet(s, "ASSETS/IMAGES/sprite_colori_def.png", 150, 168);
+    ss_player = PP.assets.sprite.load_spritesheet(s, "ASSETS/IMAGES/sprite_colori_def_completo.png", 150, 168);
     img_shuriken = PP.assets.image.load(s, "ASSETS/IMAGES/pera40.png");
 }
 
@@ -42,7 +43,7 @@ function create_player(s) {
     PP.physics.add(s, player, PP.physics.type.DYNAMIC);
 
     //Gestisco hitbox personaggio
-    PP.physics.set_collision_rectangle (player, 30, 140, 50, 28)
+    PP.physics.set_collision_rectangle(player, 30, 140, 50, 28)
 
     // Configuro le animazioni del playerf
     configure_player_animations(s);
@@ -87,10 +88,10 @@ function update_player(s) {
     // Logica per specchiare il giocatore
     if (PP.physics.get_velocity_x(player) < 0) {
         player.geometry.flip_x = true;
-        PP.physics.set_collision_rectangle (player, 30, 140, 70, 28)
+        PP.physics.set_collision_rectangle(player, 30, 140, 70, 28)
     } else if (PP.physics.get_velocity_x(player) > 0) {
         player.geometry.flip_x = false;
-        PP.physics.set_collision_rectangle (player, 30, 140, 50, 28)
+        PP.physics.set_collision_rectangle(player, 30, 140, 50, 28)
     }
 
     // Le animazioni del salto vengono gestite in base alla velocità verticale

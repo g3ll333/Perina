@@ -29,6 +29,8 @@ function configure_player_animations2(s) {
     PP.assets.sprite.animation_add_list(player1, "throw", [0, 1, 2, 3, 4, 5, 6, 21, 22, 23, 24], 11, 0);
     PP.assets.sprite.animation_add_list(player1, "climb", [54, 55, 56, 57, 58, 59, 60, 61, 62], 9, 0);
     PP.assets.sprite.animation_add_list(player1, "stop_climb", [54, 54], 9, 0);
+    PP.assets.sprite.animation_add_list(player1, "collision", [63, 50, 63, 50], 4, -1);
+
 
     PP.assets.sprite.animation_play(player1, "idle");
 }
@@ -41,7 +43,7 @@ function preload_player2(s) {
 function create_player2(s) {
     player1 = PP.assets.sprite.add(s, ss_player1, 130, starting_point, 0.5, 1);
     PP.physics.add(s, player1, PP.physics.type.DYNAMIC);
-    PP.physics.set_collision_rectangle (player1, 30, 140, 50, 28);
+    PP.physics.set_collision_rectangle(player1, 30, 140, 50, 28);
     configure_player_animations2(s);
 }
 
@@ -93,14 +95,14 @@ function update_player2(s) {
             }
         }
 
-    // Logica per specchiare il giocatore
-    if (PP.physics.get_velocity_x(player1) < 0) {
-        player1.geometry.flip_x = true;
-        PP.physics.set_collision_rectangle (player1, 30, 140, 70, 28)
-    } else if (PP.physics.get_velocity_x(player1) > 0) {
-        player1.geometry.flip_x = false;
-        PP.physics.set_collision_rectangle (player1, 30, 140, 50, 28)
-    }
+        // Logica per specchiare il giocatore
+        if (PP.physics.get_velocity_x(player1) < 0) {
+            player1.geometry.flip_x = true;
+            PP.physics.set_collision_rectangle(player1, 30, 140, 70, 28)
+        } else if (PP.physics.get_velocity_x(player1) > 0) {
+            player1.geometry.flip_x = false;
+            PP.physics.set_collision_rectangle(player1, 30, 140, 50, 28)
+        }
 
         if (PP.physics.get_velocity_y(player1) < 0) {
             next_anim1 = "jump_up";

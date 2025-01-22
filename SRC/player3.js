@@ -28,6 +28,7 @@ function configure_player_animations3(s) {
     PP.assets.sprite.animation_add_list(player2, "throw", [14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24], 11, 0);
     PP.assets.sprite.animation_add_list(player2, "climb", [54, 55, 56, 57, 58, 59, 60, 61, 62], 9, 0);
     PP.assets.sprite.animation_add_list(player2, "stop_climb", [54, 54], 9, 0);
+    PP.assets.sprite.animation_add_list(player2, "collision", [63, 50, 63, 50], 4, -1);
 
 
     PP.assets.sprite.animation_play(player2, "idle");

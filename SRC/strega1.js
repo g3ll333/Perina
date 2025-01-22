@@ -5,7 +5,7 @@ let floor_height_v_strega = 575; // Altezza del terreno
 
 
 function configure_strega1_animations_v(s) {
-    PP.assets.sprite.animation_add_list(strega1_v, "death1", [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 14, 14], 15, 0);
+    PP.assets.sprite.animation_add_list(strega1_v, "death1", [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 14, 14], 8, 0);
     PP.assets.sprite.animation_add_list(strega1_v, "stop", [0, 0], 2, 1);
     PP.assets.sprite.animation_add_list(strega1_v, "idle", [0, 1, 2, 3, 4, 5], 4, -1);
 
