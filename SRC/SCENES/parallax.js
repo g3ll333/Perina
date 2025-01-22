@@ -2,6 +2,8 @@ let floor;
 
 let img_background_1, img_background_2, img_background_3, img_background_4, img_background_5;
 let background_1, background_2, background_3, background_4, background_5;
+let scalablu;
+let floorscalablu;
 
 
 
@@ -14,7 +16,7 @@ function preload(s) {
     img_background_3 = PP.assets.image.load(s, "ASSETS/IMAGES/background3.png");
     img_background_4 = PP.assets.image.load(s, "ASSETS/IMAGES/background4.png");
     img_background_5 = PP.assets.image.load(s, "ASSETS/IMAGES/background5.png");
-
+    scalablu = PP.assets.image.load(s, "ASSETS/IMAGES/scalablu.png");
 
     preload_pere(s);
     preload_hud(s);
@@ -45,6 +47,13 @@ function create(s) {
 
     background_5 = PP.assets.tilesprite.add(s, img_background_5, 0, 10, 3840, 720, 0, 0);
     background_5.tile_geometry.scroll_factor_x = 0;
+
+    scalablu = PP.assets.image.add(s, scalablu, 2471, 370, 0, 0);
+    floorscalablu = PP.shapes.rectangle_add(s, 2471 + 69 / 2, 370 + 207 / 2, 73, 207, "0x000000", 0);
+
+    PP.physics.add(s, floorscalablu, PP.physics.type.STATIC);
+
+    PP.physics.add_overlap_f(s, player, floorscalablu, overlap_ladder);
 
     // Creo un pavimento "trasparente"
     floor = PP.shapes.rectangle_add(s, 1920, 575, 3840, 1, "0x000000", 0);
