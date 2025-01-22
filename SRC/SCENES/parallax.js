@@ -36,7 +36,6 @@ let peramarcia21;
 
 
 
-
 function preload(s) {
     console.log("Executing preload() - SCENE 1");
 
@@ -107,14 +106,13 @@ function create(s) {
     peramarcia17 = PP.assets.image.add(s, img_peramarcia6, 3300, 300, 0, 1);
     peramarcia18 = PP.assets.image.add(s, img_peramarcia6, 2890, 120, 0, 1);
     peramarcia19 = PP.assets.image.add(s, img_peramarcia6, 1300, 575, 0, 1);
-    peramarcia20 = PP.assets.image.add(s, img_peramarcia1, 3400, 575, 0, 1);
+
     peramarcia21 = PP.assets.image.add(s, img_peramarcia6, 1730, 150, 0, 1);
- 
+
 
 
     PP.physics.add(s, floorscalablu, PP.physics.type.STATIC);
 
-    PP.physics.add_overlap_f(s, player, floorscalablu, overlap_ladder);
 
     // Creo un pavimento "trasparente"
     floor = PP.shapes.rectangle_add(s, 1920, 575, 3840, 1, "0x000000", 0);
@@ -128,11 +126,14 @@ function create(s) {
     create_pere(s);
     create_strega1_idle_v(s);
 
+    peramarcia20 = PP.assets.image.add(s, img_peramarcia1, 3500, 575, 0, 1);
+
     // Creo la collisione pavimento giocatore e nemico
     PP.physics.add_collider(s, player, floor);
     PP.physics.add_collider(s, enemy, floor);
     PP.physics.add_collider(s, enemy_2, floor);
     PP.physics.add_collider(s, strega1_v, floor);
+    PP.physics.add_overlap_f(s, player, floorscalablu, overlap_ladder1);
 
     // Interfaccia hud
     create_hud(s);

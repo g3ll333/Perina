@@ -14,9 +14,11 @@ let is_throwing = false;
 let contatore_morti = 0;
 
 let world_left_limit = 0;
-let world_right_limit = 3550;
+let world_right_limit = 3500;
 
-
+let is_climbing1 = false; // Flag per indicare se il player sta arrampicando
+let is_on_ladder1 = false; // Flag per indicare se il player Ã¨ sulla scala
+let is_holding1 = false; // Flag per indicare se il player Ã¨ sulla scala
 
 function configure_player_animations(s) {
     PP.assets.sprite.animation_add_list(player, "walk", [25, 26, 27, 28, 29, 30, 31, 32], 8, -1);
@@ -24,6 +26,8 @@ function configure_player_animations(s) {
     PP.assets.sprite.animation_add_list(player, "jump_up", [33, 34, 35, 36, 37, 38, 39, 40], 8, 0);
     PP.assets.sprite.animation_add_list(player, "jump_down", [41, 42, 43, 44, 45, 46, 47, 48, 49], 9, 0);
     PP.assets.sprite.animation_add_list(player, "throw", [7, 8, 9, 10, 11, 12, 13, 21, 22, 23, 24, 53], 12, 0);
+    PP.assets.sprite.animation_add_list(player, "climb", [54, 55, 56, 57, 58, 59, 60, 61, 62], 9, 0);
+    PP.assets.sprite.animation_add_list(player, "stop_climb", [54, 54, 54, 54, 54, 54], 4, 0);
     PP.assets.sprite.animation_add_list(player, "collision", [63, 50, 63, 50, 63, 50, 63, 50], 4, 0);
 
     PP.assets.sprite.animation_play(player, "idle");
@@ -77,13 +81,41 @@ function update_player(s) {
 
     }
 
-    if (player.geometry.y >= floor_height - 1 || player.is_on_platform) {
-        // Se mi trovo sul pavimento OPPURE su una piattaforma...
-        if (PP.interactive.kb.is_key_down(s, PP.key_codes.SPACE)) {
-            // ... e premo il tasto spazio, allora salto
-            PP.physics.set_velocity_y(player, -jump_init_speed);
+    if (is_on_ladder1) {
+        PP.physics.set_velocity_y(player, 0);
+        if (PP.interactive.kb.is_key_down(s, PP.key_codes.UP)) {
+            PP.physics.set_velocity_y(player, -player_speed);
+            next_anim = "climb";
+        }
+        else if (PP.interactive.kb.is_key_down(s, PP.key_codes.DOWN)) {
+            PP.physics.set_velocity_y(player, player_speed);
+            next_anim = "climb";
+        } else if (PP.interactive.kb.is_key_up(s, PP.key_codes.UP)) {
+            PP.physics.set_velocity_y(player, 0);
+            is_holding1 = true; // Il giocatore si ferma sulla scala 
+            next_anim = "stop_climb"; // Usa l'animazione di arrampicata per fermo 
+        }
+
+    }
+
+    //salto
+    if (!is_on_ladder1) {
+        if (player.geometry.y >= floor_height - 1 || player.is_on_platform) {
+            // Se mi trovo sul pavimento OPPURE su una piattaforma...
+            if (PP.interactive.kb.is_key_down(s, PP.key_codes.SPACE)) {
+                // ... e premo il tasto spazio, allora salto
+                PP.physics.set_velocity_y(player, -jump_init_speed);
+            }
+        }
+
+        // Le animazioni del salto vengono gestite in base alla velocità verticale
+        if (PP.physics.get_velocity_y(player) < 0) {
+            next_anim = "jump_up";
+        } else if (PP.physics.get_velocity_y(player) > 0) {
+            next_anim = "jump_down";
         }
     }
+
 
     // Logica per specchiare il giocatore
     if (PP.physics.get_velocity_x(player) < 0) {
@@ -94,12 +126,6 @@ function update_player(s) {
         PP.physics.set_collision_rectangle(player, 30, 140, 50, 28)
     }
 
-    // Le animazioni del salto vengono gestite in base alla velocità verticale
-    if (PP.physics.get_velocity_y(player) < 0) {
-        next_anim = "jump_up";
-    } else if (PP.physics.get_velocity_y(player) > 0) {
-        next_anim = "jump_down";
-    }
 
     //console.log("ccurr_score dopo svuota_cestino: ", curr_score);
     if (PP.interactive.kb.is_key_down(s, PP.key_codes.A) && pere_raccolte > 0) {
@@ -139,8 +165,19 @@ function update_player(s) {
 
     // Resetto il flag is_on_platform dopo ogni aggiornamento
     player.is_on_platform = false;
+    is_on_ladder1 = false; // Resetto il flag is_on_ladder dopo ogni aggiornamento
+
+    if (is_holding1) {
+        PP.physics.set_velocity_y(player, 0);
+    }
+    is_holding1 = false; // Resetto il flag is_on_ladder dopo ogni aggiornamento
+
 }
 
+function overlap_ladder1(s, player, floorscalablu) {
+    console.log("Player is on the ladder");
+    is_on_ladder1 = true;
+}
 
 function hit_enemy(s, shuriken, enemy) {
     PP.assets.destroy(shuriken);
