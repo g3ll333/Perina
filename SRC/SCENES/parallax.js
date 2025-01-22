@@ -7,6 +7,9 @@ let floorscalablu;
 let img_peramarcia1;
 let img_peramarcia2;
 let img_peramarcia3;
+let img_peramarcia4;
+let img_peramarcia5;
+let img_peramarcia6;
 let peramarcia1;
 let peramarcia2;
 let peramarcia3;
@@ -16,6 +19,19 @@ let peramarcia6;
 let peramarcia7;
 let peramarcia8;
 let peramarcia9;
+let peramarcia10;
+let peramarcia11;
+let peramarcia12;
+let peramarcia13;
+let peramarcia14;
+let peramarcia15;
+let peramarcia16;
+let peramarcia17;
+let peramarcia18;
+let peramarcia19;
+let peramarcia20;
+let peramarcia21;
+
 
 
 
@@ -34,8 +50,9 @@ function preload(s) {
     img_peramarcia1 = PP.assets.image.load(s, "ASSETS/IMAGES/peramarcia1.png");
     img_peramarcia2 = PP.assets.image.load(s, "ASSETS/IMAGES/peramarcia2.png");
     img_peramarcia3 = PP.assets.image.load(s, "ASSETS/IMAGES/peramarcia3.png");
-    peramarcia4 = PP.assets.image.load(s, "ASSETS/IMAGES/peramarcia4.png");
-    peramarcia5 = PP.assets.image.load(s, "ASSETS/IMAGES/peramarcia5.png");
+    img_peramarcia4 = PP.assets.image.load(s, "ASSETS/IMAGES/peramarcia4.png");
+    img_peramarcia5 = PP.assets.image.load(s, "ASSETS/IMAGES/peramarcia5.png");
+    img_peramarcia6 = PP.assets.image.load(s, "ASSETS/IMAGES/peramarcia6.png");
 
 
     preload_pere(s);
@@ -71,15 +88,27 @@ function create(s) {
     scalablu = PP.assets.image.add(s, scalablu, 2471, 370, 0, 0);
     floorscalablu = PP.shapes.rectangle_add(s, 2471 + 69 / 2, 370 + 207 / 2, 73, 207, "0x000000", 0);
 
-    peramarcia1 = PP.assets.image.add(s, img_peramarcia1, 383, 455, 0, 1);
+    peramarcia1 = PP.assets.image.add(s, img_peramarcia1, 360, 450, 0, 1);
     peramarcia2 = PP.assets.image.add(s, img_peramarcia2, 600, 575, 0, 1);
     peramarcia3 = PP.assets.image.add(s, img_peramarcia3, 850, 330, 0, 1);
-    peramarcia4 = PP.assets.image.add(s, peramarcia4, 1050, 330, 0, 1);
-    peramarcia5 = PP.assets.image.add(s, peramarcia5, 1800, 150, 0, 1);
+    peramarcia4 = PP.assets.image.add(s, img_peramarcia4, 1050, 330, 0, 1);
+    peramarcia5 = PP.assets.image.add(s, img_peramarcia5, 1820, 150, 0, 1);
     peramarcia6 = PP.assets.image.add(s, img_peramarcia2, 2400, 575, 0, 1);
-    peramarcia7 = PP.assets.image.add(s, img_peramarcia1, 2580, 378, 0, 1);
-    peramarcia8 = PP.assets.image.add(s, img_peramarcia3, 2740, 118, 0, 1);
-    peramarcia9 = PP.assets.image.add(s, img_peramarcia2, 800, 575, 0, 1);
+    peramarcia7 = PP.assets.image.add(s, img_peramarcia1, 2580, 373, 0, 1);
+    peramarcia8 = PP.assets.image.add(s, img_peramarcia3, 2740, 120, 0, 1);
+    peramarcia9 = PP.assets.image.add(s, img_peramarcia2, 3800, 575, 0, 1)
+    peramarcia10 = PP.assets.image.add(s, img_peramarcia5, 800, 575, 0, 1);
+    peramarcia11 = PP.assets.image.add(s, img_peramarcia3, 2000, 575, 0, 1);
+    peramarcia12 = PP.assets.image.add(s, img_peramarcia2, 200, 575, 0, 1);
+    peramarcia13 = PP.assets.image.add(s, img_peramarcia1, 1700, 575, 0, 1);
+    peramarcia14 = PP.assets.image.add(s, img_peramarcia4, 1090, 575, 0, 1);
+    peramarcia15 = PP.assets.image.add(s, img_peramarcia5, 2890, 575, 0, 1);
+    peramarcia16 = PP.assets.image.add(s, img_peramarcia6, 2750, 373, 0, 1);
+    peramarcia17 = PP.assets.image.add(s, img_peramarcia6, 3300, 300, 0, 1);
+    peramarcia18 = PP.assets.image.add(s, img_peramarcia6, 2890, 120, 0, 1);
+    peramarcia19 = PP.assets.image.add(s, img_peramarcia6, 1300, 575, 0, 1);
+    peramarcia20 = PP.assets.image.add(s, img_peramarcia1, 3400, 575, 0, 1);
+    peramarcia21 = PP.assets.image.add(s, img_peramarcia6, 1730, 150, 0, 1);
  
 
 

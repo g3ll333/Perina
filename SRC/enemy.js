@@ -12,7 +12,7 @@ let contatore_vite = 5;
 function preload_enemy(s) {
     // Load della sprite del nemico 
     ss_enemy = PP.assets.sprite.load_spritesheet(s, "ASSETS/IMAGES/Funghetto1.png", 133, 111);
-    ss_enemy_2 = PP.assets.sprite.load_spritesheet(s, "ASSETS/IMAGES/Funghetto2.png", 130, 86);
+    ss_enemy_2 = PP.assets.sprite.load_spritesheet(s, "ASSETS/IMAGES/Funghetto2.png", 130, 90);
 }
 
 function goto_gameover(s) {
@@ -192,7 +192,7 @@ function create_enemy(s) {
 
     //Gestisco hitbox personaggio
     PP.physics.set_collision_rectangle(enemy, 50, 80, 40, 30);
-    PP.physics.set_collision_rectangle(enemy_2, 50, 85, 40, 0);
+    PP.physics.set_collision_rectangle(enemy_2, 50, 89, 40, 0);
     PP.physics.set_collision_rectangle(enemy_3, 50, 80, 40, 30);
 
 
