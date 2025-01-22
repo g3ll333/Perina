@@ -24,7 +24,7 @@ function configure_player_animations(s) {
     PP.assets.sprite.animation_add_list(player, "jump_up", [33, 34, 35, 36, 37, 38, 39, 40], 8, 0);
     PP.assets.sprite.animation_add_list(player, "jump_down", [41, 42, 43, 44, 45, 46, 47, 48, 49], 9, 0);
     PP.assets.sprite.animation_add_list(player, "throw", [7, 8, 9, 10, 11, 12, 13, 21, 22, 23, 24, 53], 12, 0);
-    PP.assets.sprite.animation_add_list(player, "collision", [63, 50, 63, 50], 4, -1);
+    PP.assets.sprite.animation_add_list(player, "collision", [63, 50, 63, 50, 63, 50, 63, 50], 4, 0);
 
     PP.assets.sprite.animation_play(player, "idle");
 }

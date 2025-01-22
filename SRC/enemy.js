@@ -22,14 +22,24 @@ function goto_gameover(s) {
 function reset_invincibile(s) {
     invincibile = false;
     console.log("resettata invincibilità");
+    PP.physics.set_velocity_x(enemy, 100);
+    PP.physics.set_velocity_x(enemy_2, 100);
+    PP.physics.set_velocity_x(enemy_3, 100);
+
 }
 
-function decrease_life(s) {
+function decrease_life_1(s) {
     if (invincibile) {
         return;
     }
     invincibile = true;
     contatore_vite--;
+    PP.physics.set_velocity_x(player, 0);
+    PP.physics.set_velocity_x(enemy, 0);
+    PP.assets.sprite.animation_play(enemy, "stop");
+
+    PP.assets.sprite.animation_play(player, "collision");
+
     PP.timers.add_timer(s, 1000, reset_invincibile, false);
 
     if (contatore_vite === 0) {
@@ -66,6 +76,103 @@ function decrease_life(s) {
 
 }
 
+function decrease_life_2(s) {
+    if (invincibile) {
+        return;
+    }
+    invincibile = true;
+    contatore_vite--;
+    PP.physics.set_velocity_x(player, 0);
+
+    PP.physics.set_velocity_x(enemy_2, 0);
+    PP.assets.sprite.animation_play(enemy_2, "stop");
+
+    PP.assets.sprite.animation_play(player, "collision");
+
+    PP.timers.add_timer(s, 1000, reset_invincibile, false);
+
+    if (contatore_vite === 0) {
+        PP.scenes.start("gameover");
+    }
+    else if (contatore_vite === 4) {
+        vita5.visibility.hidden = true;
+        vita4.visibility.hidden = false;
+        vita3.visibility.hidden = false;
+        vita2.visibility.hidden = false;
+        vita1.visibility.hidden = false;
+    }
+    else if (contatore_vite === 3) {
+        vita5.visibility.hidden = true;
+        vita4.visibility.hidden = true;
+        vita3.visibility.hidden = false;
+        vita2.visibility.hidden = false;
+        vita1.visibility.hidden = false;
+    }
+    else if (contatore_vite === 2) {
+        vita5.visibility.hidden = true;
+        vita4.visibility.hidden = true;
+        vita3.visibility.hidden = true;
+        vita2.visibility.hidden = false;
+        vita1.visibility.hidden = false;
+    }
+    else if (contatore_vite === 1) {
+        vita5.visibility.hidden = true;
+        vita4.visibility.hidden = true;
+        vita3.visibility.hidden = true;
+        vita2.visibility.hidden = true;
+        vita1.visibility.hidden = false;
+    }
+
+}
+
+function decrease_life_3(s) {
+    if (invincibile) {
+        return;
+    }
+    invincibile = true;
+    contatore_vite--;
+    PP.physics.set_velocity_x(player, 0);
+
+    PP.physics.set_velocity_x(enemy_3, 0);
+    PP.assets.sprite.animation_play(enemy_3, "stop");
+
+    PP.assets.sprite.animation_play(player, "collision");
+
+    PP.timers.add_timer(s, 1000, reset_invincibile, false);
+
+    if (contatore_vite === 0) {
+        PP.scenes.start("gameover");
+    }
+    else if (contatore_vite === 4) {
+        vita5.visibility.hidden = true;
+        vita4.visibility.hidden = false;
+        vita3.visibility.hidden = false;
+        vita2.visibility.hidden = false;
+        vita1.visibility.hidden = false;
+    }
+    else if (contatore_vite === 3) {
+        vita5.visibility.hidden = true;
+        vita4.visibility.hidden = true;
+        vita3.visibility.hidden = false;
+        vita2.visibility.hidden = false;
+        vita1.visibility.hidden = false;
+    }
+    else if (contatore_vite === 2) {
+        vita5.visibility.hidden = true;
+        vita4.visibility.hidden = true;
+        vita3.visibility.hidden = true;
+        vita2.visibility.hidden = false;
+        vita1.visibility.hidden = false;
+    }
+    else if (contatore_vite === 1) {
+        vita5.visibility.hidden = true;
+        vita4.visibility.hidden = true;
+        vita3.visibility.hidden = true;
+        vita2.visibility.hidden = true;
+        vita1.visibility.hidden = false;
+    }
+
+}
 
 function create_enemy(s) {
     // Creare nemico e posizionarlo
@@ -79,25 +186,28 @@ function create_enemy(s) {
     PP.physics.add(s, enemy_2, PP.physics.type.DYNAMIC);
     PP.physics.add(s, enemy_3, PP.physics.type.DYNAMIC);
 
-    PP.physics.add_overlap_f(s, enemy, player, decrease_life);
-    PP.physics.add_overlap_f(s, enemy_2, player, decrease_life);
-    PP.physics.add_overlap_f(s, enemy_3, player, decrease_life);
+    PP.physics.add_overlap_f(s, enemy, player, decrease_life_1);
+    PP.physics.add_overlap_f(s, enemy_2, player, decrease_life_2);
+    PP.physics.add_overlap_f(s, enemy_3, player, decrease_life_3);
 
     //Gestisco hitbox personaggio
     PP.physics.set_collision_rectangle(enemy, 50, 80, 40, 30);
     PP.physics.set_collision_rectangle(enemy_2, 50, 85, 40, 0);
     PP.physics.set_collision_rectangle(enemy_3, 50, 80, 40, 30);
-    
+
 
     // Configurare le animazioni del nemico
     PP.assets.sprite.animation_add_list(enemy, "walk_right", [0, 1, 2, 3, 4, 5, 6, 7], 8, -1);
     PP.assets.sprite.animation_add_list(enemy, "walk_left", [7, 6, 5, 4, 3, 2, 1, 0], 8, -1);
+    PP.assets.sprite.animation_add_list(enemy, "stop", [0, 0, 0, 0, 0, 0, 0, 0], 4, 0);
 
     PP.assets.sprite.animation_add_list(enemy_2, "walk_right", [0, 1, 2, 3, 4, 5, 6, 7], 8, -1);
     PP.assets.sprite.animation_add_list(enemy_2, "walk_left", [7, 6, 5, 4, 3, 2, 1, 0], 8, -1);
+    PP.assets.sprite.animation_add_list(enemy_2, "stop", [0, 0, 0, 0, 0, 0, 0, 0], 4, 0);
 
     PP.assets.sprite.animation_add_list(enemy_3, "walk_right", [0, 1, 2, 3, 4, 5, 6, 7], 8, -1);
     PP.assets.sprite.animation_add_list(enemy_3, "walk_left", [7, 6, 5, 4, 3, 2, 1, 0], 8, -1);
+    PP.assets.sprite.animation_add_list(enemy_3, "stop", [0, 0, 0, 0, 0, 0, 0, 0], 4, 0);
 
     // Avviare l'animazione "walk_left" e impostare la velocità iniziale
     PP.assets.sprite.animation_play(enemy, "walk_left");
@@ -174,7 +284,11 @@ function update_enemy(s) {
     }
 
     // Verifica se tutti i nemici sono stati uccisi 
-    if (contatore_morti >= 3) {
+    if (contatore_morti >= 3 && pere_raccolte === 0) {
         PP.scenes.start("strega1morte");
+    }
+
+    if (contatore_morti >= 3 && pere_raccolte > 0) {
+        PP.scenes.start("consumo1");
     }
 }
