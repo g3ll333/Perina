@@ -20,6 +20,7 @@ let peramarcia9;
 
 
 
+
 function preload(s) {
     console.log("Executing preload() - SCENE 1");
 
@@ -70,15 +71,16 @@ function create(s) {
     scalablu = PP.assets.image.add(s, scalablu, 2471, 370, 0, 0);
     floorscalablu = PP.shapes.rectangle_add(s, 2471 + 69 / 2, 370 + 207 / 2, 73, 207, "0x000000", 0);
 
-    peramarcia1 = PP.assets.image.add(s, img_peramarcia1, 383, 415, 0, 0);
-    peramarcia2 = PP.assets.image.add(s, img_peramarcia2, 600, 535, 0, 0);
-    peramarcia3 = PP.assets.image.add(s, img_peramarcia3, 850, 290, 0, 0);
-    peramarcia4 = PP.assets.image.add(s, peramarcia4, 1050, 290, 0, 0);
-    peramarcia5 = PP.assets.image.add(s, peramarcia5, 1800, 110, 0, 0);
-    peramarcia6 = PP.assets.image.add(s, img_peramarcia2, 2400, 535, 0, 0);
-    peramarcia7 = PP.assets.image.add(s, img_peramarcia1, 2580, 338, 0, 0);
-    peramarcia8 = PP.assets.image.add(s, img_peramarcia3, 2740, 78, 0, 0);
-    peramarcia9 = PP.assets.image.add(s, img_peramarcia2, 3500, 535, 0, 0);
+    peramarcia1 = PP.assets.image.add(s, img_peramarcia1, 383, 455, 0, 1);
+    peramarcia2 = PP.assets.image.add(s, img_peramarcia2, 600, 575, 0, 1);
+    peramarcia3 = PP.assets.image.add(s, img_peramarcia3, 850, 330, 0, 1);
+    peramarcia4 = PP.assets.image.add(s, peramarcia4, 1050, 330, 0, 1);
+    peramarcia5 = PP.assets.image.add(s, peramarcia5, 1800, 150, 0, 1);
+    peramarcia6 = PP.assets.image.add(s, img_peramarcia2, 2400, 575, 0, 1);
+    peramarcia7 = PP.assets.image.add(s, img_peramarcia1, 2580, 378, 0, 1);
+    peramarcia8 = PP.assets.image.add(s, img_peramarcia3, 2740, 118, 0, 1);
+    peramarcia9 = PP.assets.image.add(s, img_peramarcia2, 800, 575, 0, 1);
+ 
 
 
     PP.physics.add(s, floorscalablu, PP.physics.type.STATIC);
