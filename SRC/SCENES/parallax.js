@@ -3,6 +3,7 @@ let floor;
 let img_background_1, img_background_2, img_background_3, img_background_4, img_background_5;
 let background_1, background_2, background_3, background_4, background_5;
 let scalablu;
+let scalablu2;
 let floorscalablu;
 let img_peramarcia1;
 let img_peramarcia2;
@@ -46,6 +47,7 @@ function preload(s) {
     img_background_4 = PP.assets.image.load(s, "ASSETS/IMAGES/background4.png");
     img_background_5 = PP.assets.image.load(s, "ASSETS/IMAGES/background5.png");
     scalablu = PP.assets.image.load(s, "ASSETS/IMAGES/scalablu.png");
+    scalablu2 = PP.assets.image.load(s, "ASSETS/IMAGES/scalablu2.png");
     img_peramarcia1 = PP.assets.image.load(s, "ASSETS/IMAGES/peramarcia1.png");
     img_peramarcia2 = PP.assets.image.load(s, "ASSETS/IMAGES/peramarcia2.png");
     img_peramarcia3 = PP.assets.image.load(s, "ASSETS/IMAGES/peramarcia3.png");
@@ -85,6 +87,7 @@ function create(s) {
     background_5.tile_geometry.scroll_factor_x = 0;
 
     scalablu = PP.assets.image.add(s, scalablu, 2471, 370, 0, 0);
+    scalablu2 = PP.assets.image.add(s, scalablu2, 2671, 119, 0, 0);
     floorscalablu = PP.shapes.rectangle_add(s, 2471 + 69 / 2, 370 + 207 / 2, 73, 207, "0x000000", 0);
 
     peramarcia1 = PP.assets.image.add(s, img_peramarcia1, 360, 450, 0, 1);
