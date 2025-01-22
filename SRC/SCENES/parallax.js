@@ -4,6 +4,19 @@ let img_background_1, img_background_2, img_background_3, img_background_4, img_
 let background_1, background_2, background_3, background_4, background_5;
 let scalablu;
 let floorscalablu;
+let img_peramarcia1;
+let img_peramarcia2;
+let img_peramarcia3;
+let peramarcia1;
+let peramarcia2;
+let peramarcia3;
+let peramarcia4;
+let peramarcia5;
+let peramarcia6;
+let peramarcia7;
+let peramarcia8;
+let peramarcia9;
+
 
 
 
@@ -17,6 +30,12 @@ function preload(s) {
     img_background_4 = PP.assets.image.load(s, "ASSETS/IMAGES/background4.png");
     img_background_5 = PP.assets.image.load(s, "ASSETS/IMAGES/background5.png");
     scalablu = PP.assets.image.load(s, "ASSETS/IMAGES/scalablu.png");
+    img_peramarcia1 = PP.assets.image.load(s, "ASSETS/IMAGES/peramarcia1.png");
+    img_peramarcia2 = PP.assets.image.load(s, "ASSETS/IMAGES/peramarcia2.png");
+    img_peramarcia3 = PP.assets.image.load(s, "ASSETS/IMAGES/peramarcia3.png");
+    peramarcia4 = PP.assets.image.load(s, "ASSETS/IMAGES/peramarcia4.png");
+    peramarcia5 = PP.assets.image.load(s, "ASSETS/IMAGES/peramarcia5.png");
+
 
     preload_pere(s);
     preload_hud(s);
@@ -50,6 +69,17 @@ function create(s) {
 
     scalablu = PP.assets.image.add(s, scalablu, 2471, 370, 0, 0);
     floorscalablu = PP.shapes.rectangle_add(s, 2471 + 69 / 2, 370 + 207 / 2, 73, 207, "0x000000", 0);
+
+    peramarcia1 = PP.assets.image.add(s, img_peramarcia1, 383, 415, 0, 0);
+    peramarcia2 = PP.assets.image.add(s, img_peramarcia2, 600, 535, 0, 0);
+    peramarcia3 = PP.assets.image.add(s, img_peramarcia3, 850, 290, 0, 0);
+    peramarcia4 = PP.assets.image.add(s, peramarcia4, 1050, 290, 0, 0);
+    peramarcia5 = PP.assets.image.add(s, peramarcia5, 1800, 110, 0, 0);
+    peramarcia6 = PP.assets.image.add(s, img_peramarcia2, 2400, 535, 0, 0);
+    peramarcia7 = PP.assets.image.add(s, img_peramarcia1, 2580, 338, 0, 0);
+    peramarcia8 = PP.assets.image.add(s, img_peramarcia3, 2740, 78, 0, 0);
+    peramarcia9 = PP.assets.image.add(s, img_peramarcia2, 3500, 535, 0, 0);
+
 
     PP.physics.add(s, floorscalablu, PP.physics.type.STATIC);
 

@@ -14,7 +14,7 @@ let is_throwing = false;
 let contatore_morti = 0;
 
 let world_left_limit = 0;
-let world_right_limit = 3600;
+let world_right_limit = 3550;
 
 
 
