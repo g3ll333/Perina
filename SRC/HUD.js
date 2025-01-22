@@ -10,13 +10,16 @@ let cestino1;
 let cestino2;
 let cestinopieno;
 let cestinomuffa;
+let bottonemenu;
 let img_cestino_vuoto;
 let img_cestino_1pera;
 let img_cestino_2pere;
 let img_cestino_pieno;
 let img_cestino_muffa;
+let img_bottonemenu;
 
 let text_score;
+let text_menu
 let prev_score;
 let curr_score;
 
@@ -28,6 +31,8 @@ function preload_hud(s) {
     img_cestino_2pere = PP.assets.image.load(s, "ASSETS/IMAGES/cestino2pere.png");
     img_cestino_pieno = PP.assets.image.load(s, "ASSETS/IMAGES/cestinopieno.png");
     img_cestino_muffa = PP.assets.image.load(s, "ASSETS/IMAGES/cestinomuffa.png");
+
+    img_bottonemenu = PP.assets.image.load(s, "ASSETS/IMAGES/bottonemenu.png");
 
     img_vita = PP.assets.image.load(s, "ASSETS/IMAGES/vitaperina.png");
 }
@@ -50,11 +55,17 @@ function create_hud(s) {
     cestinopieno.visibility.hidden = true;
     cestinomuffa.visibility.hidden = true;
 
+    bottonemenu = PP.assets.image.add(s, img_bottonemenu, 1205,43, 0.5, 0.5);
+
     text_score = PP.shapes.text_styled_add(s, 10, 20, "0", 40, "Helvetica", "normal", "0xb86127", null, 0, 0);
+    text_menu = PP.shapes.text_styled_add(s, 1188, 73, "Esc", 20, "Fatfrank", "normal", "0xb86127", null, 0, 0);
 
     //non faccio muovere cestini e vite
     text_score.tile_geometry.scroll_factor_x = 0;
     text_score.tile_geometry.scroll_factor_y = 0;
+
+    text_menu.tile_geometry.scroll_factor_x = 0;
+    text_menu.tile_geometry.scroll_factor_y = 0;
 
     cestino.tile_geometry.scroll_factor_x = 0;
     cestino.tile_geometry.scroll_factor_y = 0;
@@ -85,6 +96,9 @@ function create_hud(s) {
 
     vita5.tile_geometry.scroll_factor_x = 0;
     vita5.tile_geometry.scroll_factor_y = 0;
+
+    bottonemenu.tile_geometry.scroll_factor_x = 0;
+    bottonemenu.tile_geometry.scroll_factor_y = 0;
 
     PP.game_state.set_variable("count_pere", 0);
 }

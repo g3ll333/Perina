@@ -10,12 +10,16 @@ let cestino1_2;
 //let cestino2_2;
 let cestinopieno_2;
 let cestinomuffa_2;
+let bottonemenu;
+
 let img_cestino_vuoto_2;
 let img_cestino_1pomodoro;
 let img_cestino_2pomodori;
 let img_cestino_pieno_2;
 let img_cestino_muffa_2;
+let img_bottonemenu;
 
+let text_menu
 let text_score_2;
 let prev_score_2;
 let curr_score_2;
@@ -28,6 +32,8 @@ function preload_hud2(s) {
     //img_cestino_2pomodori = PP.assets.image.load(s, "ASSETS/IMAGES/cestinopomo2.png");
     img_cestino_pieno_2 = PP.assets.image.load(s, "ASSETS/IMAGES/cestinopomo2.png");
     img_cestino_muffa_2 = PP.assets.image.load(s, "ASSETS/IMAGES/cestinomuffa.png");
+
+    img_bottonemenu = PP.assets.image.load(s, "ASSETS/IMAGES/bottonemenu.png");
 
     img_vita_2 = PP.assets.image.load(s, "ASSETS/IMAGES/vitaperina.png");
 }
@@ -45,16 +51,22 @@ function create_hud2(s) {
     cestinopieno_2 = PP.assets.image.add(s, img_cestino_pieno_2, 75, 40, 0.5, 0.5);
     cestinomuffa_2 = PP.assets.image.add(s, img_cestino_muffa_2, 75, 40, 0.5, 0.5);
 
+    bottonemenu = PP.assets.image.add(s, img_bottonemenu, 1205,43, 0.5, 0.5);
+
     cestino1_2.visibility.hidden = true;
     //cestino2_2.visibility.hidden = true;
     cestinopieno_2.visibility.hidden = true;
     cestinomuffa_2.visibility.hidden = true;
 
     text_score_2 = PP.shapes.text_styled_add(s, 10, 20, "0", 40, "Helvetica", "normal", "0xb86127", null, 0, 0);
+    text_menu = PP.shapes.text_styled_add(s, 1188, 73, "Esc", 20, "Fatfrank", "normal", "0xb86127", null, 0, 0);
 
     //non faccio muovere cestini e vite
     text_score_2.tile_geometry.scroll_factor_x = 0;
     text_score_2.tile_geometry.scroll_factor_y = 0;
+
+    text_menu.tile_geometry.scroll_factor_x = 0;
+    text_menu.tile_geometry.scroll_factor_y = 0;
 
     cestino_2.tile_geometry.scroll_factor_x = 0;
     cestino_2.tile_geometry.scroll_factor_y = 0;
@@ -85,6 +97,9 @@ function create_hud2(s) {
 
     vita5_2.tile_geometry.scroll_factor_x = 0;
     vita5_2.tile_geometry.scroll_factor_y = 0;
+
+    bottonemenu.tile_geometry.scroll_factor_x = 0;
+    bottonemenu.tile_geometry.scroll_factor_y = 0;
 
     PP.game_state.set_variable("count_pomodori", 0);
 }
