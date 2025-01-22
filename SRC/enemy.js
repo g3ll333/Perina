@@ -284,11 +284,8 @@ function update_enemy(s) {
     }
 
     // Verifica se tutti i nemici sono stati uccisi 
-    if (contatore_morti >= 3 && pere_raccolte === 0) {
+    if (contatore_morti >= 3) {
         PP.scenes.start("strega1morte");
     }
 
-    if (contatore_morti >= 3 && pere_raccolte > 0) {
-        PP.scenes.start("consumo1");
-    }
 }

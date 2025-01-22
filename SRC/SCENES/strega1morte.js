@@ -76,7 +76,9 @@ function update(s) {
     background_3_v.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.06;
     background_4_v.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.08;
     background_5_v.tile_geometry.x = PP.camera.get_scroll_x(s) * 0.10;
+
 }
+
 
 function destroy(s) {
     console.log("Executing destroy() - SCENE 1");

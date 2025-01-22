@@ -45,7 +45,16 @@ function create_strega1_idle_v(s) {
 function morte_strega1(s) {
     PP.assets.sprite.animation_play(strega1_v, "death1");
 
-    PP.timers.add_timer(s, 3000, vittoria1, false);
+    if (pere_raccolte > 0) {
+        PP.timers.add_timer(s, 3000, consumocattivo, false);
+    } else if (pere_raccolte === 0) {
+        PP.timers.add_timer(s, 3000, vittoria1, false);
+    }
+
+}
+
+function consumocattivo(s) {
+    PP.scenes.start("consumo1");
 }
 
 function vittoria1(s) {
@@ -53,7 +62,5 @@ function vittoria1(s) {
 }
 
 function update_strega1_v(s) {
-
-
 
 }

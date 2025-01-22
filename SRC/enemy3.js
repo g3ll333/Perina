@@ -129,16 +129,10 @@ function update_enemy3(s) {
     }
 
     // Verifica se tutti i nemici sono stati uccisi 
-    if (contatore_morti2 >= 2 && zucche_raccolte === 0) {
+    if (contatore_morti2 >= 2) {
         PP.scenes.start("strega3morte");
     }
 
-    if (contatore_morti2 >= 2 && zucche_raccolte > 0) {
-        PP.timers.add_timer(s, 2000, fatinaimprigionata, false);
-    }
 
 }
 
-function fatinaimprigionata(s) {
-    location.href = 'fatinaimprigionata.html';
-}

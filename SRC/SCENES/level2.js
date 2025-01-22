@@ -38,6 +38,12 @@ function preload2(s) {
     alberiverdi = PP.assets.image.load(s, "ASSETS/IMAGES/alberiverdi.png");
     alberiverdi2 = PP.assets.image.load(s, "ASSETS/IMAGES/alberiverdinuovi.png");
 
+    img_pomomarcia1 = PP.assets.image.load(s, "ASSETS/IMAGES/pomomorto1.png");
+    img_pomomarcia2 = PP.assets.image.load(s, "ASSETS/IMAGES/pomomorto2.png");
+    img_pomomarcia3 = PP.assets.image.load(s, "ASSETS/IMAGES/pomomorto3.png");
+    img_pomomarcia4 = PP.assets.image.load(s, "ASSETS/IMAGES/pomomorto4.png");
+    img_pomomarcia5 = PP.assets.image.load(s, "ASSETS/IMAGES/pomomorto5.png");
+
     preload_pomodori(s);
     preload_hud2(s);
     preload_platforms2(s);
@@ -45,11 +51,7 @@ function preload2(s) {
     preload_enemy2(s);
     preload_strega2_v(s);
 
-    img_pomomarcia1 = PP.assets.image.load(s, "ASSETS/IMAGES/pomomorto1.png");
-    img_pomomarcia2 = PP.assets.image.load(s, "ASSETS/IMAGES/pomomorto2.png");
-    img_pomomarcia3 = PP.assets.image.load(s, "ASSETS/IMAGES/pomomorto3.png");
-    img_pomomarcia4 = PP.assets.image.load(s, "ASSETS/IMAGES/pomomorto4.png");
-    img_pomomarcia5 = PP.assets.image.load(s, "ASSETS/IMAGES/pomomorto5.png");
+
 }
 
 function create2(s) {
@@ -61,6 +63,17 @@ function create2(s) {
     pavimentox_1 = PP.assets.image.add(s, pavimentox_1, 0, 2007, 0, 0);
     alberiverdi = PP.assets.image.add(s, alberiverdi, 0, 30, 0, 0);
     alberiverdi2 = PP.assets.image.add(s, alberiverdi2, 462, 2, 0, 0);
+
+    pomomarcia1 = PP.assets.image.add(s, img_pomomarcia1, 260, 660, 0, 1);
+    pomomarcia2 = PP.assets.image.add(s, img_pomomarcia2, 160, 1580, 0, 1);
+    pomomarcia3 = PP.assets.image.add(s, img_pomomarcia3, 530, 1365, 0, 1);
+    pomomarcia4 = PP.assets.image.add(s, img_pomomarcia4, 1000, 1365, 0, 1);
+    pomomarcia5 = PP.assets.image.add(s, img_pomomarcia5, 630, 1365, 0, 1);
+    pomomarcia6 = PP.assets.image.add(s, img_pomomarcia1, 340, 1693, 0, 1);
+    pomomarcia7 = PP.assets.image.add(s, img_pomomarcia2, 500, 2007, 0, 1);
+    pomomarcia8 = PP.assets.image.add(s, img_pomomarcia3, 1320, 2007, 0, 1);
+    pomomarcia9 = PP.assets.image.add(s, img_pomomarcia4, 1150, 2007, 0, 1);
+    pomomarcia10 = PP.assets.image.add(s, img_pomomarcia5, 210, 2007, 0, 1);
 
     floor_1 = PP.shapes.rectangle_add(s, 163 / 2, 2160 - 1853 / 2, 163, 1853, "0x000000", 0);
     floor_pavimentox_1 = PP.shapes.rectangle_add(s, 3840 / 2, 2007 + 153 / 2, 3840, 153, "0x000000", 0);
@@ -97,18 +110,6 @@ function create2(s) {
 
     PP.camera.start_follow(s, player1, 0, 0);
     PP.camera.set_follow_offset(s, -559, -53);
-
-    pomomarcia1 = PP.assets.image.add(s, img_pomomarcia1, 260, 660, 0, 1);
-    pomomarcia2 = PP.assets.image.add(s, img_pomomarcia2, 160, 1580, 0, 1);
-    pomomarcia3 = PP.assets.image.add(s, img_pomomarcia3, 530, 1365, 0, 1);
-    pomomarcia4 = PP.assets.image.add(s, img_pomomarcia4, 1000, 1365, 0, 1);
-    pomomarcia5 = PP.assets.image.add(s, img_pomomarcia5, 630, 1365, 0, 1);
-    pomomarcia6 = PP.assets.image.add(s, img_pomomarcia1, 340, 1693, 0, 1);
-    pomomarcia7 = PP.assets.image.add(s, img_pomomarcia2, 500, 2007, 0, 1);
-    pomomarcia8 = PP.assets.image.add(s, img_pomomarcia3, 1320, 2007, 0, 1);
-    pomomarcia9 = PP.assets.image.add(s, img_pomomarcia4, 1150, 2007, 0, 1);
-    pomomarcia10 = PP.assets.image.add(s, img_pomomarcia5, 210, 2007, 0, 1);
-
 
 }
 

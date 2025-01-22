@@ -43,7 +43,15 @@ function create_strega3_idle_v(s) {
 function morte_strega3(s) {
     PP.assets.sprite.animation_play(strega3_v, "death3");
 
-    PP.timers.add_timer(s, 3000, vittoria3, false);
+    if (zucche_raccolte > 0) {
+        PP.timers.add_timer(s, 3000, consumocattivo3, false);
+    } else if (zucche_raccolte === 0) {
+        PP.timers.add_timer(s, 3000, vittoria3, false);
+    }
+}
+
+function consumocattivo3(s) {
+    location.href = 'fatinaimprigionata.html';
 }
 
 function vittoria3(s) {

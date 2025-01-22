@@ -43,7 +43,15 @@ function create_strega2_idle_v(s) {
 function morte_strega2(s) {
     PP.assets.sprite.animation_play(strega2_v, "death2");
 
-    PP.timers.add_timer(s, 3000, vittoria2, false);
+    if (pomodori_raccolti > 0) {
+        PP.timers.add_timer(s, 3000, consumocattivo2, false);
+    } else if (pomodori_raccolti === 0) {
+        PP.timers.add_timer(s, 3000, vittoria2, false);
+    }
+}
+
+function consumocattivo2(s) {
+    PP.scenes.start("consumo2");
 }
 
 function vittoria2(s) {
