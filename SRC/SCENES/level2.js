@@ -72,7 +72,7 @@ function create2(s) {
     pomomarcia6 = PP.assets.image.add(s, img_pomomarcia1, 340, 1693, 0, 1);
     pomomarcia7 = PP.assets.image.add(s, img_pomomarcia2, 500, 2007, 0, 1);
     pomomarcia8 = PP.assets.image.add(s, img_pomomarcia3, 1320, 2007, 0, 1);
-    pomomarcia9 = PP.assets.image.add(s, img_pomomarcia4, 1150, 2007, 0, 1);
+
     pomomarcia10 = PP.assets.image.add(s, img_pomomarcia5, 210, 2007, 0, 1);
 
     floor_1 = PP.shapes.rectangle_add(s, 163 / 2, 2160 - 1853 / 2, 163, 1853, "0x000000", 0);
@@ -94,6 +94,8 @@ function create2(s) {
     create_platforms2(s);
     create_pomodori(s);
     create_strega2_idle_v(s);
+
+    pomomarcia9 = PP.assets.image.add(s, img_pomomarcia4, 1150, 2007, 0, 1);
 
     PP.physics.add_collider(s, player1, floor_1);
     PP.physics.add_collider(s, player1, floor_pavimentox_1);

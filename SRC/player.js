@@ -41,8 +41,7 @@ function preload_player(s) {
 }
 
 function create_player(s) {
-    //player = PP.assets.sprite.add(s, ss_player, 150, floor_height, 0.5, 1);
-    player = PP.assets.sprite.add(s, ss_player, 2595, 370, 0.5, 1);
+    player = PP.assets.sprite.add(s, ss_player, 150, floor_height, 0.5, 1);
 
     // Aggiungo il giocatore alla fisica
     PP.physics.add(s, player, PP.physics.type.DYNAMIC);

@@ -15,7 +15,7 @@ let is_throwing1 = false;
 let contatore_morti1 = 0;
 
 let world_left_limit2 = 81;
-let world_right_limit2 = 1100;
+let world_right_limit2 = 1160;
 
 let is_climbing = false; // Flag per indicare se il player sta arrampicando
 let is_on_ladder = false; // Flag per indicare se il player Ã¨ sulla scala
@@ -42,6 +42,7 @@ function preload_player2(s) {
 
 function create_player2(s) {
     player1 = PP.assets.sprite.add(s, ss_player1, 130, starting_point, 0.5, 1);
+
     PP.physics.add(s, player1, PP.physics.type.DYNAMIC);
     PP.physics.set_collision_rectangle(player1, 30, 140, 50, 28);
     configure_player_animations2(s);
