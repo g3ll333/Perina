@@ -10,6 +10,17 @@ let alberiviola_v;
 let alberiviola2_v;
 let alberiviola3_v;
 
+let img_zuccamarcia1_v;
+let img_zuccamarcia2_v;
+let img_zuccamarcia4_v;
+let img_zuccamarcia5_v;
+let zuccamarcia10_v;
+let zuccamarcia11_v;
+let zuccamarcia12_v;
+let zuccamarcia20_v;
+let zuccamarcia21_v;
+let zuccamarcia22_v;
+
 
 function preload3_v(s) {
     console.log("Executing preload() - SCENE 3");
@@ -22,6 +33,10 @@ function preload3_v(s) {
     alberiviola2_v = PP.assets.image.load(s, "ASSETS/IMAGES/alberiviolanuovi.png");
     alberiviola3_v = PP.assets.image.load(s, "ASSETS/IMAGES/alberiviolanuovi.png");
 
+    img_zuccamarcia1_v = PP.assets.image.load(s, "ASSETS/IMAGES/zuccamorta1.png");
+    img_zuccamarcia2_v = PP.assets.image.load(s, "ASSETS/IMAGES/zuccamorta2.png");
+    img_zuccamarcia4_v = PP.assets.image.load(s, "ASSETS/IMAGES/zuccamorta4.png");
+    img_zuccamarcia5_v = PP.assets.image.load(s, "ASSETS/IMAGES/zuccamorta5.png");
 
     preload_platforms3_v(s);
     preload_player3_v(s);
@@ -39,6 +54,14 @@ function create3_v(s) {
     alberiviola_v = PP.assets.image.add(s, alberiviola_v, 3385, 8, 0, 0);
     alberiviola2_v = PP.assets.image.add(s, alberiviola2_v, 4100, 8, 0, 0);
     alberiviola3_v = PP.assets.image.add(s, alberiviola3_v, 1720, 8, 0, 0);
+
+    zuccamarcia10_v = PP.assets.image.add(s, img_zuccamarcia5_v, 2600, 630, 0, 1);
+    zuccamarcia11_v = PP.assets.image.add(s, img_zuccamarcia1_v, 2950, 468, 0, 1);
+    zuccamarcia12_v = PP.assets.image.add(s, img_zuccamarcia4_v, 3150, 315, 0, 1);
+    zuccamarcia20_v = PP.assets.image.add(s, img_zuccamarcia2_v, 3000, 630, 0, 1);
+    zuccamarcia21_v = PP.assets.image.add(s, img_zuccamarcia2_v, 3500, 250, 0, 1);
+    zuccamarcia22_v = PP.assets.image.add(s, img_zuccamarcia1_v, 3670, 250, 0, 1);
+
 
     // Creo un pavimento "trasparente"
     floor_5_2_v = PP.shapes.rectangle_add(s, 3624, 248 + 1596 / 2, 432, 1596, "0x000000", 0); // ultimo blocco dx

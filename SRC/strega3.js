@@ -28,7 +28,7 @@ function create_strega3_v(s) {
 }
 
 function create_strega3_idle_v(s) {
-    strega3_v = PP.assets.sprite.add(s, ss_strega3_v, 3600, 250, 0.5, 1);
+    strega3_v = PP.assets.sprite.add(s, ss_strega3_v, 3620, 250, 0.5, 1);
 
     // Aggiungo il giocatore alla fisica
     PP.physics.add(s, strega3_v, PP.physics.type.DYNAMIC);
