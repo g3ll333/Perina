@@ -150,7 +150,7 @@ function create(s) {
 
     // Offset camera
     PP.camera.start_follow(s, player, 0, 0);
-    PP.camera.set_follow_offset(s, -490, 210);
+    PP.camera.set_follow_offset(s, -250, 210);
 
 }
 

@@ -81,7 +81,7 @@ function create3_v(s) {
     PP.physics.add_collider(s, strega3_v, floor_5_2_v);
 
     PP.camera.start_follow(s, player3_v, 0, 0);
-    PP.camera.set_follow_offset(s, -280, -33);
+    PP.camera.set_follow_offset(s, -200, -33);
 
 }
 
@@ -99,11 +99,11 @@ function update3_v(s) {
     let max_camera_y_2_v = 1585;
     if (y_2_v >= max_camera_y_2_v) {
         // Smette di seguire il giocatore oltre il limite
-        PP.camera.set_follow_offset(s, -280, -33 + (player3_v.geometry.body_y - max_camera_y_2_v));
+        PP.camera.set_follow_offset(s, -200, -33 + (player3_v.geometry.body_y - max_camera_y_2_v));
     } else {
         // Continua a seguire il giocatore
         PP.camera.start_follow(s, player3_v, 0, 0);
-        PP.camera.set_follow_offset(s, -280, -33);
+        PP.camera.set_follow_offset(s, -200, -33);
     }
 }
 

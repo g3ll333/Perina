@@ -53,7 +53,7 @@ function create2_v(s) {
     PP.physics.add_collider(s, strega2_v, pavimento_1_v);
 
     PP.camera.start_follow(s, player2_v, 0, 0);
-    PP.camera.set_follow_offset(s, -559, -53);
+    PP.camera.set_follow_offset(s, -400, -53);
 
 }
 
@@ -65,10 +65,10 @@ function update2_v(s) {
 
     let max_camera_y_1_v = 1557;
     if (y_1_v >= max_camera_y_1_v) {
-        PP.camera.set_follow_offset(s, -559, -53 + (player2_v.geometry.body_y - max_camera_y_1_v));
+        PP.camera.set_follow_offset(s, -400, -53 + (player2_v.geometry.body_y - max_camera_y_1_v));
     } else {
         PP.camera.start_follow(s, player2_v, 0, 0);
-        PP.camera.set_follow_offset(s, -559, -53);
+        PP.camera.set_follow_offset(s, -400, -53);
     }
 
 }

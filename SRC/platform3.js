@@ -19,7 +19,7 @@ let platform14;
 function preload_platforms3(s) {
     // Load dell'immagine della piattaforma
 
-    img_platform15 = PP.assets.image.load(s, "ASSETS/IMAGES/plat4.png"); //piattaforma a 5 blocchi e mezzo viola
+    img_platform15 = PP.assets.image.load(s, "ASSETS/IMAGES/plat7.png"); //piattaforma a 5 blocchi e mezzo viola
     img_platform7 = PP.assets.image.load(s, "ASSETS/IMAGES/plat7.png"); //piattaforma a 7 blocchi viola
     img_platform3viola = PP.assets.image.load(s, "ASSETS/IMAGES/plat3viola.png"); //piattaforma a 3 blocchi viola
     img_platform16 = PP.assets.image.load(s, "ASSETS/IMAGES/plat5.png"); //piattaforma a 5 blocchi viola

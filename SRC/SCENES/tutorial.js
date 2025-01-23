@@ -140,7 +140,7 @@ function create(s) {
 
     // Offset camera
     PP.camera.start_follow(s, player, 0, 0);
-    PP.camera.set_follow_offset(s, -490, 210);
+    PP.camera.set_follow_offset(s, -250, 210);
 
     settings = PP.assets.image.add(s, img_settings, 0, 45, 0, 0);
     settings.tile_geometry.scroll_factor_x = 0;

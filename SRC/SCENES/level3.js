@@ -189,7 +189,7 @@ function create3(s) {
     create_hud3(s);
 
     PP.camera.start_follow(s, player2, 0, 0);
-    PP.camera.set_follow_offset(s, -280, -33);
+    PP.camera.set_follow_offset(s, -200, -33);
 
 }
 
@@ -209,11 +209,11 @@ function update3(s) {
     let max_camera_y_2 = 1585;
     if (y_2 >= max_camera_y_2) {
         // Smette di seguire il giocatore oltre il limite
-        PP.camera.set_follow_offset(s, -280, -33 + (player2.geometry.body_y - max_camera_y_2));
+        PP.camera.set_follow_offset(s, -200, -33 + (player2.geometry.body_y - max_camera_y_2));
     } else {
         // Continua a seguire il giocatore
         PP.camera.start_follow(s, player2, 0, 0);
-        PP.camera.set_follow_offset(s, -280, -33);
+        PP.camera.set_follow_offset(s, -200, -33);
     }
 }
 

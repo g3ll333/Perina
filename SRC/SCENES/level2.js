@@ -61,11 +61,11 @@ function create2(s) {
     contatore_vite_2 = 5;
 
     sfondo1 = PP.assets.image.add(s, sfondo1, 0, 0, 0, 0);
-    blocco1 = PP.assets.image.add(s, blocco1, 0, 2160 - 1853, 0, 0);
+    blocco1 = PP.assets.image.add(s, blocco1, -242, 2160 - 1853, 0, 0);
     blocco2 = PP.assets.image.add(s, blocco2, 531, 248, 0, 0);
     scalaverde = PP.assets.image.add(s, scalaverde, 465, 1692, 0, 0);
     pavimentox_1 = PP.assets.image.add(s, pavimentox_1, 0, 2007, 0, 0);
-    alberiverdi = PP.assets.image.add(s, alberiverdi, 0, 30, 0, 0);
+    alberiverdi = PP.assets.image.add(s, alberiverdi, -180, 30, 0, 0);
     alberiverdi2 = PP.assets.image.add(s, alberiverdi2, 462, 2, 0, 0);
 
     pomomarcia1 = PP.assets.image.add(s, img_pomomarcia1, 260, 660, 0, 1);
@@ -115,7 +115,7 @@ function create2(s) {
     create_hud2(s);
 
     PP.camera.start_follow(s, player1, 0, 0);
-    PP.camera.set_follow_offset(s, -559, -53);
+    PP.camera.set_follow_offset(s, -400, -53);
 
 }
 
@@ -131,10 +131,10 @@ function update2(s) {
 
     let max_camera_y_1 = 1585;
     if (y_1 >= max_camera_y_1) {
-        PP.camera.set_follow_offset(s, -559, -53 + (player1.geometry.body_y - max_camera_y_1));
+        PP.camera.set_follow_offset(s, -400, -53 + (player1.geometry.body_y - max_camera_y_1));
     } else {
         PP.camera.start_follow(s, player1, 0, 0);
-        PP.camera.set_follow_offset(s, -559, -53);
+        PP.camera.set_follow_offset(s, -400, -53);
     }
 }
 
