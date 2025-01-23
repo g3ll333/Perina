@@ -48,13 +48,11 @@
             background-image: url('IMG/bottonefreccia.png');
         }
 
-        /* Effetto hover: modifica opacità per visualizzare quando il mouse è sopra */
         .back-link:hover,
         .tavola3-link:hover {
             opacity: 0.8;
         }
 
-        /* Effetto active: riduce la dimensione del bottone per simulare la pressione */
         .back-link:active,
         .tavola3-link:active {
             transform: scale(0.95);
@@ -111,26 +109,6 @@
             opacity: 1;
         }
 
-        .text-right {
-            position: absolute;
-            top: 50%;
-            left: 72%;
-            transform: translate(-50%, -50%);
-            width: 35%;
-            font-family: 'Proxima-Nova', sans-serif;
-            font-weight: 900;
-            font-size: 25px;
-            text-align: right;
-            color: #5e3f2e;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-            z-index: 3;
-        }
-
-        .image-container:hover .text-right {
-            opacity: 1;
-        }
-
         strong, b {
             font-weight: 700;
         }
@@ -138,7 +116,6 @@
 </head>
 <body>
     
-    <!-- <iframe src="music.html" style="display:none;"></iframe> -->
 
     <div class="image-container">
         <img src="IMG/tavola 2.png" alt="Tavola 2" class="tavola2">

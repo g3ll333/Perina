@@ -48,13 +48,11 @@
             transform: scaleX(-1); /* Specchia il bottone */
         }
 
-        /* Effetto hover: modifica opacità per visualizzare quando il mouse è sopra */
         .back-link:hover,
         .tavola2-link:hover {
             opacity: 0.8;
         }
 
-        /* Effetto active: riduce la dimensione del bottone per simulare la pressione */
         .back-link:active,
         .tavola2-link:active {
             transform: scale(0.95);
@@ -138,10 +136,10 @@
         /* Zona rettangolare cliccabile */
         .clickable-area {
             position: absolute;
-            left: 863px;  /* Posizione X */
-            top: 405px;   /* Posizione Y */
-            width: 239px; /* Larghezza del rettangolo */
-            height: 57px; /* Altezza del rettangolo */
+            left: 863px; 
+            top: 405px;   
+            width: 239px; 
+            height: 57px; 
             background-color: rgba(255, 255, 255, 0); /* Area invisibile ma cliccabile */
             cursor: pointer;
             z-index: 5; /* Garantisce che l'area sia sopra gli altri contenuti */
@@ -149,7 +147,7 @@
 
         /* Quando l'utente passa sopra la zona cliccabile */
         .clickable-area:hover {
-            background-color: rgba(255, 255, 255, 0.3); /* Opacità leggera per indicare che è cliccabile */
+            background-color: rgba(255, 255, 255, 0.3); 
         }
     </style>
 </head>
