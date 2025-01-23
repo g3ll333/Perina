@@ -87,8 +87,8 @@ function create(s) {
     background_5 = PP.assets.tilesprite.add(s, img_background_5, 0, 10, 3840, 720, 0, 0);
     background_5.tile_geometry.scroll_factor_x = 0;
 
-    scalablu = PP.assets.image.add(s, scalablu, 2471, 370, 0, 0);
-    scalablu2 = PP.assets.image.add(s, scalablu2, 2671, 119, 0, 0);
+    scalablu = PP.assets.image.add(s, scalablu, 2472, 370, 0, 0);
+    scalablu2 = PP.assets.image.add(s, scalablu2, 2672, 120, 0, 0);
     floorscalablu = PP.shapes.rectangle_add(s, 2471 + 69 / 2, 370 + 207 / 2, 73, 207, "0x000000", 0);
     floorscalablu2 = PP.shapes.rectangle_add(s, 2671 + 69 / 2, 119 + 260 / 2, 73, 260, "0x000000", 0);
 
