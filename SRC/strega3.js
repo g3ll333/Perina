@@ -10,7 +10,7 @@ function configure_strega3_animations_v(s) {
 }
 
 function preload_strega3_v(s) {
-    ss_strega3_v = PP.assets.sprite.load_spritesheet(s, "ASSETS/IMAGES/Stregalarve.png", 146.47, 180);
+    ss_strega3_v = PP.assets.sprite.load_spritesheet(s, "ASSETS/IMAGES/Stregalarve.png", 146, 180);
 }
 
 function create_strega3_v(s) {
