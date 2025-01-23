@@ -127,7 +127,7 @@ function create_enemy3(s) {
     // Creare nemico e posizionarlo
 
     enemy2 = PP.assets.sprite.add(s, ss_enemy3, 2290, 1668, 0.5, 1);
-    enemy3 = PP.assets.sprite.add(s, ss_enemy4, 2820, 630, 0.5, 1);
+    enemy3 = PP.assets.sprite.add(s, ss_enemy4, 2740, 630, 0.5, 1);
 
     PP.physics.add(s, enemy2, PP.physics.type.DYNAMIC);
     PP.physics.add(s, enemy3, PP.physics.type.DYNAMIC);
@@ -167,23 +167,23 @@ function update_enemy3(s) {
     // scelto 
 
     if (enemy2.geometry.x <= 2290) {
-        PP.physics.set_velocity_x(enemy2, 70);
+        PP.physics.set_velocity_x(enemy2, 90);
         PP.assets.sprite.animation_play(enemy2, "walk_right");
         enemy2.geometry.flip_x = true;
     }
-    if (enemy2.geometry.x >= 2400) {
-        PP.physics.set_velocity_x(enemy2, -70);
+    if (enemy2.geometry.x >= 2550) {
+        PP.physics.set_velocity_x(enemy2, -90);
         PP.assets.sprite.animation_play(enemy2, "walk_left");
         enemy2.geometry.flip_x = false;
     }
 
-    if (enemy3.geometry.x <= 2820) {
-        PP.physics.set_velocity_x(enemy3, 80);
+    if (enemy3.geometry.x <= 2740) {
+        PP.physics.set_velocity_x(enemy3, 90);
         PP.assets.sprite.animation_play(enemy3, "walk_right");
         enemy3.geometry.flip_x = true;
     }
     if (enemy3.geometry.x >= 3030) {
-        PP.physics.set_velocity_x(enemy3, -80);
+        PP.physics.set_velocity_x(enemy3, -90);
         PP.assets.sprite.animation_play(enemy3, "walk_left");
         enemy3.geometry.flip_x = false;
     }
