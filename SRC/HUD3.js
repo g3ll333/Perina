@@ -62,7 +62,7 @@ function create_hud3(s) {
 
     bottonemenu_3 = PP.assets.image.add(s, img_bottonemenu_3, 1205, 43, 0.5, 0.5);
 
-    text_score_3 = PP.shapes.text_styled_add(s, 10, 20, "0", 40, "Helvetica", "normal", "0xb86127", null, 0, 0);
+    text_score_3 = PP.shapes.text_styled_add(s, 10, 20, "0", 40, "Fatfrank", "normal", "0xb86127", null, 0, 0);
     text_menu_3 = PP.shapes.text_styled_add(s, 1188, 73, "Esc", 20, "Fatfrank", "normal", "0xb86127", null, 0, 0);
 
     //non faccio muovere cestini e vite

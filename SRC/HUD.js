@@ -55,9 +55,9 @@ function create_hud(s) {
     cestinopieno.visibility.hidden = true;
     cestinomuffa.visibility.hidden = true;
 
-    bottonemenu = PP.assets.image.add(s, img_bottonemenu, 1205,43, 0.5, 0.5);
+    bottonemenu = PP.assets.image.add(s, img_bottonemenu, 1205, 43, 0.5, 0.5);
 
-    text_score = PP.shapes.text_styled_add(s, 10, 20, "0", 40, "Helvetica", "normal", "0xb86127", null, 0, 0);
+    text_score = PP.shapes.text_styled_add(s, 10, 20, "0", 40, "Fatfrank", "normal", "0xb86127", null, 0, 0);
     text_menu = PP.shapes.text_styled_add(s, 1188, 73, "Esc", 20, "Fatfrank", "normal", "0xb86127", null, 0, 0);
 
     //non faccio muovere cestini e vite
