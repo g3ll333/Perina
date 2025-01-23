@@ -29,14 +29,14 @@ function configure_player_animations2(s) {
     PP.assets.sprite.animation_add_list(player1, "throw", [0, 1, 2, 3, 4, 5, 6, 21, 22, 23, 24], 11, 0);
     PP.assets.sprite.animation_add_list(player1, "climb", [54, 55, 56, 57, 58, 59, 60, 61, 62], 9, 0);
     PP.assets.sprite.animation_add_list(player1, "stop_climb", [54, 54], 9, 0);
-    PP.assets.sprite.animation_add_list(player1, "collision", [63, 50, 63, 50], 4, -1);
+    PP.assets.sprite.animation_add_list(player1, "collision", [63, 50, 63, 50, 63, 50, 63, 50], 4, 0);
 
 
     PP.assets.sprite.animation_play(player1, "idle");
 }
 
 function preload_player2(s) {
-    ss_player1 = PP.assets.sprite.load_spritesheet(s, "ASSETS/IMAGES/sprite_colori_def.png", 150, 168);
+    ss_player1 = PP.assets.sprite.load_spritesheet(s, "ASSETS/IMAGES/sprite_colori_def_completo.png", 150, 168);
     img_shuriken1 = PP.assets.image.load(s, "ASSETS/IMAGES/pomodoro40.png");
 }
 
