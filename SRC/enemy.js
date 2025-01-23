@@ -285,7 +285,12 @@ function update_enemy(s) {
 
     // Verifica se tutti i nemici sono stati uccisi 
     if (contatore_morti >= 3) {
-        PP.scenes.start("strega1morte");
+        console.log(pere_raccolte);
+        PP.timers.add_timer(s, 2500, stregamortissima1, false);
     }
+}
 
+function stregamortissima1(s) {
+    console.log(pere_raccolte);
+    PP.scenes.start("strega1morte");
 }

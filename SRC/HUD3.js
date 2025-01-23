@@ -60,7 +60,7 @@ function create_hud3(s) {
     //cestinopieno_3.visibility.hidden = true;
     cestinomuffa_3.visibility.hidden = true;
 
-    bottonemenu_3 = PP.assets.image.add(s, img_bottonemenu_3, 1205,43, 0.5, 0.5);
+    bottonemenu_3 = PP.assets.image.add(s, img_bottonemenu_3, 1205, 43, 0.5, 0.5);
 
     text_score_3 = PP.shapes.text_styled_add(s, 10, 20, "0", 40, "Helvetica", "normal", "0xb86127", null, 0, 0);
     text_menu_3 = PP.shapes.text_styled_add(s, 1188, 73, "Esc", 20, "Fatfrank", "normal", "0xb86127", null, 0, 0);
@@ -195,21 +195,20 @@ function svuota_cestino3(s) {
         cestino2_3.visibility.hidden = true;
         //cestinopieno_3.visibility.hidden = false;
         cestinomuffa_3.visibility.hidden = false;
-    /* } else if (curr_score_3 > 3) {
-        cestino_3.visibility.hidden = true;
-        cestino1_3.visibility.hidden = true;
-        cestino2_3.visibility.hidden = true;
-        cestinopieno_3.visibility.hidden = true;
-        cestinomuffa_3.visibility.hidden = false;*/
+        /* } else if (curr_score_3 > 3) {
+            cestino_3.visibility.hidden = true;
+            cestino1_3.visibility.hidden = true;
+            cestino2_3.visibility.hidden = true;
+            cestinopieno_3.visibility.hidden = true;
+            cestinomuffa_3.visibility.hidden = false;*/
     }
- 
+
     // Resetta il flag di lancio dopo un breve tempo per permettere nuovi lanci
     PP.timers.add_timer(s, 2000, () => {
         isThrowing_3 = false;
         zucche_raccolte--;
     }, false);
 }
-
 
 function update_hud3(s) {
     curr_score_3 = PP.game_state.get_variable("count_zucche");

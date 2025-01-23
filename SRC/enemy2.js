@@ -151,6 +151,12 @@ function update_enemy2(s) {
 
     // Verifica se tutti i nemici sono stati uccisi 
     if (contatore_morti1 >= 2) {
-        PP.scenes.start("strega2morte");
+        console.log(pomodori_raccolti);
+        PP.timers.add_timer(s, 2500, stregamortissima2, false);
     }
+}
+
+function stregamortissima2(s) {
+    console.log(pomodori_raccolti);
+    PP.scenes.start("strega2morte");
 }

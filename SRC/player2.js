@@ -122,7 +122,7 @@ function update_player2(s) {
             svuota_cestino2(s);
         }
 
-        if (Math.abs(player1.geometry.x - enemy4.geometry.x) < 500) {
+        if (Math.abs(player1.geometry.x - enemy4.geometry.x) < 800) {
             next_anim1 = "throw";
             PP.timers.add_timer(s, 610, manage_player_weapon2, false);
             svuota_cestino2(s);

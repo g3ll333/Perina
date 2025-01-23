@@ -51,7 +51,7 @@ function create_hud2(s) {
     cestinopieno_2 = PP.assets.image.add(s, img_cestino_pieno_2, 75, 40, 0.5, 0.5);
     cestinomuffa_2 = PP.assets.image.add(s, img_cestino_muffa_2, 75, 40, 0.5, 0.5);
 
-    bottonemenu_2 = PP.assets.image.add(s, img_bottonemenu_2, 1205,43, 0.5, 0.5);
+    bottonemenu_2 = PP.assets.image.add(s, img_bottonemenu_2, 1205, 43, 0.5, 0.5);
 
     cestino1_2.visibility.hidden = true;
     //cestino2_2.visibility.hidden = true;
@@ -189,7 +189,7 @@ function svuota_cestino2(s) {
 
     // Resetta il flag di lancio dopo un breve tempo per permettere nuovi lanci
     PP.timers.add_timer(s, 2000, () => {
-        isThrowing = false;
+        isThrowing_2 = false;
         pomodori_raccolti--;
     }, false);
 }
