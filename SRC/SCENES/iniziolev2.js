@@ -21,7 +21,7 @@ function mouse_click_home(s) {
 function create(s) {
     sfondo = PP.assets.image.add(s, img_sfondo, 0, 0, 0, 0);
 
-    let buttonyes = PP.assets.image.add(s, yesbutton, 635, 470, 0.5, 0.5);
+    let buttonyes = PP.assets.image.add(s, yesbutton, 635, 460, 0.5, 0.5);
     let home = PP.assets.image.add(s, homebutton, 105, 89.2, 0.5, 0.5);
 
     PP.interactive.mouse.add(buttonyes, "pointerdown", mouse_click_yes);
