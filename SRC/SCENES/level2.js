@@ -94,9 +94,9 @@ function create2(s) {
     PP.physics.add(s, floorscalaverde, PP.physics.type.STATIC);
 
     create_player2(s);
+    create_pomodori(s);
     create_enemy2(s);
     create_platforms2(s);
-    create_pomodori(s);
     create_strega2_idle_v(s);
 
     pomomarcia9 = PP.assets.image.add(s, img_pomomarcia4, 1150, 2007, 0, 1);
@@ -121,9 +121,10 @@ function create2(s) {
 
 function update2(s) {
     update_player2(s);
+    update_pomodori(s);
     update_enemy2(s);
     update_platforms2(s);
-    update_pomodori(s);
+
     update_hud2(s);
     update_strega2_v(s);
 

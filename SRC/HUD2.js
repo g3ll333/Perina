@@ -190,7 +190,7 @@ function svuota_cestino2(s) {
     //}
 
     // Resetta il flag di lancio dopo un breve tempo per permettere nuovi lanci
-    PP.timers.add_timer(s, 2000, () => {
+    PP.timers.add_timer(s, 1000, () => {
         isThrowing_2 = false;
         pomodori_raccolti--;
         pomodori_lanciati++;
