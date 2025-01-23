@@ -10,7 +10,7 @@ function nf_preload(s) {
 }
 
 function nf_mouse_click_yes(s) {
-    PP.scenes.start("parallax");
+    PP.scenes.start("vecchina1");
 }
 
 function nf_mouse_click_home(s) {

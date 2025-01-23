@@ -111,6 +111,7 @@ function create_hud3(s) {
     bottonemenu_3.tile_geometry.scroll_factor_y = 0;
 
     PP.game_state.set_variable("count_zucche", 0);
+    zucche_lanciate=0;
 }
 
 

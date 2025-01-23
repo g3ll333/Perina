@@ -104,6 +104,7 @@ function create_hud2(s) {
     bottonemenu_2.tile_geometry.scroll_factor_y = 0;
 
     PP.game_state.set_variable("count_pomodori", 0);
+    pomodori_lanciati=0;
 }
 
 

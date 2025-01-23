@@ -10,7 +10,7 @@ function nf2_preload(s) {
 }
 
 function nf2_mouse_click_yes(s) {
-    PP.scenes.start("level2");
+    PP.scenes.start("vecchina2");
 }
 
 function nf2_mouse_click_home(s) {

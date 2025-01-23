@@ -103,6 +103,7 @@ function create_hud(s) {
     bottonemenu.tile_geometry.scroll_factor_y = 0;
 
     PP.game_state.set_variable("count_pere", 0);
+    pere_lanciate=0;
 }
 
 
