@@ -26,6 +26,8 @@ let curr_score_2;
 
 let isThrowing_2 = false;
 
+let pomodori_lanciati = 0;
+
 function preload_hud2(s) {
     img_cestino_vuoto_2 = PP.assets.image.load(s, "ASSETS/IMAGES/cestinovuoto.png");
     img_cestino_1pomodoro = PP.assets.image.load(s, "ASSETS/IMAGES/cestinopomo1.png");
@@ -191,6 +193,8 @@ function svuota_cestino2(s) {
     PP.timers.add_timer(s, 2000, () => {
         isThrowing_2 = false;
         pomodori_raccolti--;
+        pomodori_lanciati++;
+        console.log("pomodori lanciati: ", pomodori_lanciati);
     }, false);
 }
 
@@ -198,7 +202,10 @@ function svuota_cestino2(s) {
 function update_hud2(s) {
     curr_score_2 = PP.game_state.get_variable("count_pomodori");
     PP.shapes.text_change(text_score_2, " " + curr_score_2);
+
+    if (pomodori_lanciati === 3 && contatore_morti1 != 2) {
+        PP.timers.add_timer(s, 3000, () => {
+            PP.scenes.start("nofrutta2");
+        }, false);
+    }
 }
-
-
-

@@ -35,7 +35,7 @@ function decrease_life_1(s) {
     invincibile = true;
     contatore_vite--;
     PP.physics.set_velocity_x(player, 0);
-    player.geometry.x = enemy.geometry.x - 150;
+    //player.geometry.x = enemy.geometry.x - 150;
     PP.physics.set_velocity_x(enemy, 0);
     PP.assets.sprite.animation_play(enemy, "stop");
 
@@ -84,7 +84,7 @@ function decrease_life_2(s) {
     invincibile = true;
     contatore_vite--;
     PP.physics.set_velocity_x(player, 0);
-    player.geometry.x = enemy_2.geometry.x - 150;
+    //player.geometry.x = enemy_2.geometry.x - 150;
 
     PP.physics.set_velocity_x(enemy_2, 0);
     PP.assets.sprite.animation_play(enemy_2, "stop");
@@ -135,7 +135,7 @@ function decrease_life_3(s) {
     invincibile = true;
     contatore_vite--;
     PP.physics.set_velocity_x(player, 0);
-    player.geometry.x = enemy_3.geometry.x - 150;
+    //player.geometry.x = enemy_3.geometry.x - 150;
 
     PP.physics.set_velocity_x(enemy_3, 0);
     PP.assets.sprite.animation_play(enemy_3, "stop");

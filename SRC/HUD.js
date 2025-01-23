@@ -25,6 +25,8 @@ let curr_score;
 
 let isThrowing = false;
 
+let pere_lanciate = 0;
+
 function preload_hud(s) {
     img_cestino_vuoto = PP.assets.image.load(s, "ASSETS/IMAGES/cestinovuoto.png");
     img_cestino_1pera = PP.assets.image.load(s, "ASSETS/IMAGES/cestino1pera.png");
@@ -197,12 +199,21 @@ function svuota_cestino(s) {
     PP.timers.add_timer(s, 2000, () => {
         isThrowing = false;
         pere_raccolte--;
+        pere_lanciate++;
+        console.log("pere lanciate: ", pere_lanciate);
     }, false);
 
 }
 
 
+
 function update_hud(s) {
     curr_score = PP.game_state.get_variable("count_pere");
     PP.shapes.text_change(text_score, " " + curr_score);
+
+    if (pere_lanciate === 4 && contatore_morti != 3) {
+        PP.timers.add_timer(s, 3000, () => {
+            PP.scenes.start("nofrutta1");
+        }, false);
+    }
 }

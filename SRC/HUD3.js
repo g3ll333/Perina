@@ -27,6 +27,8 @@ let curr_score_3;
 
 let isThrowing_3 = false;
 
+let zucche_lanciate = 0;
+
 function preload_hud3(s) {
     img_cestino_vuoto_3 = PP.assets.image.load(s, "ASSETS/IMAGES/cestinovuoto.png");
     img_cestino_1zucca = PP.assets.image.load(s, "ASSETS/IMAGES/cestinozucc1.png");
@@ -207,10 +209,18 @@ function svuota_cestino3(s) {
     PP.timers.add_timer(s, 2000, () => {
         isThrowing_3 = false;
         zucche_raccolte--;
+        zucche_lanciate++;
+        console.log("zucche lanciate: ", zucche_lanciate);
     }, false);
 }
 
 function update_hud3(s) {
     curr_score_3 = PP.game_state.get_variable("count_zucche");
     PP.shapes.text_change(text_score_3, " " + curr_score_3);
+
+    if (zucche_lanciate === 4 && contatore_morti2 != 2) {
+        PP.timers.add_timer(s, 3000, () => {
+            PP.scenes.start("nofrutta3");
+        }, false);
+    }
 }
