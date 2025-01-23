@@ -4,13 +4,13 @@ let yesbutton;
 let homebutton;
 
 function preload(s) {
-    img_sfondo = PP.assets.image.load(s, "ASSETS/IMAGES/vincitafunghi.png");
-    yesbutton = PP.assets.image.load(s, "ASSETS/IMAGES/nextlevelvittoriafunghi.png");
+    img_sfondo = PP.assets.image.load(s, "ASSETS/IMAGES/level1.png");
+    yesbutton = PP.assets.image.load(s, "ASSETS/IMAGES/play1.png");
     homebutton = PP.assets.image.load(s, "ASSETS/IMAGES/homevincita.png");
 }
 
 function mouse_click_yes(s) {
-    PP.scenes.start("iniziolev2");
+    PP.scenes.start("vecchina0");
 }
 
 function mouse_click_home(s) {
@@ -21,7 +21,7 @@ function mouse_click_home(s) {
 function create(s) {
     sfondo = PP.assets.image.add(s, img_sfondo, 0, 0, 0, 0);
 
-    let buttonyes = PP.assets.image.add(s, yesbutton, 624, 450, 0.5, 0.5);
+    let buttonyes = PP.assets.image.add(s, yesbutton, 635, 470, 0.5, 0.5);
     let home = PP.assets.image.add(s, homebutton, 105, 89.2, 0.5, 0.5);
 
     PP.interactive.mouse.add(buttonyes, "pointerdown", mouse_click_yes);
@@ -37,4 +37,4 @@ function destroy(s) {
     // Eventuali operazioni di pulizia per la scena gameover possono essere aggiunte qui
 }
 
-PP.scenes.add("win", preload, create, update, destroy);
+PP.scenes.add("iniziolev1", preload, create, update, destroy);
