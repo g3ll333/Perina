@@ -132,7 +132,7 @@ function decrease_life2_4(s) {
 function create_enemy2(s) {
     // Creare nemico e posizionarlo
     enemy1 = PP.assets.sprite.add(s, ss_enemy1, 801, 2007, 0.5, 1); //muffa in basso
-    enemy4 = PP.assets.sprite.add(s, ss_enemy2, 946, 1365, 0.5, 1); // muffa nel rientro
+    enemy4 = PP.assets.sprite.add(s, ss_enemy2, 840, 1365, 0.5, 1); // muffa nel rientro
     //enemy_5 = PP.assets.sprite.add(s, ss_enemy_4, 1040, 1652, 0.5, 1);
     PP.physics.add(s, enemy1, PP.physics.type.DYNAMIC);
     PP.physics.add(s, enemy4, PP.physics.type.DYNAMIC);
@@ -177,19 +177,19 @@ function update_enemy2(s) {
     // caso in cui si trovi al limite dx o sx
     // scelto 
 
-    if (enemy1.geometry.x <= 740) {
+    if (enemy1.geometry.x <= 700) {
         PP.physics.set_velocity_x(enemy1, 100);
         PP.assets.sprite.animation_play(enemy1, "walk_right");
         enemy1.geometry.flip_x = true;
     }
-    if (enemy1.geometry.x >= 890) {
+    if (enemy1.geometry.x >= 900) {
         PP.physics.set_velocity_x(enemy1, -100);
         PP.assets.sprite.animation_play(enemy1, "walk_left");
         enemy1.geometry.flip_x = false;
     }
 
 
-    if (enemy4.geometry.x <= 900) {
+    if (enemy4.geometry.x <= 680) {
         PP.physics.set_velocity_x(enemy4, 100);
         PP.assets.sprite.animation_play(enemy4, "walk_right");
         enemy4.geometry.flip_x = true;
