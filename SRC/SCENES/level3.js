@@ -122,7 +122,7 @@ function create3(s) {
     zuccamarcia19 = PP.assets.image.add(s, img_zuccamarcia5, 3300, 1065, 0, 1);
     zuccamarcia20 = PP.assets.image.add(s, img_zuccamarcia2, 3000, 630, 0, 1);
 
-    zuccamarcia22 = PP.assets.image.add(s, img_zuccamarcia1, 3670, 250, 0, 1);
+    zuccamarcia22 = PP.assets.image.add(s, img_zuccamarcia1, 3690, 250, 0, 1);
 
 
     // Creo un pavimento "trasparente"
@@ -157,7 +157,7 @@ function create3(s) {
     create_zucche(s);
     create_strega3_idle_v(s);
 
-    zuccamarcia21 = PP.assets.image.add(s, img_zuccamarcia2, 3500, 250, 0, 1);
+    zuccamarcia21 = PP.assets.image.add(s, img_zuccamarcia2, 3450, 250, 0, 1);
 
     // Creo la collisione pavimento giocatore e nemico
     PP.physics.add_collider(s, player2, floor_2);

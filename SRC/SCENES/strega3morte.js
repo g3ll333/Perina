@@ -59,8 +59,8 @@ function create3_v(s) {
     zuccamarcia11_v = PP.assets.image.add(s, img_zuccamarcia1_v, 2950, 468, 0, 1);
     zuccamarcia12_v = PP.assets.image.add(s, img_zuccamarcia4_v, 3150, 315, 0, 1);
     zuccamarcia20_v = PP.assets.image.add(s, img_zuccamarcia2_v, 3000, 630, 0, 1);
-    zuccamarcia21_v = PP.assets.image.add(s, img_zuccamarcia2_v, 3500, 250, 0, 1);
-    zuccamarcia22_v = PP.assets.image.add(s, img_zuccamarcia1_v, 3670, 250, 0, 1);
+    zuccamarcia21_v = PP.assets.image.add(s, img_zuccamarcia2_v, 3450, 250, 0, 1);
+    zuccamarcia22_v = PP.assets.image.add(s, img_zuccamarcia1_v, 3690, 250, 0, 1);
 
 
     // Creo un pavimento "trasparente"
