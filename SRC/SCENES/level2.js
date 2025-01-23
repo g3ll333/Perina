@@ -56,6 +56,10 @@ function preload2(s) {
 
 function create2(s) {
     console.log("Executing create() - SCENE 2");
+
+    invincibile_2 = false;
+    contatore_vite_2 = 5;
+
     sfondo1 = PP.assets.image.add(s, sfondo1, 0, 0, 0, 0);
     blocco1 = PP.assets.image.add(s, blocco1, 0, 2160 - 1853, 0, 0);
     blocco2 = PP.assets.image.add(s, blocco2, 531, 248, 0, 0);
