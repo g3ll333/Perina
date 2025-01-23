@@ -5,6 +5,7 @@ let background_1, background_2, background_3, background_4, background_5;
 let scalablu;
 let scalablu2;
 let floorscalablu;
+let floorscalablu2;
 let img_peramarcia1;
 let img_peramarcia2;
 let img_peramarcia3;
@@ -89,6 +90,7 @@ function create(s) {
     scalablu = PP.assets.image.add(s, scalablu, 2471, 370, 0, 0);
     scalablu2 = PP.assets.image.add(s, scalablu2, 2671, 119, 0, 0);
     floorscalablu = PP.shapes.rectangle_add(s, 2471 + 69 / 2, 370 + 207 / 2, 73, 207, "0x000000", 0);
+    floorscalablu2 = PP.shapes.rectangle_add(s, 2671 + 69 / 2, 119 + 260 / 2, 73, 260, "0x000000", 0);
 
     peramarcia1 = PP.assets.image.add(s, img_peramarcia1, 360, 450, 0, 1);
     peramarcia2 = PP.assets.image.add(s, img_peramarcia2, 600, 575, 0, 1);
@@ -105,7 +107,7 @@ function create(s) {
     peramarcia13 = PP.assets.image.add(s, img_peramarcia1, 1700, 575, 0, 1);
     peramarcia14 = PP.assets.image.add(s, img_peramarcia4, 1090, 575, 0, 1);
     peramarcia15 = PP.assets.image.add(s, img_peramarcia5, 2890, 575, 0, 1);
-    peramarcia16 = PP.assets.image.add(s, img_peramarcia6, 2750, 373, 0, 1);
+    //peramarcia16 = PP.assets.image.add(s, img_peramarcia6, 2750, 373, 0, 1);
     peramarcia17 = PP.assets.image.add(s, img_peramarcia6, 3300, 300, 0, 1);
     peramarcia18 = PP.assets.image.add(s, img_peramarcia6, 2890, 120, 0, 1);
     peramarcia19 = PP.assets.image.add(s, img_peramarcia6, 1300, 575, 0, 1);
@@ -115,6 +117,7 @@ function create(s) {
 
 
     PP.physics.add(s, floorscalablu, PP.physics.type.STATIC);
+    PP.physics.add(s, floorscalablu2, PP.physics.type.STATIC);
 
 
     // Creo un pavimento "trasparente"
@@ -137,6 +140,7 @@ function create(s) {
     PP.physics.add_collider(s, enemy_2, floor);
     PP.physics.add_collider(s, strega1_v, floor);
     PP.physics.add_overlap_f(s, player, floorscalablu, overlap_ladder1);
+    PP.physics.add_overlap_f(s, player, floorscalablu2, overlap_ladder1);
 
     // Interfaccia hud
     create_hud(s);
