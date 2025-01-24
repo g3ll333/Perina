@@ -125,6 +125,8 @@ function update_player3(s) {
         } else if (PP.physics.get_velocity_y(player2) > 0) {
             next_anim2 = "jump_down";
         }
+    } else if (!!is_on_ladder_v && !is_holding_v) {
+        PP.physics.set_allow_gravity(player2, true); // Ripristina la gravità quando il player lascia la scala
     }
 
     //console.log("ccurr_score dopo svuota_cestino: ", curr_score);
@@ -156,6 +158,8 @@ function update_player3(s) {
 function overlap_ladder_v(s, player2, floorscalaviola) {
     console.log("Player is on the ladder");
     is_on_ladder_v = true;
+    PP.physics.set_allow_gravity(player2, false); // Rimuove la gravità quando il player è sulla scala
+
 }
 
 
