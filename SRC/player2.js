@@ -110,9 +110,9 @@ function update_player2(s) {
         } else if (PP.physics.get_velocity_y(player1) > 0) {
             next_anim1 = "jump_down";
         }
-    } else if (!!is_on_ladder && !is_holding) {
+    } /* else if (!!is_on_ladder && !is_holding) {
         PP.physics.set_allow_gravity(player1, true); // Ripristina la gravità quando il player lascia la scala
-    }
+    } */
 
 
 
@@ -150,7 +150,7 @@ function update_player2(s) {
 function overlap_ladder(s, player1, floorscalaverde) {
     console.log("Player is on the ladder");
     is_on_ladder = true;
-    PP.physics.set_allow_gravity(player1, false); // Rimuove la gravità quando il player è sulla scala
+    //PP.physics.set_allow_gravity(player1, false); // Rimuove la gravità quando il player è sulla scala
 
 }
 

@@ -114,9 +114,9 @@ function update_player(s) {
         } else if (PP.physics.get_velocity_y(player) > 0) {
             next_anim = "jump_down";
         }
-    } else if (!!is_on_ladder1 && !is_holding1) {
+    } /* else if (!!is_on_ladder1 && !is_holding1) {
         PP.physics.set_allow_gravity(player, true); // Ripristina la gravità quando il player lascia la scala
-    }
+    } */
 
 
     // Logica per specchiare il giocatore
@@ -179,7 +179,7 @@ function update_player(s) {
 function overlap_ladder1(s, player, floorscalablu) {
     console.log("Player is on the ladder");
     is_on_ladder1 = true;
-    PP.physics.set_allow_gravity(player, false); // Rimuove la gravità quando il player è sulla scala
+    //PP.physics.set_allow_gravity(player, false); // Rimuove la gravità quando il player è sulla scala
 }
 
 function hit_enemy(s, shuriken, enemy) {
