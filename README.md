@@ -1,3 +1,5 @@
-## La bambina venduta con le pere
+## Rotten Witch Hunt
 
-Autori: Sofia Gelleni, Leonardo Bolzoni, Gloria Cattaneo, Silvia Panciera, Federica Porrini, Sofia Piccinelli, Martina Dolci
+Authors: Sofia Gelleni, Leonardo Bolzoni, Gloria Cattaneo, Silvia Panciera, Federica Porrini, Sofia Piccinelli, Martina Dolci
+
+Launch from indexwebapp.html
